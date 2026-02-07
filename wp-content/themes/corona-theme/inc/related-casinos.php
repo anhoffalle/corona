@@ -24,7 +24,12 @@ function corona_get_related_casinos($post_id, $limit = 4) {
         'post_parent' => $post->post_parent,
         'posts_per_page' => $limit + 1,
         'post__not_in' => array($post_id),
-        'orderby' => 'rand',
+        'orderby' => array(
+            'menu_order' => 'ASC',
+            'date' => 'DESC',
+            'ID' => 'DESC',
+        ),
+        'no_found_rows' => true,
         'meta_query' => array(
             'relation' => 'OR',
             array(
@@ -52,10 +57,23 @@ function corona_render_related_casinos($post_id) {
         return '';
     }
 
+    $lang_key = function_exists('pll_current_language') ? pll_current_language() : '';
+    $cache_key = 'corona_related_casinos_' . $post_id . '_' . ($lang_key ? sanitize_key($lang_key) : 'default');
+    $cached_html = get_transient($cache_key);
+    if ($cached_html !== false) {
+        return $cached_html;
+    }
+
     $related = corona_get_related_casinos($post_id, $settings['count']);
 
     if (empty($related)) {
+        set_transient($cache_key, '', 6 * HOUR_IN_SECONDS);
         return '';
+    }
+
+    $related_ids = wp_list_pluck($related, 'ID');
+    if (!empty($related_ids)) {
+        update_meta_cache('post', $related_ids);
     }
 
     $title = function_exists('pll__')
@@ -122,7 +140,9 @@ function corona_render_related_casinos($post_id) {
         </div>
     </section>
     <?php
-    return ob_get_clean();
+    $html = ob_get_clean();
+    set_transient($cache_key, $html, 6 * HOUR_IN_SECONDS);
+    return $html;
 }
 
 /**
