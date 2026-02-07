@@ -601,3 +601,36 @@ function corona_flush_games_rewrite($post_id) {
 	}
 }
 add_action('save_post', 'corona_flush_games_rewrite');
+
+/**
+ * Clear games hub providers cache after game or hub updates.
+ */
+function corona_clear_games_hub_providers_cache($post_id, $post) {
+	if (wp_is_post_revision($post_id) || wp_is_post_autosave($post_id)) {
+		return;
+	}
+
+	if (!$post || $post->post_type !== 'page') {
+		return;
+	}
+
+	$template = get_page_template_slug($post_id);
+	if ($template !== 'page-game.php' && $template !== 'page-games-hub.php') {
+		return;
+	}
+
+	$lang_keys = array('default');
+	if (function_exists('pll_languages_list')) {
+		$languages = pll_languages_list(array('fields' => 'slug'));
+		if (is_array($languages)) {
+			foreach ($languages as $lang_slug) {
+				$lang_keys[] = sanitize_key($lang_slug);
+			}
+		}
+	}
+
+	foreach (array_unique($lang_keys) as $lang_key) {
+		delete_transient('corona_games_hub_providers_' . $lang_key);
+	}
+}
+add_action('save_post', 'corona_clear_games_hub_providers_cache', 20, 2);

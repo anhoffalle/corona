@@ -63,15 +63,36 @@ if ($current_lang !== '') {
 $all_game_ids = get_posts($all_games_args);
 $provider_map = array();
 $all_providers = array();
-foreach ($all_game_ids as $game_id) {
-	$provider = $extract_provider($game_id);
-	$provider_map[$game_id] = $provider;
-	if ($show_providers && $provider && !in_array($provider, $all_providers, true)) {
-		$all_providers[] = $provider;
+$providers_cache_key = 'corona_games_hub_providers_' . ($current_lang !== '' ? sanitize_key($current_lang) : 'default');
+$providers_cache_hit = false;
+if ($show_providers) {
+	$cached_providers = get_transient($providers_cache_key);
+	if (is_array($cached_providers)) {
+		$all_providers = $cached_providers;
+		$providers_cache_hit = true;
 	}
 }
-if ($show_providers) {
+
+if ($provider_filter !== '') {
+	foreach ($all_game_ids as $game_id) {
+		$provider = $extract_provider($game_id);
+		$provider_map[$game_id] = $provider;
+		if ($show_providers && !$providers_cache_hit && $provider && !in_array($provider, $all_providers, true)) {
+			$all_providers[] = $provider;
+		}
+	}
+} elseif ($show_providers && !$providers_cache_hit) {
+	foreach ($all_game_ids as $game_id) {
+		$provider = $extract_provider($game_id);
+		if ($provider && !in_array($provider, $all_providers, true)) {
+			$all_providers[] = $provider;
+		}
+	}
+}
+
+if ($show_providers && !$providers_cache_hit) {
 	sort($all_providers);
+	set_transient($providers_cache_key, $all_providers, 12 * HOUR_IN_SECONDS);
 }
 
 $filtered_game_ids = $all_game_ids;
@@ -92,6 +113,11 @@ if ($max_num_pages > 0 && $paged > $max_num_pages) {
 
 $offset = ($paged - 1) * $games_per_page;
 $paged_game_ids = array_slice($filtered_game_ids, $offset, $games_per_page);
+foreach ($paged_game_ids as $game_id) {
+	if (!isset($provider_map[$game_id])) {
+		$provider_map[$game_id] = $extract_provider($game_id);
+	}
+}
 
 $games_args = array(
 	'post_type' => 'page',
