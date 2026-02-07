@@ -264,7 +264,7 @@ function corona_game_casinos_metabox($post) {
         <select id="add-game-casino-select" class="regular-text">
             <option value="">-- Select casino to add --</option>
             <?php foreach ($casinos as $casino): ?>
-                <option value="<?php echo esc_attr($casino->ID); ?>" data-title="<?php echo esc_attr($casino->post_title); ?>">
+                <option value="<?php echo esc_attr($casino->ID); ?>" data-title="<?php echo esc_attr(wp_strip_all_tags($casino->post_title)); ?>">
                     <?php echo esc_html($casino->post_title); ?>
                 </option>
             <?php endforeach; ?>
@@ -312,19 +312,47 @@ function corona_game_casinos_metabox($post) {
                 return;
             }
 
-            var item = '<div class="game-casino-item" data-id="' + id + '" style="background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 8px; overflow: hidden;">' +
-                '<div style="display: flex; align-items: center; gap: 10px; padding: 10px; cursor: move;">' +
-                '<span class="dashicons dashicons-menu" style="color: #999;"></span>' +
-                '<span style="flex: 1; font-weight: 500;">' + title + '</span>' +
-                '<button type="button" class="button button-small remove-game-casino">Remove</button>' +
-                '</div>' +
-                '<div style="padding: 0 10px 10px 10px;">' +
-                '<input type="url" name="game_casino_urls[' + id + ']" value="" placeholder="Custom URL (leave empty to use default)" class="large-text" style="font-size: 12px;">' +
-                '</div>' +
-                '<input type="hidden" name="game_casinos[]" value="' + id + '">' +
-                '</div>';
+            var $item = $('<div/>', {
+                'class': 'game-casino-item',
+                'data-id': id,
+                style: 'background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 8px; overflow: hidden;'
+            });
+            var $header = $('<div/>', {
+                style: 'display: flex; align-items: center; gap: 10px; padding: 10px; cursor: move;'
+            });
+            $header.append($('<span/>', {
+                'class': 'dashicons dashicons-menu',
+                style: 'color: #999;'
+            }));
+            $header.append($('<span/>', {
+                style: 'flex: 1; font-weight: 500;',
+                text: title
+            }));
+            $header.append($('<button/>', {
+                type: 'button',
+                'class': 'button button-small remove-game-casino',
+                text: 'Remove'
+            }));
+            $item.append($header);
+            var $urlWrap = $('<div/>', {
+                style: 'padding: 0 10px 10px 10px;'
+            });
+            $urlWrap.append($('<input/>', {
+                type: 'url',
+                name: 'game_casino_urls[' + id + ']',
+                value: '',
+                placeholder: 'Custom URL (leave empty to use default)',
+                'class': 'large-text',
+                style: 'font-size: 12px;'
+            }));
+            $item.append($urlWrap);
+            $item.append($('<input/>', {
+                type: 'hidden',
+                name: 'game_casinos[]',
+                value: id
+            }));
 
-            $('#game-casino-list').append(item);
+            $('#game-casino-list').append($item);
             select.val('');
         });
 

@@ -170,7 +170,7 @@ function corona_home_casinos_metabox($post) {
         <select id="add-home-casino-select" class="regular-text">
             <option value="">-- Select casino to add --</option>
             <?php foreach ($casinos as $casino): ?>
-                <option value="<?php echo esc_attr($casino->ID); ?>" data-title="<?php echo esc_attr($casino->post_title); ?>">
+                <option value="<?php echo esc_attr($casino->ID); ?>" data-title="<?php echo esc_attr(wp_strip_all_tags($casino->post_title)); ?>">
                     <?php echo esc_html($casino->post_title); ?>
                 </option>
             <?php endforeach; ?>
@@ -207,14 +207,31 @@ function corona_home_casinos_metabox($post) {
                 return;
             }
 
-            var item = '<div class="home-casino-item" data-id="' + id + '" style="display: flex; align-items: center; gap: 10px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 5px; cursor: move;">' +
-                '<span class="dashicons dashicons-menu" style="color: #999;"></span>' +
-                '<span style="flex: 1;">' + title + '</span>' +
-                '<button type="button" class="button button-small remove-home-casino">Remove</button>' +
-                '<input type="hidden" name="home_casinos[]" value="' + id + '">' +
-                '</div>';
+            var $item = $('<div/>', {
+                'class': 'home-casino-item',
+                'data-id': id,
+                style: 'display: flex; align-items: center; gap: 10px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 5px; cursor: move;'
+            });
+            $item.append($('<span/>', {
+                'class': 'dashicons dashicons-menu',
+                style: 'color: #999;'
+            }));
+            $item.append($('<span/>', {
+                style: 'flex: 1;',
+                text: title
+            }));
+            $item.append($('<button/>', {
+                type: 'button',
+                'class': 'button button-small remove-home-casino',
+                text: 'Remove'
+            }));
+            $item.append($('<input/>', {
+                type: 'hidden',
+                name: 'home_casinos[]',
+                value: id
+            }));
 
-            $('#home-casino-list').append(item);
+            $('#home-casino-list').append($item);
             select.val('');
         });
 
@@ -292,7 +309,7 @@ function corona_home_games_metabox($post) {
         <select id="add-home-game-select" class="regular-text">
             <option value="">-- Select game to add --</option>
             <?php foreach ($games as $game): ?>
-                <option value="<?php echo esc_attr($game->ID); ?>" data-title="<?php echo esc_attr($game->post_title); ?>">
+                <option value="<?php echo esc_attr($game->ID); ?>" data-title="<?php echo esc_attr(wp_strip_all_tags($game->post_title)); ?>">
                     <?php echo esc_html($game->post_title); ?>
                 </option>
             <?php endforeach; ?>
@@ -329,14 +346,31 @@ function corona_home_games_metabox($post) {
                 return;
             }
 
-            var item = '<div class="home-game-item" data-id="' + id + '" style="display: flex; align-items: center; gap: 10px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 5px; cursor: move;">' +
-                '<span class="dashicons dashicons-menu" style="color: #999;"></span>' +
-                '<span style="flex: 1;">' + title + '</span>' +
-                '<button type="button" class="button button-small remove-home-game">Remove</button>' +
-                '<input type="hidden" name="home_games[]" value="' + id + '">' +
-                '</div>';
+            var $item = $('<div/>', {
+                'class': 'home-game-item',
+                'data-id': id,
+                style: 'display: flex; align-items: center; gap: 10px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 5px; cursor: move;'
+            });
+            $item.append($('<span/>', {
+                'class': 'dashicons dashicons-menu',
+                style: 'color: #999;'
+            }));
+            $item.append($('<span/>', {
+                style: 'flex: 1;',
+                text: title
+            }));
+            $item.append($('<button/>', {
+                type: 'button',
+                'class': 'button button-small remove-home-game',
+                text: 'Remove'
+            }));
+            $item.append($('<input/>', {
+                type: 'hidden',
+                name: 'home_games[]',
+                value: id
+            }));
 
-            $('#home-game-list').append(item);
+            $('#home-game-list').append($item);
             select.val('');
         });
 

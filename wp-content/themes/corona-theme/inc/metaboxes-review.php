@@ -124,7 +124,7 @@ function corona_review_settings_metabox($post) {
         <select id="add-review-casino-select" class="regular-text">
             <option value="">-- Select casino to add --</option>
             <?php foreach ($casino_pages as $casino): ?>
-                <option value="<?php echo esc_attr($casino->ID); ?>" data-title="<?php echo esc_attr($casino->post_title); ?>">
+                <option value="<?php echo esc_attr($casino->ID); ?>" data-title="<?php echo esc_attr(wp_strip_all_tags($casino->post_title)); ?>">
                     <?php echo esc_html($casino->post_title); ?>
                 </option>
             <?php endforeach; ?>
@@ -166,14 +166,31 @@ function corona_review_settings_metabox($post) {
                 return;
             }
 
-            var item = '<div class="review-casino-item" data-id="' + id + '" style="display: flex; align-items: center; gap: 10px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 5px; cursor: move;">' +
-                '<span class="dashicons dashicons-menu" style="color: #999;"></span>' +
-                '<span style="flex: 1;">' + title + '</span>' +
-                '<button type="button" class="button button-small remove-review-casino">Remove</button>' +
-                '<input type="hidden" name="review_casino_ids[]" value="' + id + '">' +
-                '</div>';
+            var $item = $('<div/>', {
+                'class': 'review-casino-item',
+                'data-id': id,
+                style: 'display: flex; align-items: center; gap: 10px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 5px; cursor: move;'
+            });
+            $item.append($('<span/>', {
+                'class': 'dashicons dashicons-menu',
+                style: 'color: #999;'
+            }));
+            $item.append($('<span/>', {
+                style: 'flex: 1;',
+                text: title
+            }));
+            $item.append($('<button/>', {
+                type: 'button',
+                'class': 'button button-small remove-review-casino',
+                text: 'Remove'
+            }));
+            $item.append($('<input/>', {
+                type: 'hidden',
+                name: 'review_casino_ids[]',
+                value: id
+            }));
 
-            $('#review-casino-list').append(item);
+            $('#review-casino-list').append($item);
             select.val('');
         });
 
