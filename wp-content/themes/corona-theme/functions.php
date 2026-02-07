@@ -542,18 +542,26 @@ function corona_get_games_hub_page($post_id = null) {
 }
 
 /**
- * Add rewrite rules for games with language prefixes
+ * Build and cache games hub slugs used by rewrite rules.
  */
-function corona_games_rewrite_rules() {
+function corona_get_games_hubs_rewrite_cache($force_refresh = false) {
+	$option_name = 'corona_games_hubs_rewrite_cache';
+	if (!$force_refresh) {
+		$cached = get_option($option_name, null);
+		if (is_array($cached)) {
+			return $cached;
+		}
+	}
+
 	$default_lang = function_exists('pll_default_language')
 		? pll_default_language()
 		: '';
 
-	// Get all games hub pages (in all languages - disable Polylang filtering)
 	$games_hubs = get_posts(array(
 		'post_type' => 'page',
 		'posts_per_page' => -1,
-		'lang' => '',  // Get posts in ALL languages
+		'lang' => '',
+		'fields' => 'ids',
 		'meta_query' => array(
 			array(
 				'key' => '_wp_page_template',
@@ -562,14 +570,40 @@ function corona_games_rewrite_rules() {
 		),
 	));
 
-	foreach ($games_hubs as $hub) {
-		$hub_slug = $hub->post_name;
+	$rewrite_hubs = array();
+	foreach ($games_hubs as $hub_id) {
+		$hub = get_post($hub_id);
+		if (!$hub || empty($hub->post_name)) {
+			continue;
+		}
+
 		$hub_lang = function_exists('pll_get_post_language')
-			? pll_get_post_language($hub->ID)
+			? pll_get_post_language($hub_id)
 			: '';
 
-		if ($hub_lang && $hub_lang !== $default_lang) {
-			// Non-default language: /el/games/game-slug/
+		$rewrite_hubs[] = array(
+			'slug' => $hub->post_name,
+			'lang' => ($hub_lang && $hub_lang !== $default_lang) ? $hub_lang : '',
+		);
+	}
+
+	update_option($option_name, $rewrite_hubs, false);
+	return $rewrite_hubs;
+}
+
+/**
+ * Add rewrite rules for games with language prefixes.
+ */
+function corona_games_rewrite_rules() {
+	$games_hubs = corona_get_games_hubs_rewrite_cache();
+	foreach ($games_hubs as $hub_data) {
+		$hub_slug = isset($hub_data['slug']) ? $hub_data['slug'] : '';
+		$hub_lang = isset($hub_data['lang']) ? $hub_data['lang'] : '';
+		if ($hub_slug === '') {
+			continue;
+		}
+
+		if ($hub_lang !== '') {
 			add_rewrite_rule(
 				'^' . $hub_lang . '/' . $hub_slug . '/([^/]+)/?$',
 				'index.php?pagename=$matches[1]&lang=' . $hub_lang,
@@ -588,19 +622,46 @@ function corona_games_rewrite_rules() {
 add_action('init', 'corona_games_rewrite_rules');
 
 /**
- * Flush rewrite rules when games hub page is saved
+ * Schedule single rewrite flush for games URLs.
  */
-function corona_flush_games_rewrite($post_id) {
-	if (get_post_type($post_id) !== 'page') {
+function corona_schedule_games_rewrite_flush($post_id, $post) {
+	if (wp_is_post_revision($post_id) || wp_is_post_autosave($post_id)) {
+		return;
+	}
+
+	if (!$post || $post->post_type !== 'page') {
 		return;
 	}
 
 	$template = get_page_template_slug($post_id);
 	if ($template === 'page-games-hub.php' || $template === 'page-game.php') {
-		flush_rewrite_rules();
+		corona_get_games_hubs_rewrite_cache(true);
+		update_option('corona_games_rewrite_flush_needed', 1, false);
 	}
 }
-add_action('save_post', 'corona_flush_games_rewrite');
+add_action('save_post', 'corona_schedule_games_rewrite_flush', 10, 2);
+
+/**
+ * Flush rewrite rules once when scheduled.
+ */
+function corona_maybe_flush_games_rewrite() {
+	if (!get_option('corona_games_rewrite_flush_needed')) {
+		return;
+	}
+
+	flush_rewrite_rules(false);
+	delete_option('corona_games_rewrite_flush_needed');
+}
+add_action('admin_init', 'corona_maybe_flush_games_rewrite');
+
+/**
+ * Ensure rewrite cache and rules are ready after theme activation.
+ */
+function corona_activate_games_rewrite_rules() {
+	corona_get_games_hubs_rewrite_cache(true);
+	flush_rewrite_rules(false);
+}
+add_action('after_switch_theme', 'corona_activate_games_rewrite_rules');
 
 /**
  * Clear games hub providers cache after game or hub updates.
