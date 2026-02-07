@@ -162,7 +162,7 @@ get_header();
 						<?php if ($casino_logo): ?>
 						<img src="<?php echo esc_url($casino_logo); ?>" alt="<?php echo esc_attr($casino_title); ?>" class="game-casino-logo">
 						<?php else: ?>
-						<div class="game-casino-logo-placeholder"><?php echo esc_html(mb_substr($casino_title, 0, 2)); ?></div>
+						<div class="game-casino-logo-placeholder"><?php echo esc_html(corona_mb_substr_safe($casino_title, 0, 2)); ?></div>
 						<?php endif; ?>
 						<span class="game-casino-name"><?php echo esc_html($casino_title); ?></span>
 					</div>

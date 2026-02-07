@@ -86,7 +86,7 @@ get_header();
 					<?php if ($logo): ?>
 					<img src="<?php echo esc_url($logo); ?>" alt="<?php echo esc_attr($casino->post_title); ?>" class="home-casino-logo">
 					<?php else: ?>
-					<div class="home-casino-logo-placeholder"><?php echo esc_html(mb_substr($casino->post_title, 0, 2)); ?></div>
+					<div class="home-casino-logo-placeholder"><?php echo esc_html(corona_mb_substr_safe($casino->post_title, 0, 2)); ?></div>
 					<?php endif; ?>
 
 					<div class="home-casino-info">
@@ -142,7 +142,7 @@ get_header();
 						}
 					}
 				?>
-				<a href="<?php echo get_permalink($game_id); ?>" class="home-game-card">
+				<a href="<?php echo esc_url(get_permalink($game_id)); ?>" class="home-game-card">
 					<?php if ($image): ?>
 					<div class="home-game-image">
 						<img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($game->post_title); ?>">

@@ -428,6 +428,18 @@ function corona_pll__($string) {
 }
 
 /**
+ * Multibyte-safe substring helper with graceful fallback.
+ */
+if (!function_exists('corona_mb_substr_safe')) {
+	function corona_mb_substr_safe($string, $start, $length = null) {
+		if (function_exists('mb_substr')) {
+			return $length === null ? mb_substr($string, $start) : mb_substr($string, $start, $length);
+		}
+		return $length === null ? substr($string, $start) : substr($string, $start, $length);
+	}
+}
+
+/**
  * SVG Icons helper
  */
 if (!function_exists('corona_icon')) {

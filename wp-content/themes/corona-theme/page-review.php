@@ -123,7 +123,7 @@ get_header();
 					<?php if ($logo): ?>
 					<img src="<?php echo esc_url($logo); ?>" alt="<?php echo esc_attr($casino_title); ?>">
 					<?php else: ?>
-					<div class="casino-list-logo-placeholder"><?php echo esc_html(mb_substr($casino_title, 0, 1)); ?></div>
+					<div class="casino-list-logo-placeholder"><?php echo esc_html(corona_mb_substr_safe($casino_title, 0, 1)); ?></div>
 					<?php endif; ?>
 				</div>
 

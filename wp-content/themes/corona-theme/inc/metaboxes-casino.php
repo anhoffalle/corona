@@ -393,17 +393,17 @@ function corona_save_casino_meta($post_id) {
 
     // Save logo
     if (isset($_POST['casino_logo'])) {
-        update_post_meta($post_id, '_casino_logo', esc_url_raw($_POST['casino_logo']));
+        update_post_meta($post_id, '_casino_logo', esc_url_raw(wp_unslash($_POST['casino_logo'])));
     }
 
     // Save affiliate link
     if (isset($_POST['casino_aff_link'])) {
-        update_post_meta($post_id, '_casino_aff_link', esc_url_raw($_POST['casino_aff_link']));
+        update_post_meta($post_id, '_casino_aff_link', esc_url_raw(wp_unslash($_POST['casino_aff_link'])));
     }
 
     // Save tags
     if (isset($_POST['casino_tags'])) {
-        $tags_string = sanitize_text_field($_POST['casino_tags']);
+        $tags_string = sanitize_text_field(wp_unslash($_POST['casino_tags']));
         if (!empty($tags_string)) {
             $tags = array_map('trim', explode(',', $tags_string));
             $tags = array_filter($tags); // Remove empty values
@@ -415,8 +415,8 @@ function corona_save_casino_meta($post_id) {
 
     // Save characteristics
     if (isset($_POST['char_labels']) && isset($_POST['char_values'])) {
-        $labels = array_map('sanitize_text_field', $_POST['char_labels']);
-        $values = array_map('sanitize_text_field', $_POST['char_values']);
+        $labels = array_map('sanitize_text_field', wp_unslash($_POST['char_labels']));
+        $values = array_map('sanitize_text_field', wp_unslash($_POST['char_values']));
         $characteristics = array();
         for ($i = 0; $i < count($labels); $i++) {
             if (!empty($labels[$i]) || !empty($values[$i])) {
@@ -431,10 +431,10 @@ function corona_save_casino_meta($post_id) {
 
     // Save bonuses
     if (isset($_POST['bonus_names'])) {
-        $names = array_map('sanitize_text_field', $_POST['bonus_names']);
-        $descriptions = array_map('sanitize_text_field', $_POST['bonus_descriptions']);
-        $btn_texts = array_map('sanitize_text_field', $_POST['bonus_btn_texts']);
-        $btn_urls = array_map('esc_url_raw', $_POST['bonus_btn_urls']);
+        $names = array_map('sanitize_text_field', wp_unslash($_POST['bonus_names']));
+        $descriptions = array_map('sanitize_text_field', wp_unslash($_POST['bonus_descriptions']));
+        $btn_texts = array_map('sanitize_text_field', wp_unslash($_POST['bonus_btn_texts']));
+        $btn_urls = array_map('esc_url_raw', wp_unslash($_POST['bonus_btn_urls']));
 
         $bonuses = array();
         for ($i = 0; $i < count($names); $i++) {
@@ -452,19 +452,19 @@ function corona_save_casino_meta($post_id) {
 
     // Save payment methods
     if (isset($_POST['payment_methods'])) {
-        $methods = array_filter(array_map('sanitize_text_field', $_POST['payment_methods']));
+        $methods = array_filter(array_map('sanitize_text_field', wp_unslash($_POST['payment_methods'])));
         update_post_meta($post_id, '_casino_payment_methods', json_encode(array_values($methods), JSON_UNESCAPED_UNICODE));
     }
 
     // Save rating
     if (isset($_POST['casino_rating'])) {
-        update_post_meta($post_id, '_casino_rating', intval($_POST['casino_rating']));
+        update_post_meta($post_id, '_casino_rating', intval(wp_unslash($_POST['casino_rating'])));
     }
 
     // Save extra buttons
     if (isset($_POST['extra_btn_texts'])) {
-        $texts = array_map('sanitize_text_field', $_POST['extra_btn_texts']);
-        $urls = array_map('esc_url_raw', $_POST['extra_btn_urls']);
+        $texts = array_map('sanitize_text_field', wp_unslash($_POST['extra_btn_texts']));
+        $urls = array_map('esc_url_raw', wp_unslash($_POST['extra_btn_urls']));
 
         $buttons = array();
         for ($i = 0; $i < count($texts); $i++) {

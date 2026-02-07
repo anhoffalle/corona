@@ -195,7 +195,7 @@ get_header();
 				</div>
 				<?php else: ?>
 				<div class="games-hub-card-placeholder">
-					<span><?php echo esc_html(mb_substr(get_the_title(), 0, 2)); ?></span>
+					<span><?php echo esc_html(corona_mb_substr_safe(get_the_title(), 0, 2)); ?></span>
 				</div>
 				<?php endif; ?>
 				<div class="games-hub-card-info">

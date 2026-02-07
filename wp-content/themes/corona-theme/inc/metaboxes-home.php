@@ -408,29 +408,29 @@ function corona_save_home_meta($post_id) {
 
     // Save hero fields
     if (isset($_POST['home_hero_title'])) {
-        update_post_meta($post_id, '_home_hero_title', sanitize_text_field($_POST['home_hero_title']));
+        update_post_meta($post_id, '_home_hero_title', sanitize_text_field(wp_unslash($_POST['home_hero_title'])));
     }
     if (isset($_POST['home_hero_subtitle'])) {
-        update_post_meta($post_id, '_home_hero_subtitle', sanitize_textarea_field($_POST['home_hero_subtitle']));
+        update_post_meta($post_id, '_home_hero_subtitle', sanitize_textarea_field(wp_unslash($_POST['home_hero_subtitle'])));
     }
     if (isset($_POST['home_hero_btn_text'])) {
-        update_post_meta($post_id, '_home_hero_btn_text', sanitize_text_field($_POST['home_hero_btn_text']));
+        update_post_meta($post_id, '_home_hero_btn_text', sanitize_text_field(wp_unslash($_POST['home_hero_btn_text'])));
     }
     if (isset($_POST['home_hero_btn_url'])) {
-        update_post_meta($post_id, '_home_hero_btn_url', esc_url_raw($_POST['home_hero_btn_url']));
+        update_post_meta($post_id, '_home_hero_btn_url', esc_url_raw(wp_unslash($_POST['home_hero_btn_url'])));
     }
 
     // Save section titles
     if (isset($_POST['home_casinos_title'])) {
-        update_post_meta($post_id, '_home_casinos_title', sanitize_text_field($_POST['home_casinos_title']));
+        update_post_meta($post_id, '_home_casinos_title', sanitize_text_field(wp_unslash($_POST['home_casinos_title'])));
     }
     if (isset($_POST['home_games_title'])) {
-        update_post_meta($post_id, '_home_games_title', sanitize_text_field($_POST['home_games_title']));
+        update_post_meta($post_id, '_home_games_title', sanitize_text_field(wp_unslash($_POST['home_games_title'])));
     }
 
     // Save casinos
     if (isset($_POST['home_casinos'])) {
-        $casinos = array_map('absint', $_POST['home_casinos']);
+        $casinos = array_map('absint', wp_unslash($_POST['home_casinos']));
         $casinos = array_filter($casinos);
         update_post_meta($post_id, '_home_casinos', json_encode($casinos));
     } else {
@@ -439,7 +439,7 @@ function corona_save_home_meta($post_id) {
 
     // Save games
     if (isset($_POST['home_games'])) {
-        $games = array_map('absint', $_POST['home_games']);
+        $games = array_map('absint', wp_unslash($_POST['home_games']));
         $games = array_filter($games);
         update_post_meta($post_id, '_home_games', json_encode($games));
     } else {

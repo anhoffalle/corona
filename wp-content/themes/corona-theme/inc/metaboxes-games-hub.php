@@ -104,15 +104,15 @@ function corona_save_games_hub_metabox($post_id) {
 
 	// Save fields
 	if (isset($_POST['games_hub_title'])) {
-		update_post_meta($post_id, '_games_hub_title', sanitize_text_field($_POST['games_hub_title']));
+		update_post_meta($post_id, '_games_hub_title', sanitize_text_field(wp_unslash($_POST['games_hub_title'])));
 	}
 
 	if (isset($_POST['games_hub_subtitle'])) {
-		update_post_meta($post_id, '_games_hub_subtitle', sanitize_textarea_field($_POST['games_hub_subtitle']));
+		update_post_meta($post_id, '_games_hub_subtitle', sanitize_textarea_field(wp_unslash($_POST['games_hub_subtitle'])));
 	}
 
 	if (isset($_POST['games_hub_per_page'])) {
-		update_post_meta($post_id, '_games_hub_per_page', absint($_POST['games_hub_per_page']));
+		update_post_meta($post_id, '_games_hub_per_page', absint(wp_unslash($_POST['games_hub_per_page'])));
 	}
 
 	update_post_meta($post_id, '_games_hub_show_providers', isset($_POST['games_hub_show_providers']) ? '1' : '');

@@ -107,7 +107,7 @@ function corona_render_related_casinos($post_id) {
                     }
                 }
             ?>
-                <a href="<?php echo get_permalink($casino->ID); ?>" class="related-casino-card">
+                <a href="<?php echo esc_url(get_permalink($casino->ID)); ?>" class="related-casino-card">
                     <?php if ($settings['show_logo']): ?>
                         <?php if ($logo): ?>
                             <div class="related-casino-logo">
@@ -115,7 +115,7 @@ function corona_render_related_casinos($post_id) {
                             </div>
                         <?php else: ?>
                             <div class="related-casino-logo related-casino-logo-placeholder">
-                                <span><?php echo esc_html(mb_substr($casino->post_title, 0, 2)); ?></span>
+                                <span><?php echo esc_html(corona_mb_substr_safe($casino->post_title, 0, 2)); ?></span>
                             </div>
                         <?php endif; ?>
                     <?php endif; ?>

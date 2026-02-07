@@ -78,7 +78,7 @@ get_header();
 				<?php if ($logo): ?>
 				<img src="<?php echo esc_url($logo); ?>" alt="<?php echo esc_attr($app_name); ?>" class="app-icon-img">
 				<?php else: ?>
-				<div class="app-icon-placeholder"><?php echo esc_html(mb_substr($app_name, 0, 1)); ?></div>
+				<div class="app-icon-placeholder"><?php echo esc_html(corona_mb_substr_safe($app_name, 0, 1)); ?></div>
 				<?php endif; ?>
 				<span class="app-badge"><?php echo esc_html(corona_pll__("Editors' Choice")); ?></span>
 			</div>
