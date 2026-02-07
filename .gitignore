@@ -1,0 +1,14 @@
+# WordPress core
+/wp-admin/
+/wp-includes/
+/wp-config.php
+
+# Uploads & cache
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/w3tc-config/
+/wp-content/ai1wm-backups/
+
+# Temp & logs
+tmp/
+*.log
