@@ -1,0 +1,187 @@
+# Spanish Translation for Corona Theme
+# Copyright (C) 2024
+msgid ""
+msgstr ""
+"Project-Id-Version: Corona Theme 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01T00:00:00+00:00\n"
+"PO-Revision-Date: 2024-01-01T00:00:00+00:00\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: corona-theme\n"
+
+#: page-review.php
+msgid "Top Rated Casinos 2024"
+msgstr "Los Mejores Casinos 2024"
+
+#: page-review.php
+msgid "Our experts evaluate hundreds of online casinos every month to bring you the safest, fastest, and most rewarding gaming experiences."
+msgstr "Nuestros expertos evalúan cientos de casinos en línea cada mes para ofrecerte las experiencias de juego más seguras, rápidas y gratificantes."
+
+#: page-review.php
+msgid "Premium Choice"
+msgstr "Selección Premium"
+
+#: page-review.php
+msgid "Fast Payouts"
+msgstr "Pagos Rápidos"
+
+#: page-review.php
+msgid "Trusted"
+msgstr "Confiable"
+
+#: page-review.php
+msgid "Crypto Friendly"
+msgstr "Acepta Cripto"
+
+#: page-review.php
+msgid "Slots Focused"
+msgstr "Enfocado en Slots"
+
+#: page-review.php
+msgid "Exclusive Bonus"
+msgstr "Bono Exclusivo"
+
+#: page-review.php
+msgid "Visit Casino"
+msgstr "Visitar Casino"
+
+#: page-review.php
+msgid "Read Full Review"
+msgstr "Leer Reseña Completa"
+
+#: page-casino.php
+msgid "Play Now"
+msgstr "Jugar Ahora"
+
+#: page-casino.php
+msgid "Full Brand Characteristics"
+msgstr "Características Completas"
+
+#: page-casino.php
+msgid "Related Bonuses"
+msgstr "Bonos Relacionados"
+
+#: page-casino.php
+msgid "Claim offer and play"
+msgstr "Reclamar oferta y jugar"
+
+#: page-casino.php
+msgid "Payment Methods"
+msgstr "Métodos de Pago"
+
+#: page-casino.php
+msgid "Expert Verdict"
+msgstr "Veredicto del Experto"
+
+#: page-casino.php
+msgid "Highly Recommended"
+msgstr "Muy Recomendado"
+
+#: page-app.php
+msgid "Editors' Choice"
+msgstr "Selección del Editor"
+
+#: page-app.php
+msgid "Ratings"
+msgstr "Valoraciones"
+
+#: page-app.php
+msgid "in Casino"
+msgstr "en Casino"
+
+#: page-app.php
+msgid "Age"
+msgstr "Edad"
+
+#: page-app.php
+msgid "Get"
+msgstr "Obtener"
+
+#: page-app.php
+msgid "Download"
+msgstr "Descargar"
+
+#: page-app.php
+msgid "In-App Purchases"
+msgstr "Compras dentro de la app"
+
+#: page-app.php
+msgid "Screenshots"
+msgstr "Capturas de pantalla"
+
+#: page-app.php
+msgid "Screenshot %d"
+msgstr "Captura %d"
+
+#: page-app.php
+msgid "What's New"
+msgstr "Novedades"
+
+#: page-app.php
+msgid "Version"
+msgstr "Versión"
+
+#: page-app.php
+msgid "Ratings & Reviews"
+msgstr "Valoraciones y Reseñas"
+
+#: page-app.php
+msgid "out of 5"
+msgstr "de 5"
+
+#: page-app.php
+msgid "Information"
+msgstr "Información"
+
+#: page-app.php
+msgid "Provider"
+msgstr "Proveedor"
+
+#: page-app.php
+msgid "Size"
+msgstr "Tamaño"
+
+#: page-app.php
+msgid "Category"
+msgstr "Categoría"
+
+#: page-app.php
+msgid "Games: Casino"
+msgstr "Juegos: Casino"
+
+#: page-app.php
+msgid "Compatibility"
+msgstr "Compatibilidad"
+
+#: page-app.php
+msgid "Requires iOS 15.0 or later"
+msgstr "Requiere iOS 15.0 o posterior"
+
+#: page-app.php
+msgid "Languages"
+msgstr "Idiomas"
+
+#: page-app.php
+msgid "English, Russian, Spanish, German"
+msgstr "Inglés, Ruso, Español, Alemán"
+
+#: page-app.php
+msgid "Age Rating"
+msgstr "Clasificación por edad"
+
+#: page-app.php
+msgid "Simulated Gambling"
+msgstr "Juegos de azar simulados"
+
+#: page-app.php
+msgid "Copyright"
+msgstr "Derechos de autor"
+
+#: page-app.php
+msgid "Back to Casino Review"
+msgstr "Volver a la Reseña del Casino"

@@ -1,0 +1,4886 @@
+/*!
+Theme Name: Corona Theme
+Theme URI: https://corona.ps/
+Author: Corona Team
+Author URI: https://corona.ps/
+Description: Custom theme for Corona.ps casino reviews site. Light modern design with slot info blocks and multilingual support.
+Version: 1.0.0
+Tested up to: 6.4
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: corona-theme
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+_s is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Generic
+	- Normalize
+	- Box sizing
+# Base
+	- Typography
+	- Elements
+	- Links
+	- Forms
+## Layouts
+# Components
+	- Navigation
+	- Posts and pages
+	- Comments
+	- Widgets
+	- Media
+	- Captions
+	- Galleries
+# plugins
+	- Jetpack infinite scroll
+# Utilities
+	- Accessibility
+	- Alignments
+
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Generic
+--------------------------------------------------------------*/
+
+/* Normalize
+--------------------------------------------- */
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+	 ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%;
+}
+
+/* Sections
+	 ========================================================================== */
+
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+	margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+	display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+/* Grouping content
+	 ========================================================================== */
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+/* Text-level semantics
+	 ========================================================================== */
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+	background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+	border-bottom: none;
+	text-decoration: underline;
+	text-decoration: underline dotted;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+	font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+	font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+sup {
+	top: -0.5em;
+}
+
+/* Embedded content
+	 ========================================================================== */
+
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+	border-style: none;
+}
+
+/* Forms
+	 ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+	overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+	text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	-webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+	border-style: none;
+	padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+	outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+	padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *		`fieldset` elements in all browsers.
+ */
+legend {
+	box-sizing: border-box;
+	color: inherit;
+	display: table;
+	max-width: 100%;
+	padding: 0;
+	white-space: normal;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+	vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+	overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type="checkbox"],
+[type="radio"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+	-webkit-appearance: textfield;
+	outline-offset: -2px;
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	font: inherit;
+}
+
+/* Interactive
+	 ========================================================================== */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+	display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+	display: list-item;
+}
+
+/* Misc
+	 ========================================================================== */
+
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+	display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+	display: none;
+}
+
+/* Box sizing
+--------------------------------------------- */
+
+/* Inherit box-sizing to more easily change it's value on a component level.
+@link http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+
+/* Typography
+--------------------------------------------- */
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: #404040;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", courier, monospace;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code,
+kbd,
+tt,
+var {
+	font-family: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+/* Elements
+--------------------------------------------- */
+body {
+	background: #fff;
+}
+
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+ul,
+ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: 700;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+}
+
+figure {
+	margin: 1em 0;
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+/* Links
+--------------------------------------------- */
+a {
+	color: #4169e1;
+}
+
+a:visited {
+	color: #800080;
+}
+
+a:hover,
+a:focus,
+a:active {
+	color: #191970;
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:hover,
+a:active {
+	outline: 0;
+}
+
+/* Forms
+--------------------------------------------- */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: 1px solid;
+	border-color: #ccc #ccc #bbb;
+	border-radius: 3px;
+	background: #e6e6e6;
+	color: rgba(0, 0, 0, 0.8);
+	line-height: 1;
+	padding: 0.6em 1em 0.4em;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	border-color: #ccc #bbb #aaa;
+}
+
+button:active,
+button:focus,
+input[type="button"]:active,
+input[type="button"]:focus,
+input[type="reset"]:active,
+input[type="reset"]:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus {
+	border-color: #aaa #bbb #bbb;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	color: #666;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 3px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+	color: #111;
+}
+
+select {
+	border: 1px solid #ccc;
+}
+
+textarea {
+	width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Layouts
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+
+/* Navigation
+--------------------------------------------- */
+.main-navigation {
+	display: block;
+	width: 100%;
+}
+
+.main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+
+.main-navigation ul ul {
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	float: left;
+	position: absolute;
+	top: 100%;
+	left: -999em;
+	z-index: 99999;
+}
+
+.main-navigation ul ul ul {
+	left: -999em;
+	top: 0;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+	display: block;
+	left: auto;
+}
+
+.main-navigation ul ul a {
+	width: 200px;
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+	left: auto;
+}
+
+.main-navigation li {
+	position: relative;
+}
+
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.main-navigation ul {
+		display: flex;
+	}
+}
+
+.site-main .comment-navigation,
+.site-main
+.posts-navigation,
+.site-main
+.post-navigation {
+	margin: 0 0 1.5em;
+}
+
+.comment-navigation .nav-links,
+.posts-navigation .nav-links,
+.post-navigation .nav-links {
+	display: flex;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	flex: 1 0 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	text-align: end;
+	flex: 1 0 50%;
+}
+
+/* Posts and pages
+--------------------------------------------- */
+.sticky {
+	display: block;
+}
+
+.post,
+.page {
+	margin: 0 0 1.5em;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.entry-content {
+	font-size: 1rem;
+	line-height: 1.8;
+	color: var(--color-text-secondary);
+}
+
+.entry-content p {
+	margin: 0 0 1rem 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+/* Comments
+--------------------------------------------- */
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+/* Widgets
+--------------------------------------------- */
+.widget {
+	margin: 0 0 1.5em;
+}
+
+.widget select {
+	max-width: 100%;
+}
+
+/* Media
+--------------------------------------------- */
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link {
+	display: inline-block;
+}
+
+/* Captions
+--------------------------------------------- */
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/* Galleries
+--------------------------------------------- */
+.gallery {
+	margin-bottom: 1.5em;
+	display: grid;
+	grid-gap: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+
+.gallery-columns-2 {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.gallery-columns-3 {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.gallery-columns-4 {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.gallery-columns-5 {
+	grid-template-columns: repeat(5, 1fr);
+}
+
+.gallery-columns-6 {
+	grid-template-columns: repeat(6, 1fr);
+}
+
+.gallery-columns-7 {
+	grid-template-columns: repeat(7, 1fr);
+}
+
+.gallery-columns-8 {
+	grid-template-columns: repeat(8, 1fr);
+}
+
+.gallery-columns-9 {
+	grid-template-columns: repeat(9, 1fr);
+}
+
+.gallery-caption {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Plugins
+--------------------------------------------------------------*/
+
+/* Jetpack infinite scroll
+--------------------------------------------- */
+
+/* Hide the Posts Navigation and the Footer when Infinite Scroll is in use. */
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer {
+	display: none;
+}
+
+/* Re-display the Theme Footer when Infinite Scroll has reached its end. */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Utilities
+--------------------------------------------------------------*/
+
+/* Accessibility
+--------------------------------------------- */
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	color: #21759b;
+	display: block;
+	font-size: 0.875rem;
+	font-weight: 700;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+
+/* Do not show the outline on the skip link target. */
+#primary[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/* Alignments
+--------------------------------------------- */
+.alignleft {
+
+	/*rtl:ignore*/
+	float: left;
+
+	/*rtl:ignore*/
+	margin-right: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+.alignright {
+
+	/*rtl:ignore*/
+	float: right;
+
+	/*rtl:ignore*/
+	margin-left: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1.5em;
+}
+
+/*--------------------------------------------------------------
+# Corona Theme - Casino & Game Pages
+--------------------------------------------------------------*/
+
+/* CSS Variables */
+:root {
+	--color-bg-main: #0f172a;
+	--color-bg-card: rgba(30, 41, 59, 0.7);
+	--color-bg-card-hover: rgba(30, 41, 59, 0.9);
+	--color-dark: #0f172a;
+	--color-dark-800: #1e293b;
+	--color-text-primary: #f8fafc;
+	--color-text-secondary: #94a3b8;
+	--color-text-muted: #64748b;
+	--color-border: rgba(255, 255, 255, 0.1);
+	--color-gold: #fbbf24;
+	--color-gold-dark: #d97706;
+	--color-emerald: #10b981;
+	--color-emerald-dark: #059669;
+	--color-rose: #f43f5e;
+	--color-purple: #a855f7;
+	--color-amber: #fbbf24;
+	--radius-sm: 0.5rem;
+	--radius-md: 1rem;
+	--radius-lg: 1.5rem;
+	--radius-xl: 2rem;
+	--radius-2xl: 2.5rem;
+}
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+
+/* Base styles for casino/game/home/games-hub pages */
+body.casino-page,
+body.game-page,
+body.home-page,
+body.games-hub-page {
+	background-color: var(--color-bg-main);
+	color: var(--color-text-primary);
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-display {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Glass effect */
+.glass {
+	background: var(--color-bg-card);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid var(--color-border);
+}
+
+/* Gradients */
+.gold-gradient {
+	background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+}
+
+.emerald-gradient {
+	background: linear-gradient(135deg, var(--color-emerald) 0%, var(--color-emerald-dark) 100%);
+}
+
+/* Container */
+.casino-container,
+.game-container {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+	.casino-container,
+	.game-container {
+		padding: 2rem;
+	}
+}
+
+/* Grid layout */
+.casino-layout {
+	display: block;
+}
+
+.casino-main {
+	max-width: 900px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+/* Hero Section */
+.casino-hero {
+	position: relative;
+	border-radius: var(--radius-2xl);
+	overflow: hidden;
+	background: linear-gradient(135deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.6) 100%);
+	border: 1px solid var(--color-border);
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.casino-hero-inner {
+	padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+	.casino-hero-inner {
+		padding: 2.5rem;
+	}
+}
+
+.casino-hero-top {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+}
+
+@media (min-width: 768px) {
+	.casino-hero-top {
+		flex-direction: row;
+		align-items: flex-start;
+	}
+}
+
+/* Casino Logo */
+.casino-logo-wrapper {
+	position: relative;
+	flex-shrink: 0;
+}
+
+.casino-logo-glow {
+	position: absolute;
+	inset: -4px;
+	background: linear-gradient(135deg, var(--color-amber) 0%, rgba(251, 191, 36, 0.3) 100%);
+	border-radius: var(--radius-xl);
+	filter: blur(8px);
+	opacity: 0.2;
+	transition: opacity 0.5s;
+}
+
+.casino-logo-wrapper:hover .casino-logo-glow {
+	opacity: 0.4;
+}
+
+.casino-logo-img {
+	position: relative;
+	width: 8rem;
+	height: 8rem;
+	border-radius: var(--radius-xl);
+	border: 2px solid rgba(71, 85, 105, 0.5);
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+	background: #1e293b;
+	object-fit: cover;
+}
+
+@media (min-width: 768px) {
+	.casino-logo-img {
+		width: 10rem;
+		height: 10rem;
+	}
+}
+
+/* Casino Info */
+.casino-info {
+	flex: 1;
+	text-align: center;
+	min-width: 0;
+}
+
+@media (min-width: 768px) {
+	.casino-info {
+		text-align: left;
+	}
+}
+
+/* Badges */
+.casino-badges {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+	.casino-badges {
+		justify-content: flex-start;
+	}
+}
+
+.badge {
+	padding: 0.25rem 0.75rem;
+	font-size: 0.625rem;
+	font-weight: 700;
+	border-radius: 9999px;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+}
+
+.badge-gold {
+	background: rgba(251, 191, 36, 0.1);
+	color: var(--color-gold);
+	border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.badge-emerald {
+	background: rgba(16, 185, 129, 0.1);
+	color: var(--color-emerald);
+	border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Casino Title */
+.casino-title {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-size: 1.875rem;
+	font-weight: 800;
+	color: var(--color-text-primary);
+	margin: 0 0 1rem 0;
+	line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+	.casino-title {
+		font-size: 3rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.casino-title {
+		font-size: 3.75rem;
+	}
+}
+
+/* Rating */
+.casino-rating-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+@media (min-width: 768px) {
+	.casino-rating-wrapper {
+		flex-direction: row;
+	}
+}
+
+.casino-stars {
+	display: flex;
+	gap: 0.125rem;
+}
+
+.casino-star {
+	width: 1.25rem;
+	height: 1.25rem;
+	color: var(--color-text-muted);
+}
+
+.casino-star.filled {
+	color: var(--color-amber);
+	fill: var(--color-amber);
+}
+
+@media (min-width: 768px) {
+	.casino-star {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+}
+
+.casino-rating-value {
+	margin-left: 0.5rem;
+	color: var(--color-amber);
+	font-weight: 700;
+	font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+	.casino-rating-value {
+		font-size: 1.5rem;
+	}
+}
+
+.rating-divider {
+	display: none;
+	width: 1px;
+	height: 1rem;
+	background: rgba(71, 85, 105, 1);
+}
+
+@media (min-width: 768px) {
+	.rating-divider {
+		display: block;
+	}
+}
+
+.casino-license {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: var(--color-text-secondary);
+	font-size: 0.875rem;
+}
+
+.casino-license svg {
+	width: 1.25rem;
+	height: 1.25rem;
+	color: var(--color-emerald);
+}
+
+/* Hero Bottom */
+.casino-hero-bottom {
+	margin-top: 2.5rem;
+	padding-top: 2rem;
+	border-top: 1px solid var(--color-border);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+	.casino-hero-bottom {
+		flex-direction: row;
+	}
+}
+
+.casino-verdict {
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+	.casino-verdict {
+		text-align: left;
+	}
+}
+
+.casino-verdict-label {
+	color: var(--color-text-secondary);
+	font-size: 0.875rem;
+	font-weight: 500;
+	margin-bottom: 0.25rem;
+}
+
+.casino-verdict-text {
+	color: var(--color-text-primary);
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.casino-verdict-text svg {
+	width: 1rem;
+	height: 1rem;
+	color: var(--color-emerald);
+}
+
+/* CTA Button */
+.casino-cta-wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+	.casino-cta-wrapper {
+		width: auto;
+		align-items: flex-end;
+	}
+}
+
+.btn-cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	width: 100%;
+	padding: 1.25rem 3rem;
+	border-radius: var(--radius-lg);
+	font-weight: 900;
+	font-size: 1.25rem;
+	color: var(--color-text-primary);
+	text-decoration: none;
+	transition: all 0.2s;
+	box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.3);
+}
+
+@media (min-width: 768px) {
+	.btn-cta {
+		width: auto;
+	}
+}
+
+.btn-cta:hover {
+	transform: scale(1.02);
+}
+
+.btn-cta:active {
+	transform: scale(0.95);
+}
+
+.btn-cta svg {
+	width: 1.5rem;
+	height: 1.5rem;
+	transition: transform 0.2s;
+}
+
+.btn-cta:hover svg {
+	transform: translate(4px, -4px);
+}
+
+.casino-cta-disclaimer {
+	font-size: 0.625rem;
+	color: var(--color-text-muted);
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	opacity: 0.6;
+}
+
+/* Bonus Card */
+.bonus-card-wrapper {
+	padding: 4px;
+	border-radius: var(--radius-2xl);
+	box-shadow: 0 25px 50px -12px rgba(251, 191, 36, 0.1);
+}
+
+.bonus-card {
+	background: var(--color-bg-main);
+	border-radius: calc(var(--radius-2xl) - 2px);
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+}
+
+@media (min-width: 768px) {
+	.bonus-card {
+		flex-direction: row;
+		padding: 3rem;
+	}
+}
+
+.bonus-card-content {
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+	.bonus-card-content {
+		text-align: left;
+	}
+}
+
+.bonus-card-label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	color: var(--color-amber);
+	margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+	.bonus-card-label {
+		justify-content: flex-start;
+	}
+}
+
+.bonus-card-label svg {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.bonus-card-label span {
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+}
+
+.bonus-card-title {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-size: 2rem;
+	font-weight: 800;
+	color: var(--color-text-primary);
+	margin: 0 0 1rem 0;
+}
+
+@media (min-width: 768px) {
+	.bonus-card-title {
+		font-size: 2.5rem;
+	}
+}
+
+.bonus-card-description {
+	color: var(--color-text-secondary);
+	font-size: 1.125rem;
+	margin: 0;
+}
+
+.btn-bonus {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 1.25rem 3rem;
+	border-radius: var(--radius-lg);
+	font-weight: 800;
+	font-size: 1.125rem;
+	color: var(--color-bg-main);
+	text-decoration: none;
+	white-space: nowrap;
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+	transition: all 0.2s;
+}
+
+.btn-bonus:hover {
+	filter: brightness(1.1);
+}
+
+.btn-bonus:active {
+	transform: scale(0.95);
+}
+
+.btn-bonus svg {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+/* Bonuses Section */
+.bonuses-section {
+	padding: 2rem;
+	border-radius: var(--radius-xl);
+}
+
+.bonuses-section .characteristics-title {
+	margin-bottom: 1.5rem;
+}
+
+.bonuses-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.bonus-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.5rem;
+	background: rgba(30, 41, 59, 0.4);
+	border-radius: var(--radius-lg);
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.bonus-item-title {
+	color: var(--color-text-primary);
+	font-weight: 700;
+	margin: 0 0 0.5rem 0;
+}
+
+.bonus-item-desc {
+	color: var(--color-text-secondary);
+	margin: 0;
+	font-size: 0.875rem;
+}
+
+.btn-bonus-small {
+	padding: 0.75rem 1.5rem;
+	font-size: 0.875rem;
+}
+
+/* Characteristics Table */
+.characteristics-section {
+	border-radius: var(--radius-xl);
+	overflow: hidden;
+}
+
+.characteristics-header {
+	padding: 2rem;
+	border-bottom: 1px solid var(--color-border);
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.characteristics-icon {
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: var(--radius-md);
+	background: rgba(251, 191, 36, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-amber);
+}
+
+.characteristics-icon svg {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.characteristics-title {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0;
+}
+
+.characteristics-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.characteristics-table tr {
+	border-bottom: 1px solid var(--color-border);
+	transition: background 0.2s;
+}
+
+.characteristics-table tr:hover {
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.characteristics-table tr:nth-child(even) {
+	background: rgba(30, 41, 59, 0.2);
+}
+
+.characteristics-table tr:nth-child(even):hover {
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.characteristics-table th,
+.characteristics-table td {
+	padding: 1.25rem 2rem;
+	font-size: 0.875rem;
+}
+
+.characteristics-table th {
+	color: var(--color-text-secondary);
+	font-weight: 600;
+	text-align: left;
+	width: 40%;
+}
+
+.characteristics-table th .char-icon {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.characteristics-table th svg {
+	width: 1rem;
+	height: 1rem;
+	opacity: 0.5;
+}
+
+.characteristics-table td {
+	color: var(--color-text-primary);
+	font-weight: 700;
+}
+
+/* Pros & Cons */
+.pros-cons-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+	.pros-cons-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+.pros-card,
+.cons-card {
+	padding: 2rem;
+	border-radius: var(--radius-xl);
+}
+
+.pros-card {
+	background: rgba(16, 185, 129, 0.03);
+	border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.cons-card {
+	background: rgba(244, 63, 94, 0.03);
+	border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+.pros-title,
+.cons-title {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0 0 1.5rem 0;
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.pros-title svg {
+	width: 1.75rem;
+	height: 1.75rem;
+	color: var(--color-emerald);
+}
+
+.cons-title svg {
+	width: 1.75rem;
+	height: 1.75rem;
+	color: var(--color-rose);
+}
+
+.pros-list,
+.cons-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.pros-list li,
+.cons-list li {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	color: var(--color-text-secondary);
+	font-size: 1rem;
+	line-height: 1.6;
+	margin-bottom: 1rem;
+}
+
+.pros-list li:last-child,
+.cons-list li:last-child {
+	margin-bottom: 0;
+}
+
+.pros-list .dot {
+	width: 0.625rem;
+	height: 0.625rem;
+	border-radius: 50%;
+	background: var(--color-emerald);
+	margin-top: 0.375rem;
+	flex-shrink: 0;
+	box-shadow: 0 0 12px var(--color-emerald);
+}
+
+.cons-list .dot {
+	width: 0.625rem;
+	height: 0.625rem;
+	border-radius: 50%;
+	background: var(--color-rose);
+	margin-top: 0.375rem;
+	flex-shrink: 0;
+	box-shadow: 0 0 12px var(--color-rose);
+}
+
+/* Expert Review */
+.expert-review {
+	padding: 2rem;
+	border-radius: var(--radius-2xl);
+}
+
+@media (min-width: 768px) {
+	.expert-review {
+		padding: 3rem;
+	}
+}
+
+.expert-review-title {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-size: 1.875rem;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0 0 2rem 0;
+}
+
+.expert-review-content {
+	color: var(--color-text-secondary);
+	font-size: 1rem;
+	line-height: 1.8;
+}
+
+.expert-review-content p {
+	margin-bottom: 1rem;
+}
+
+.expert-review-quote {
+	padding: 2rem;
+	background: rgba(30, 41, 59, 0.4);
+	border-radius: var(--radius-xl);
+	border-left: 4px solid var(--color-amber);
+	font-style: italic;
+	position: relative;
+	overflow: hidden;
+	margin: 2rem 0;
+}
+
+.expert-review-quote-icon {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	opacity: 0.1;
+}
+
+.expert-review-quote-icon svg {
+	width: 5rem;
+	height: 5rem;
+}
+
+/* Sidebar */
+.casino-sidebar {
+	position: sticky;
+	top: 6rem;
+}
+
+/* Quick Stats */
+.quick-stats {
+	padding: 2rem;
+	border-radius: var(--radius-2xl);
+	background: linear-gradient(180deg, rgba(30, 41, 59, 0.3) 0%, transparent 100%);
+}
+
+.quick-stats-header {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-bottom: 2rem;
+}
+
+.quick-stats-icon {
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: var(--radius-md);
+	background: rgba(251, 191, 36, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-amber);
+}
+
+.quick-stats-icon svg {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.quick-stats-title {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0;
+}
+
+.quick-stats-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.quick-stats-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.25rem 0;
+}
+
+.quick-stats-label {
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: var(--color-text-secondary);
+}
+
+.quick-stats-value {
+	font-size: 0.875rem;
+	font-weight: 700;
+}
+
+.quick-stats-value.emerald { color: var(--color-emerald); }
+.quick-stats-value.amber { color: var(--color-amber); }
+.quick-stats-value.purple { color: var(--color-purple); }
+.quick-stats-value.cyan { color: #06b6d4; }
+
+.btn-play-now {
+	width: 100%;
+	margin-top: 2.5rem;
+	padding: 1.25rem;
+	border-radius: var(--radius-lg);
+	font-weight: 700;
+	font-size: 1.125rem;
+	color: var(--color-text-primary);
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2);
+	transition: all 0.2s;
+}
+
+.btn-play-now:hover {
+	filter: brightness(1.1);
+}
+
+.btn-play-now:active {
+	transform: scale(0.95);
+}
+
+/* Payment Methods */
+.payment-methods {
+	padding: 2rem;
+	border-radius: var(--radius-xl);
+	overflow: hidden;
+}
+
+.payment-methods-title {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0 0 1.5rem 0;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.payment-methods-title svg {
+	width: 1.25rem;
+	height: 1.25rem;
+	color: var(--color-text-secondary);
+	flex-shrink: 0;
+}
+
+.payment-methods-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.625rem;
+}
+
+.payment-method {
+	padding: 0.625rem 1rem;
+	background: rgba(30, 41, 59, 0.6);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	font-size: 0.75rem;
+	font-weight: 700;
+	color: var(--color-text-secondary);
+	transition: all 0.2s;
+}
+
+.payment-method:hover {
+	color: var(--color-text-primary);
+	border-color: var(--color-text-muted);
+}
+
+/* Similar Casinos */
+.similar-casinos {
+	padding: 2rem;
+	border-radius: var(--radius-xl);
+}
+
+.similar-casinos-title {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0 0 1.5rem 0;
+}
+
+.similar-casinos-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+.similar-casino-card {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 0.75rem;
+	border-radius: var(--radius-lg);
+	border: 1px solid transparent;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.similar-casino-card:hover {
+	background: rgba(255, 255, 255, 0.05);
+	border-color: var(--color-border);
+}
+
+.similar-casino-logo {
+	width: 3rem;
+	height: 3rem;
+	border-radius: var(--radius-md);
+	background: #1e293b;
+	object-fit: cover;
+	flex-shrink: 0;
+}
+
+.similar-casino-info {
+	flex: 1;
+	min-width: 0;
+}
+
+.similar-casino-name {
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.similar-casino-rating {
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+
+.similar-casino-rating svg {
+	width: 0.75rem;
+	height: 0.75rem;
+	fill: var(--color-amber);
+	color: var(--color-amber);
+}
+
+.similar-casino-rating span {
+	font-size: 0.625rem;
+	color: var(--color-text-muted);
+	font-weight: 700;
+}
+
+.similar-casino-bonus {
+	font-size: 0.625rem;
+	color: var(--color-emerald);
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-top: 0.125rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.similar-casino-arrow {
+	width: 1.25rem;
+	height: 1.25rem;
+	color: var(--color-text-muted);
+	flex-shrink: 0;
+	transition: all 0.2s;
+}
+
+.similar-casino-card:hover .similar-casino-arrow {
+	color: var(--color-amber);
+	transform: translateX(4px);
+}
+
+/* Responsible Gaming */
+.responsible-gaming {
+	padding: 2rem;
+	background: rgba(244, 63, 94, 0.08);
+	border: 1px solid rgba(244, 63, 94, 0.2);
+	border-radius: var(--radius-xl);
+	box-shadow: 0 25px 50px -12px rgba(244, 63, 94, 0.05);
+}
+
+.responsible-gaming-header {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: var(--color-rose);
+	margin-bottom: 1rem;
+}
+
+.responsible-gaming-header svg {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+
+.responsible-gaming-header span {
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.responsible-gaming-text {
+	font-size: 0.6875rem;
+	color: rgba(251, 113, 133, 0.5);
+	line-height: 1.6;
+	font-weight: 500;
+	margin: 0;
+}
+
+/* SEO Content Section */
+.seo-content-section {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 5rem 1rem;
+	border-top: 1px solid var(--color-border);
+	margin-top: 5rem;
+}
+
+@media (min-width: 768px) {
+	.seo-content-section {
+		padding: 5rem 2rem;
+	}
+}
+
+.seo-content-card {
+	padding: 2.5rem;
+	border-radius: var(--radius-2xl);
+}
+
+@media (min-width: 768px) {
+	.seo-content-card {
+		padding: 4rem;
+	}
+}
+
+.seo-content-card h1,
+.seo-content-card h2,
+.seo-content-card h3,
+.seo-content-card h4 {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	color: var(--color-text-primary);
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+
+.seo-content-card h1:first-child,
+.seo-content-card h2:first-child {
+	margin-top: 0;
+}
+
+.seo-content-card h1 {
+	font-size: 2.5rem;
+	font-weight: 800;
+	text-align: center;
+	margin-bottom: 2.5rem;
+}
+
+.seo-content-card h2 {
+	font-size: 1.5rem;
+	font-weight: 700;
+}
+
+.seo-content-card h3 {
+	font-size: 1.25rem;
+	font-weight: 700;
+}
+
+.seo-content-card p {
+	color: var(--color-text-secondary);
+	font-size: 1rem;
+	line-height: 1.8;
+	margin-bottom: 1.5rem;
+}
+
+.seo-content-card ul,
+.seo-content-card ol {
+	color: var(--color-text-secondary);
+	margin-left: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.seo-content-card li {
+	margin-bottom: 0.5rem;
+	line-height: 1.6;
+}
+
+.seo-content-card table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1.5rem 0;
+}
+
+.seo-content-card th,
+.seo-content-card td {
+	padding: 0.75rem 1rem;
+	border: 1px solid var(--color-border);
+	text-align: left;
+}
+
+.seo-content-card th {
+	background: rgba(30, 41, 59, 0.5);
+	color: var(--color-text-primary);
+	font-weight: 600;
+}
+
+.seo-content-card td {
+	color: var(--color-text-secondary);
+}
+
+.seo-content-card strong {
+	color: var(--color-text-primary);
+}
+
+/* ==========================================
+   Game Page - New Design
+   ========================================== */
+
+.game-page {
+	background: var(--color-dark);
+}
+
+.game-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+/* Game Header */
+.game-header {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+	.game-header {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
+.game-header-meta {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-bottom: 0.5rem;
+}
+
+.game-category-badge {
+	font-size: 0.625rem;
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	color: var(--color-emerald);
+	background: rgba(16, 185, 129, 0.1);
+	padding: 0.375rem 0.75rem;
+	border-radius: 9999px;
+}
+
+.game-provider {
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--color-text-muted);
+}
+
+.game-title {
+	font-size: 2rem;
+	font-weight: 900;
+	color: var(--color-text-primary);
+	margin: 0;
+	line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+	.game-title {
+		font-size: 2.5rem;
+	}
+}
+
+.game-play-demo-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	background: var(--color-emerald);
+	color: var(--color-dark);
+	font-size: 0.875rem;
+	font-weight: 900;
+	padding: 1rem 2rem;
+	border: none;
+	border-radius: 1rem;
+	cursor: pointer;
+	transition: all 0.2s;
+	box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.game-play-demo-btn:hover {
+	background: #059669;
+	transform: translateY(-2px);
+}
+
+.game-play-demo-btn .play-icon {
+	font-size: 0.75rem;
+}
+
+/* Game Player */
+.game-player {
+	position: relative;
+	aspect-ratio: 3/4;
+	width: 100%;
+	background: var(--color-dark-800);
+	border-radius: 1.5rem;
+	border: 1px solid var(--color-border);
+	overflow: hidden;
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+	.game-player {
+		aspect-ratio: 16/9;
+		border-radius: 2rem;
+	}
+}
+
+.game-player-overlay {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: rgba(15, 23, 42, 0.8);
+	backdrop-filter: blur(8px);
+	z-index: 10;
+}
+
+.game-player-bg {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.3;
+}
+
+.game-player-overlay-content {
+	position: relative;
+	z-index: 20;
+	text-align: center;
+	padding: 2rem;
+}
+
+.game-play-button {
+	width: 5rem;
+	height: 5rem;
+	background: rgba(16, 185, 129, 0.2);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 1.5rem;
+	cursor: pointer;
+	transition: all 0.3s;
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.game-play-button:hover {
+	transform: scale(1.1);
+	background: rgba(16, 185, 129, 0.3);
+}
+
+.play-triangle {
+	width: 0;
+	height: 0;
+	border-top: 12px solid transparent;
+	border-left: 20px solid var(--color-emerald);
+	border-bottom: 12px solid transparent;
+	margin-left: 4px;
+}
+
+.game-player-title {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0 0 0.5rem 0;
+}
+
+.game-player-subtitle {
+	font-size: 0.875rem;
+	color: var(--color-text-muted);
+	margin: 0;
+	max-width: 24rem;
+}
+
+.game-iframe-wrapper {
+	position: absolute;
+	inset: 0;
+	background: #000;
+	z-index: 20;
+}
+
+.game-iframe-wrapper iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+	display: block;
+	pointer-events: auto;
+	touch-action: auto;
+}
+
+.game-close-demo {
+	position: absolute;
+	top: 0.75rem;
+	right: 0.75rem;
+	background: rgba(0, 0, 0, 0.9);
+	color: var(--color-text-muted);
+	font-size: 0.625rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--color-border);
+	border-radius: 0.5rem;
+	cursor: pointer;
+	transition: all 0.2s;
+	z-index: 50;
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.game-close-demo:hover {
+	color: var(--color-text-primary);
+	background: rgba(0, 0, 0, 1);
+	border-color: var(--color-text-muted);
+}
+
+.game-image-only {
+	width: 100%;
+	height: 100%;
+}
+
+.game-image-only img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.game-player-placeholder {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.game-player-placeholder-icon {
+	font-size: 4rem;
+	opacity: 0.3;
+}
+
+.game-player-empty {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+	gap: 1rem;
+}
+
+.game-player-empty .game-player-placeholder-icon {
+	font-size: 5rem;
+	opacity: 0.5;
+}
+
+.game-player-empty .game-player-title {
+	font-size: 1.5rem;
+	color: var(--color-text-secondary);
+	margin: 0;
+}
+
+/* Single Column Content */
+.game-content {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+/* Real Money Button */
+.game-real-money-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+	color: var(--color-dark);
+	font-size: 0.875rem;
+	font-weight: 800;
+	padding: 0.875rem 1.75rem;
+	border-radius: 0.75rem;
+	text-decoration: none;
+	margin-top: 1.25rem;
+	transition: all 0.2s;
+	box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.game-real-money-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+.game-real-money-btn .btn-arrow {
+	font-size: 1rem;
+	transition: transform 0.2s;
+}
+
+.game-real-money-btn:hover .btn-arrow {
+	transform: translateX(3px);
+}
+
+/* Game Overview */
+.game-overview {
+	border-radius: var(--radius-xl);
+	overflow: hidden;
+}
+
+.game-overview-content {
+	padding: 2rem;
+	color: var(--color-text-secondary);
+	font-size: 1rem;
+	line-height: 1.8;
+}
+
+.game-overview-content p {
+	margin: 0 0 1rem 0;
+}
+
+.game-overview-content p:last-child {
+	margin-bottom: 0;
+}
+
+/* Content Tables */
+.game-overview-content table,
+.entry-content table,
+.expert-review-content table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	margin: 1.5rem 0;
+	background: var(--color-dark-800);
+	border-radius: 0.75rem;
+	border: 1px solid var(--color-border);
+}
+
+.game-overview-content table:first-child,
+.entry-content table:first-child,
+.expert-review-content table:first-child {
+	margin-top: 0;
+}
+
+.game-overview-content table:last-child,
+.entry-content table:last-child,
+.expert-review-content table:last-child {
+	margin-bottom: 0;
+}
+
+/* WordPress block table wrapper */
+.game-overview-content figure.wp-block-table,
+.entry-content figure.wp-block-table,
+.expert-review-content figure.wp-block-table {
+	margin: 1.5rem 0;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.game-overview-content figure.wp-block-table table,
+.entry-content figure.wp-block-table table,
+.expert-review-content figure.wp-block-table table {
+	margin: 0;
+}
+
+.game-overview-content thead,
+.entry-content thead,
+.expert-review-content thead {
+	background: rgba(30, 41, 59, 0.5);
+}
+
+.game-overview-content th,
+.game-overview-content td,
+.entry-content th,
+.entry-content td,
+.expert-review-content th,
+.expert-review-content td {
+	padding: 1rem 1.25rem;
+	border: none;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.game-overview-content th,
+.entry-content th,
+.expert-review-content th {
+	text-align: left;
+	font-weight: 600;
+	color: var(--color-text-primary);
+	font-size: 0.9375rem;
+}
+
+.game-overview-content td,
+.entry-content td,
+.expert-review-content td {
+	color: var(--color-text-secondary);
+}
+
+.game-overview-content tr,
+.entry-content tr,
+.expert-review-content tr {
+	transition: background-color 0.2s;
+}
+
+.game-overview-content tbody tr:nth-child(odd),
+.entry-content tbody tr:nth-child(odd),
+.expert-review-content tbody tr:nth-child(odd),
+.game-overview-content tr:nth-child(odd),
+.entry-content tr:nth-child(odd),
+.expert-review-content tr:nth-child(odd) {
+	background: var(--color-dark-800);
+}
+
+.game-overview-content tbody tr:nth-child(even),
+.entry-content tbody tr:nth-child(even),
+.expert-review-content tbody tr:nth-child(even),
+.game-overview-content tr:nth-child(even),
+.entry-content tr:nth-child(even),
+.expert-review-content tr:nth-child(even) {
+	background: rgba(30, 41, 59, 0.3);
+}
+
+.game-overview-content tbody tr:hover,
+.entry-content tbody tr:hover,
+.expert-review-content tbody tr:hover,
+.game-overview-content tr:hover,
+.entry-content tr:hover,
+.expert-review-content tr:hover {
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.game-overview-content tr:last-child td,
+.entry-content tr:last-child td,
+.expert-review-content tr:last-child td {
+	border-bottom: none;
+}
+
+/* Border radius for first/last cells */
+.game-overview-content tr:first-child th:first-child,
+.entry-content tr:first-child th:first-child,
+.expert-review-content tr:first-child th:first-child,
+.game-overview-content tr:first-child td:first-child,
+.entry-content tr:first-child td:first-child,
+.expert-review-content tr:first-child td:first-child {
+	border-top-left-radius: 0.75rem;
+}
+
+.game-overview-content tr:first-child th:last-child,
+.entry-content tr:first-child th:last-child,
+.expert-review-content tr:first-child th:last-child,
+.game-overview-content tr:first-child td:last-child,
+.entry-content tr:first-child td:last-child,
+.expert-review-content tr:first-child td:last-child {
+	border-top-right-radius: 0.75rem;
+}
+
+.game-overview-content tr:last-child td:first-child,
+.entry-content tr:last-child td:first-child,
+.expert-review-content tr:last-child td:first-child {
+	border-bottom-left-radius: 0.75rem;
+}
+
+.game-overview-content tr:last-child td:last-child,
+.entry-content tr:last-child td:last-child,
+.expert-review-content tr:last-child td:last-child {
+	border-bottom-right-radius: 0.75rem;
+}
+
+/* Mobile responsive tables */
+@media (max-width: 768px) {
+	.game-overview-content table,
+	.entry-content table,
+	.expert-review-content table {
+		display: block;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.game-overview-content th,
+	.game-overview-content td,
+	.entry-content th,
+	.entry-content td,
+	.expert-review-content th,
+	.expert-review-content td {
+		padding: 0.75rem 1rem;
+		font-size: 0.875rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.game-overview-content th,
+	.game-overview-content td,
+	.entry-content th,
+	.entry-content td,
+	.expert-review-content th,
+	.expert-review-content td {
+		padding: 0.625rem 0.75rem;
+		font-size: 0.8125rem;
+	}
+}
+
+.game-sidebar-title {
+	font-size: 1rem;
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--color-text-primary);
+	margin: 0 0 1.5rem 0;
+	text-align: center;
+	line-height: 1.5;
+}
+
+.game-sidebar-title .text-accent {
+	color: var(--color-emerald);
+	display: block;
+}
+
+/* Casino List in Game Page */
+.game-casinos-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.game-casino-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 2rem;
+	text-decoration: none;
+	transition: all 0.2s;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.game-casino-item:last-child {
+	border-bottom: none;
+}
+
+.game-casino-item:hover {
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.game-casino-info {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.game-casino-logo {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 0.75rem;
+	object-fit: cover;
+}
+
+.game-casino-logo-placeholder {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 0.75rem;
+	background: linear-gradient(135deg, var(--color-dark-800) 0%, var(--color-dark) 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: var(--color-text-muted);
+	text-transform: uppercase;
+}
+
+.game-casino-name {
+	font-size: 0.9375rem;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	transition: color 0.2s;
+}
+
+.game-casino-item:hover .game-casino-name {
+	color: var(--color-emerald);
+}
+
+.game-casino-play-btn {
+	background: var(--color-emerald);
+	color: var(--color-dark);
+	font-size: 0.75rem;
+	font-weight: 900;
+	padding: 0.625rem 1.25rem;
+	border-radius: 0.5rem;
+	transition: background 0.2s;
+}
+
+.game-casino-item:hover .game-casino-play-btn {
+	background: #059669;
+}
+
+/* Bonus Box */
+.game-bonus-box {
+	background: rgba(100, 116, 139, 0.1);
+	border: 1px solid var(--color-border);
+	border-radius: 1.5rem;
+	padding: 1.5rem;
+	text-align: center;
+}
+
+.game-bonus-icon {
+	font-size: 2rem;
+	margin-bottom: 0.75rem;
+}
+
+.game-bonus-title {
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0 0 0.5rem 0;
+}
+
+.game-bonus-text {
+	font-size: 0.75rem;
+	color: var(--color-text-muted);
+	margin: 0 0 1rem 0;
+}
+
+.game-bonus-link {
+	font-size: 0.75rem;
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--color-emerald);
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+.game-bonus-link:hover {
+	color: var(--color-text-primary);
+	text-decoration: underline;
+}
+
+/* Related Casinos Block */
+.related-casinos {
+	max-width: 1280px;
+	margin: 3rem auto;
+	padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+	.related-casinos {
+		padding: 0 2rem;
+	}
+}
+
+.related-casinos-title {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0 0 1.5rem 0;
+}
+
+.related-casinos-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+@media (min-width: 768px) {
+	.related-casinos-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+.related-casino-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1.5rem;
+	border-radius: var(--radius-lg);
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.related-casino-card:hover {
+	background: rgba(255, 255, 255, 0.05);
+	transform: translateY(-4px);
+}
+
+.related-casino-logo {
+	width: 4rem;
+	height: 4rem;
+	border-radius: var(--radius-md);
+	background: #1e293b;
+	object-fit: cover;
+	margin-bottom: 1rem;
+}
+
+.related-casino-logo-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--color-text-secondary);
+}
+
+.related-casino-info {
+	text-align: center;
+}
+
+.related-casino-name {
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0 0 0.5rem 0;
+}
+
+.related-casino-rating {
+	display: flex;
+	justify-content: center;
+	gap: 0.125rem;
+	color: var(--color-amber);
+	font-size: 0.75rem;
+}
+
+.related-casino-bonus {
+	font-size: 0.6875rem;
+	color: var(--color-emerald);
+	margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   Header Styles
+   ========================================================================== */
+
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	background: rgba(15, 23, 42, 0.95);
+	backdrop-filter: blur(12px);
+	border-bottom: 1px solid var(--color-border);
+}
+
+.header-container {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 1rem 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+}
+
+.site-branding {
+	flex-shrink: 0;
+}
+
+.site-logo-text,
+.footer-logo {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	text-decoration: none;
+	color: var(--color-text-primary);
+	font-weight: 700;
+	font-size: 1.25rem;
+}
+
+.logo-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	background: linear-gradient(135deg, var(--color-emerald), var(--color-emerald-dark));
+	border-radius: var(--radius-md);
+	color: white;
+}
+
+.logo-icon svg {
+	width: 24px;
+	height: 24px;
+}
+
+.logo-text {
+	background: linear-gradient(135deg, var(--color-gold), var(--color-amber));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* Main Navigation */
+.main-navigation {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+}
+
+.main-navigation .menu-container {
+	display: flex;
+}
+
+.main-navigation ul {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	gap: 0.5rem;
+}
+
+.main-navigation ul li {
+	margin: 0;
+}
+
+.main-navigation ul li a {
+	display: block;
+	padding: 0.75rem 1rem;
+	color: var(--color-text-secondary);
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 0.9375rem;
+	border-radius: var(--radius-md);
+	transition: all 0.2s;
+}
+
+.main-navigation ul li a:hover {
+	color: var(--color-text-primary);
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.main-navigation ul li.current-menu-item a,
+.main-navigation ul li.current_page_item a {
+	color: var(--color-emerald);
+	background: rgba(16, 185, 129, 0.1);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	width: 44px;
+	height: 44px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+}
+
+.hamburger-line {
+	display: block;
+	width: 24px;
+	height: 2px;
+	background: var(--color-text-primary);
+	border-radius: 2px;
+	transition: all 0.3s;
+}
+
+/* Header CTA Button */
+.header-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.75rem 1.5rem;
+	font-weight: 600;
+	font-size: 0.9375rem;
+	color: white;
+	text-decoration: none;
+	border-radius: var(--radius-md);
+	transition: all 0.2s;
+	flex-shrink: 0;
+}
+
+.header-cta:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+.header-cta svg {
+	width: 16px;
+	height: 16px;
+}
+
+/* Mobile Navigation */
+@media (max-width: 991px) {
+	.menu-toggle {
+		display: flex;
+	}
+
+	.main-navigation .menu-container {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: rgba(15, 23, 42, 0.98);
+		backdrop-filter: blur(12px);
+		border-bottom: 1px solid var(--color-border);
+		padding: 1rem;
+	}
+
+	.main-navigation.toggled .menu-container {
+		display: block;
+	}
+
+	.main-navigation ul {
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.main-navigation ul li a {
+		padding: 1rem;
+	}
+
+	.header-cta {
+		display: none;
+	}
+
+	.main-navigation.toggled + .header-cta {
+		display: none;
+	}
+}
+
+@media (max-width: 576px) {
+	.header-container {
+		padding: 0.75rem 1rem;
+	}
+
+	.logo-icon {
+		width: 36px;
+		height: 36px;
+	}
+
+	.logo-icon svg {
+		width: 20px;
+		height: 20px;
+	}
+
+	.site-logo-text,
+	.footer-logo {
+		font-size: 1.1rem;
+	}
+}
+
+/* ==========================================================================
+   Footer Styles
+   ========================================================================== */
+
+.site-footer {
+	background: linear-gradient(180deg, var(--color-bg-main) 0%, #080c14 100%);
+	border-top: 1px solid var(--color-border);
+	margin-top: auto;
+}
+
+.footer-container {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 3rem 1.5rem 2rem;
+}
+
+.footer-top {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 3rem;
+	padding-bottom: 2rem;
+	border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+	.footer-top {
+		grid-template-columns: 1.5fr 2fr;
+	}
+}
+
+/* Footer Brand */
+.footer-brand {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.footer-logo {
+	width: fit-content;
+}
+
+.footer-description {
+	color: var(--color-text-secondary);
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	margin: 0;
+	max-width: 320px;
+}
+
+/* Social Links */
+.footer-social {
+	display: flex;
+	gap: 0.75rem;
+	margin-top: 0.5rem;
+}
+
+.social-link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	color: var(--color-text-secondary);
+	transition: all 0.2s;
+}
+
+.social-link:hover {
+	background: rgba(16, 185, 129, 0.1);
+	border-color: var(--color-emerald);
+	color: var(--color-emerald);
+	transform: translateY(-2px);
+}
+
+.social-link svg {
+	width: 20px;
+	height: 20px;
+}
+
+/* Footer Menus */
+.footer-menus {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2rem;
+}
+
+@media (min-width: 992px) {
+	.footer-menus {
+		grid-template-columns: repeat(2, 1fr);
+		justify-content: end;
+	}
+}
+
+.footer-menu-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.footer-menu-title {
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0 0 1.25rem 0;
+}
+
+.footer-menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.footer-menu li {
+	margin: 0;
+}
+
+.footer-menu li a {
+	color: var(--color-text-secondary);
+	text-decoration: none;
+	font-size: 0.9375rem;
+	transition: all 0.2s;
+}
+
+.footer-menu li a:hover {
+	color: var(--color-emerald);
+}
+
+/* Responsible Gaming */
+.responsible-gaming {
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+	padding: 1.5rem;
+	margin: 2rem 0;
+	background: rgba(251, 191, 36, 0.05);
+	border: 1px solid rgba(251, 191, 36, 0.2);
+	border-radius: var(--radius-lg);
+}
+
+.responsible-gaming-icon {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	background: rgba(251, 191, 36, 0.1);
+	border-radius: var(--radius-md);
+	color: var(--color-amber);
+}
+
+.responsible-gaming-icon svg {
+	width: 24px;
+	height: 24px;
+}
+
+.responsible-gaming-text {
+	color: var(--color-text-secondary);
+	font-size: 0.875rem;
+	line-height: 1.6;
+	margin: 0;
+}
+
+.responsible-gaming-text a {
+	color: var(--color-emerald);
+	text-decoration: underline;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding-top: 2rem;
+	flex-wrap: wrap;
+}
+
+.copyright {
+	color: var(--color-text-muted);
+	font-size: 0.875rem;
+	margin: 0;
+}
+
+.age-badge {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 40px;
+	height: 40px;
+	padding: 0 0.75rem;
+	background: rgba(239, 68, 68, 0.1);
+	border: 2px solid var(--color-red);
+	border-radius: var(--radius-md);
+	color: var(--color-red);
+	font-weight: 800;
+	font-size: 0.875rem;
+}
+
+@media (max-width: 576px) {
+	.footer-container {
+		padding: 2rem 1rem 1.5rem;
+	}
+
+	.footer-top {
+		gap: 2rem;
+	}
+
+	.footer-menus {
+		grid-template-columns: 1fr 1fr;
+		gap: 1.5rem;
+	}
+
+	.responsible-gaming {
+		flex-direction: column;
+		text-align: center;
+		align-items: center;
+	}
+
+	.footer-bottom {
+		flex-direction: column;
+		text-align: center;
+	}
+}
+
+/* ==========================================================================
+   App Page Styles
+   ========================================================================== */
+
+.app-page {
+	background: var(--color-bg-main);
+	min-height: 100vh;
+}
+
+.app-container {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 2rem 1.5rem 4rem;
+}
+
+/* App Header */
+.app-header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	margin-bottom: 3rem;
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+	.app-header {
+		flex-direction: row;
+		align-items: flex-start;
+		text-align: left;
+	}
+}
+
+.app-icon-wrapper {
+	position: relative;
+	flex-shrink: 0;
+}
+
+.app-icon-img,
+.app-icon-placeholder {
+	width: 8rem;
+	height: 8rem;
+	border-radius: 22%;
+	object-fit: cover;
+	background: linear-gradient(135deg, #1e293b, #0f172a);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+	.app-icon-img,
+	.app-icon-placeholder {
+		width: 11rem;
+		height: 11rem;
+	}
+}
+
+.app-icon-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 3rem;
+	font-weight: 800;
+	color: var(--color-text-secondary);
+}
+
+.app-badge {
+	position: absolute;
+	bottom: -0.75rem;
+	right: -0.75rem;
+	background: #3b82f6;
+	color: white;
+	font-size: 0.625rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: -0.02em;
+	padding: 0.375rem 0.75rem;
+	border-radius: 9999px;
+	border: 2px solid var(--color-bg-main);
+	box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.app-info {
+	flex: 1;
+}
+
+.app-title {
+	font-size: 1.875rem;
+	font-weight: 800;
+	color: var(--color-text-primary);
+	margin: 0 0 0.25rem 0;
+	letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+	.app-title {
+		font-size: 2.5rem;
+	}
+}
+
+.app-developer {
+	color: #3b82f6;
+	font-size: 1.125rem;
+	font-weight: 600;
+	margin: 0 0 1rem 0;
+}
+
+.app-stats {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
+	margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+	.app-stats {
+		justify-content: flex-start;
+	}
+}
+
+.app-stat {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+	.app-stat {
+		align-items: flex-start;
+	}
+}
+
+.app-stat-value {
+	color: var(--color-text-primary);
+	font-size: 1.125rem;
+	font-weight: 700;
+}
+
+.app-stat-star {
+	font-size: 0.75rem;
+}
+
+.app-stat-label {
+	color: var(--color-text-muted);
+	font-size: 0.625rem;
+	text-transform: uppercase;
+}
+
+.app-stat-divider {
+	display: none;
+	width: 1px;
+	height: 2rem;
+	background: var(--color-border);
+}
+
+@media (min-width: 768px) {
+	.app-stat-divider {
+		display: block;
+	}
+}
+
+.app-actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+	.app-actions {
+		justify-content: flex-start;
+	}
+}
+
+.app-btn {
+	padding: 0.75rem 2.5rem;
+	font-size: 0.875rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	border-radius: 9999px;
+	border: none;
+	cursor: pointer;
+	transition: all 0.2s;
+	text-decoration: none;
+}
+
+.app-btn:active {
+	transform: scale(0.95);
+}
+
+.app-btn-primary {
+	background: #2563eb;
+	color: white;
+	box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.app-btn-primary:hover {
+	background: #3b82f6;
+}
+
+.app-btn-secondary {
+	background: rgba(255, 255, 255, 0.05);
+	color: var(--color-text-primary);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.app-btn-secondary:hover {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.app-purchases {
+	color: var(--color-text-muted);
+	font-size: 0.625rem;
+	margin: 0;
+}
+
+/* Screenshots */
+.app-screenshots {
+	margin-bottom: 3rem;
+}
+
+.app-section-title {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0 0 1.5rem 0;
+}
+
+.app-screenshots-carousel {
+	display: flex;
+	gap: 1rem;
+	overflow-x: auto;
+	padding-bottom: 1rem;
+	margin: 0 -1.5rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
+	cursor: grab;
+	user-select: none;
+}
+
+.app-screenshots-carousel.dragging {
+	cursor: grabbing;
+	scroll-snap-type: none;
+	scroll-behavior: auto;
+}
+
+.app-screenshots-carousel::-webkit-scrollbar {
+	display: none;
+}
+
+.app-screenshot {
+	flex: 0 0 auto;
+	width: 16rem;
+	aspect-ratio: 9 / 19.5;
+	background: #1e293b;
+	border-radius: 2rem;
+	border: 1px solid var(--color-border);
+	overflow: hidden;
+	scroll-snap-align: start;
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.app-screenshot img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.8;
+}
+
+/* What's New Section */
+.app-whats-new-section {
+	margin-bottom: 3rem;
+}
+
+.app-whats-new {
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	border-radius: var(--radius-xl);
+	padding: 1.5rem;
+}
+
+.app-whats-new-title {
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0 0 0.5rem 0;
+}
+
+.app-whats-new-meta {
+	color: var(--color-text-muted);
+	font-size: 0.75rem;
+	margin-bottom: 0.75rem;
+}
+
+.app-whats-new-content {
+	color: var(--color-text-muted);
+	font-size: 0.75rem;
+	line-height: 1.6;
+}
+
+/* Ratings */
+.app-ratings {
+	margin-bottom: 3rem;
+}
+
+.app-ratings-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+}
+
+@media (min-width: 768px) {
+	.app-ratings-content {
+		flex-direction: row;
+	}
+}
+
+.app-ratings-score {
+	text-align: center;
+}
+
+.app-ratings-number {
+	display: block;
+	font-size: 4rem;
+	font-weight: 900;
+	color: var(--color-text-primary);
+	line-height: 1;
+}
+
+@media (min-width: 768px) {
+	.app-ratings-number {
+		font-size: 4.5rem;
+	}
+}
+
+.app-ratings-label {
+	color: var(--color-text-muted);
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.app-ratings-bars {
+	flex: 1;
+	width: 100%;
+	max-width: 24rem;
+}
+
+.app-ratings-bar-row {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-bottom: 0.375rem;
+}
+
+.app-ratings-stars {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.125rem;
+	width: 4rem;
+}
+
+.app-ratings-dot {
+	width: 0.375rem;
+	height: 0.375rem;
+	border-radius: 50%;
+	background: var(--color-text-muted);
+}
+
+.app-ratings-bar {
+	flex: 1;
+	height: 0.375rem;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 9999px;
+	overflow: hidden;
+}
+
+.app-ratings-bar-fill {
+	height: 100%;
+	background: var(--color-text-muted);
+	border-radius: 9999px;
+}
+
+.app-ratings-count {
+	text-align: right;
+	color: var(--color-text-muted);
+	font-size: 0.625rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-top: 0.5rem;
+}
+
+/* Information */
+.app-information {
+	border-top: 1px solid var(--color-border);
+	padding-top: 3rem;
+	margin-bottom: 3rem;
+}
+
+.app-info-table {
+	border-top: 1px solid var(--color-border);
+}
+
+.app-info-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 0;
+	border-bottom: 1px solid var(--color-border);
+	font-size: 0.875rem;
+}
+
+.app-info-label {
+	color: var(--color-text-muted);
+	font-weight: 500;
+}
+
+.app-info-value {
+	color: var(--color-text-primary);
+	font-weight: 600;
+	text-align: right;
+	max-width: 12rem;
+}
+
+/* Page Content */
+.app-page-content {
+	color: var(--color-text-secondary);
+	line-height: 1.7;
+	margin-bottom: 3rem;
+}
+
+.app-page-content p {
+	margin: 0 0 1rem 0;
+}
+
+.app-page-content p:last-child {
+	margin-bottom: 0;
+}
+
+.app-page-content h2,
+.app-page-content h3,
+.app-page-content h4 {
+	color: var(--color-text-primary);
+	margin: 1.5rem 0 0.75rem 0;
+	font-weight: 600;
+}
+
+.app-page-content h2:first-child,
+.app-page-content h3:first-child,
+.app-page-content h4:first-child {
+	margin-top: 0;
+}
+
+.app-page-content ul,
+.app-page-content ol {
+	margin: 0 0 1rem 1.5rem;
+	padding: 0;
+}
+
+.app-page-content li {
+	margin-bottom: 0.5rem;
+}
+
+.app-page-content a {
+	color: var(--color-primary);
+	text-decoration: underline;
+}
+
+.app-page-content a:hover {
+	color: var(--color-primary-light);
+}
+
+.app-page-content strong,
+.app-page-content b {
+	color: var(--color-text-primary);
+	font-weight: 600;
+}
+
+.app-page-content blockquote {
+	border-left: 3px solid var(--color-primary);
+	padding-left: 1rem;
+	margin: 1rem 0;
+	font-style: italic;
+	color: var(--color-text-muted);
+}
+
+/* Back Link */
+.app-back-link {
+	margin-bottom: 2rem;
+}
+
+.app-back-link a {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: var(--color-emerald);
+	font-size: 0.875rem;
+	font-weight: 600;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.app-back-link a:hover {
+	color: var(--color-text-primary);
+}
+
+/* Disclaimer */
+.app-disclaimer {
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	border-radius: var(--radius-xl);
+	padding: 2rem;
+	color: var(--color-text-muted);
+	font-size: 0.625rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	text-align: center;
+	line-height: 1.6;
+}
+
+/* ==========================================================================
+   Top Casinos List Page Styles (page-review.php)
+   ========================================================================== */
+
+/* Page Header */
+.top-casinos-header {
+	text-align: center;
+	margin-bottom: 3rem;
+	padding-top: 1rem;
+}
+
+.top-casinos-title {
+	font-size: 2.5rem;
+	font-weight: 900;
+	color: var(--color-text-primary);
+	margin: 0 0 1rem 0;
+	letter-spacing: -0.02em;
+}
+
+.top-casinos-title em {
+	font-style: normal;
+	text-decoration: underline;
+	text-decoration-color: var(--color-emerald);
+	text-underline-offset: 4px;
+}
+
+@media (min-width: 768px) {
+	.top-casinos-title {
+		font-size: 3.5rem;
+	}
+}
+
+.top-casinos-subtitle {
+	color: var(--color-text-muted);
+	font-size: 1rem;
+	line-height: 1.7;
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+	.top-casinos-subtitle {
+		font-size: 1.125rem;
+	}
+}
+
+/* Casino List */
+.top-casinos-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin-bottom: 3rem;
+}
+
+/* Casino Card - Very small screens (<400px): name below logo */
+.casino-list-card {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-template-areas:
+		"position logo"
+		"info info"
+		"bonus bonus"
+		"actions actions";
+	gap: 0.75rem 1rem;
+	padding: 1.25rem;
+	align-items: center;
+}
+
+/* Small mobile (400px+): position + logo + info in row */
+@media (min-width: 400px) {
+	.casino-list-card {
+		grid-template-columns: auto auto 1fr;
+		grid-template-areas:
+			"position logo info"
+			"bonus bonus bonus"
+			"actions actions actions";
+	}
+}
+
+@media (min-width: 600px) {
+	.casino-list-card {
+		gap: 1rem 1.25rem;
+		padding: 1.5rem;
+	}
+}
+
+/* Tablet large (900px+): position + logo + info + actions in row, bonus below */
+@media (min-width: 900px) {
+	.casino-list-card {
+		grid-template-columns: auto auto 1fr auto;
+		grid-template-areas:
+			"position logo info actions"
+			"position logo bonus actions";
+		gap: 0.75rem 1.5rem;
+		padding: 1.5rem 2rem;
+	}
+}
+
+/* Desktop (1100px+): all in one row */
+@media (min-width: 1100px) {
+	.casino-list-card {
+		grid-template-columns: auto auto 1fr auto auto;
+		grid-template-areas:
+			"position logo info bonus actions";
+		gap: 1.5rem;
+	}
+}
+
+/* Position Number */
+.casino-list-position {
+	grid-area: position;
+	font-size: 1.5rem;
+	font-weight: 900;
+	color: var(--color-text-muted);
+	opacity: 0.5;
+	min-width: 2.5rem;
+}
+
+@media (min-width: 900px) {
+	.casino-list-position {
+		font-size: 2rem;
+		min-width: 3rem;
+	}
+}
+
+/* Logo */
+.casino-list-logo {
+	grid-area: logo;
+	width: 4rem;
+	height: 4rem;
+	border-radius: 1rem;
+	overflow: hidden;
+	background: linear-gradient(135deg, #1e293b, #0f172a);
+	border: 1px solid var(--color-border);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+@media (min-width: 900px) {
+	.casino-list-logo {
+		width: 5rem;
+		height: 5rem;
+	}
+}
+
+.casino-list-logo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.casino-list-logo-placeholder {
+	font-size: 1.5rem;
+	font-weight: 900;
+	color: var(--color-text-muted);
+}
+
+/* Info Block */
+.casino-list-info {
+	grid-area: info;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.casino-list-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.casino-list-tag {
+	background: rgba(71, 85, 105, 0.5);
+	color: var(--color-emerald);
+	border: 1px solid rgba(16, 185, 129, 0.3);
+	padding: 0.2rem 0.6rem;
+	border-radius: 9999px;
+	font-size: 0.5rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.casino-list-name {
+	font-size: 1.125rem;
+	font-weight: 800;
+	color: var(--color-text-primary);
+	margin: 0;
+	line-height: 1.3;
+}
+
+@media (min-width: 900px) {
+	.casino-list-name {
+		font-size: 1.25rem;
+	}
+}
+
+@media (min-width: 1100px) {
+	.casino-list-name {
+		font-size: 1.5rem;
+	}
+}
+
+.casino-list-rating {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.casino-list-stars {
+	display: flex;
+	gap: 0.125rem;
+}
+
+.casino-list-stars .star {
+	color: var(--color-text-muted);
+	opacity: 0.3;
+	font-size: 0.875rem;
+}
+
+.casino-list-stars .star.filled {
+	color: var(--color-gold);
+	opacity: 1;
+}
+
+.casino-list-stars .star.half {
+	color: var(--color-gold);
+	opacity: 0.6;
+}
+
+.casino-list-rating-value {
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: var(--color-text-secondary);
+}
+
+/* Bonus Block */
+.casino-list-bonus {
+	grid-area: bonus;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	padding: 1rem;
+	background: rgba(251, 191, 36, 0.05);
+	border: 1px solid rgba(251, 191, 36, 0.2);
+	border-radius: 1rem;
+}
+
+@media (min-width: 1100px) {
+	.casino-list-bonus {
+		min-width: 200px;
+	}
+}
+
+.casino-list-bonus-label {
+	font-size: 0.625rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--color-gold);
+}
+
+.casino-list-bonus-value {
+	font-size: 1rem;
+	font-weight: 800;
+	color: var(--color-text-primary);
+}
+
+@media (min-width: 900px) {
+	.casino-list-bonus-value {
+		font-size: 1.125rem;
+	}
+}
+
+.casino-list-bonus-desc {
+	font-size: 0.75rem;
+	color: var(--color-text-muted);
+}
+
+/* Actions */
+.casino-list-actions {
+	grid-area: actions;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+@media (min-width: 900px) {
+	.casino-list-actions {
+		align-items: stretch;
+		min-width: 150px;
+	}
+}
+
+.casino-list-btn-primary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	background: var(--color-emerald);
+	color: var(--color-bg-main);
+	padding: 0.875rem 1.5rem;
+	border-radius: 0.75rem;
+	font-size: 0.875rem;
+	font-weight: 800;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	transition: all 0.2s;
+}
+
+.casino-list-btn-primary:hover {
+	background: #059669;
+	transform: translateY(-2px);
+}
+
+.casino-list-btn-review {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	background: transparent;
+	color: var(--color-text-secondary);
+	padding: 0.75rem 1.5rem;
+	border-radius: 0.75rem;
+	border: 1px solid var(--color-border);
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.casino-list-btn-review:hover {
+	border-color: var(--color-text-muted);
+	color: var(--color-text-primary);
+}
+
+/* How We Review Section */
+.how-we-review {
+	padding: 2rem;
+	border-radius: var(--radius-xl);
+}
+
+.how-we-review-content {
+	color: var(--color-text-secondary);
+	line-height: 1.8;
+}
+
+.how-we-review-content h2,
+.how-we-review-content h3 {
+	color: var(--color-text-primary);
+	margin-top: 1.5rem;
+	margin-bottom: 0.75rem;
+}
+
+.how-we-review-content h2:first-child,
+.how-we-review-content h3:first-child {
+	margin-top: 0;
+}
+
+.how-we-review-content p {
+	margin-bottom: 1rem;
+}
+
+.how-we-review-content ul,
+.how-we-review-content ol {
+	margin-bottom: 1rem;
+	padding-left: 1.5rem;
+}
+
+.how-we-review-content li {
+	margin-bottom: 0.5rem;
+}
+
+/* ==========================================
+   Homepage
+   ========================================== */
+
+.home-page {
+	background: var(--color-dark);
+}
+
+.home-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+/* Hero Section */
+.home-hero {
+	padding: 3rem 2rem;
+	border-radius: var(--radius-2xl);
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+	.home-hero {
+		padding: 4rem 3rem;
+	}
+}
+
+.home-hero-content {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.home-hero-title {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-size: 2rem;
+	font-weight: 800;
+	color: var(--color-text-primary);
+	margin: 0 0 1rem 0;
+	line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+	.home-hero-title {
+		font-size: 3rem;
+	}
+}
+
+.home-hero-subtitle {
+	color: var(--color-text-secondary);
+	font-size: 1.125rem;
+	line-height: 1.6;
+	margin: 0 0 2rem 0;
+}
+
+.home-hero .btn-cta {
+	display: inline-flex;
+}
+
+/* Section Header */
+.home-section-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+.home-section-title {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0;
+}
+
+.home-section-link {
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+	color: var(--color-emerald);
+	text-decoration: none;
+	font-size: 0.875rem;
+	font-weight: 600;
+	transition: opacity 0.2s;
+}
+
+.home-section-link:hover {
+	opacity: 0.8;
+}
+
+.home-section-link svg {
+	width: 1rem;
+	height: 1rem;
+}
+
+/* Casino Cards Grid */
+.home-casinos-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
+}
+
+@media (min-width: 600px) {
+	.home-casinos-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 900px) {
+	.home-casinos-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.home-casino-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1.5rem;
+	border-radius: var(--radius-xl);
+	text-align: center;
+	gap: 1rem;
+}
+
+.home-casino-logo {
+	width: 5rem;
+	height: 5rem;
+	border-radius: var(--radius-lg);
+	object-fit: cover;
+	background: var(--color-dark-800);
+}
+
+.home-casino-logo-placeholder {
+	width: 5rem;
+	height: 5rem;
+	border-radius: var(--radius-lg);
+	background: var(--color-dark-800);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: 1.25rem;
+	color: var(--color-text-muted);
+}
+
+.home-casino-info {
+	flex: 1;
+}
+
+.home-casino-name {
+	font-size: 1rem;
+	font-weight: 700;
+	color: var(--color-text-primary);
+	margin: 0 0 0.5rem 0;
+}
+
+.home-casino-rating {
+	display: flex;
+	justify-content: center;
+	gap: 0.125rem;
+	margin-bottom: 0.5rem;
+}
+
+.home-casino-rating .star {
+	color: var(--color-text-muted);
+	font-size: 0.875rem;
+}
+
+.home-casino-rating .star.filled {
+	color: var(--color-gold);
+}
+
+.home-casino-bonus {
+	font-size: 0.75rem;
+	color: var(--color-text-secondary);
+	margin: 0;
+	line-height: 1.4;
+}
+
+.home-casino-btn {
+	padding: 0.75rem 1.5rem;
+	border-radius: var(--radius-md);
+	font-weight: 700;
+	font-size: 0.875rem;
+	color: var(--color-bg-main);
+	text-decoration: none;
+	transition: filter 0.2s;
+}
+
+.home-casino-btn:hover {
+	filter: brightness(1.1);
+}
+
+/* Games Grid */
+.home-games-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+@media (min-width: 600px) {
+	.home-games-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (min-width: 900px) {
+	.home-games-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media (min-width: 1100px) {
+	.home-games-grid {
+		grid-template-columns: repeat(6, 1fr);
+	}
+}
+
+.home-game-card {
+	display: block;
+	text-decoration: none;
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	background: var(--color-bg-card);
+	border: 1px solid var(--color-border);
+	transition: transform 0.2s, border-color 0.2s;
+}
+
+.home-game-card:hover {
+	transform: translateY(-4px);
+	border-color: var(--color-emerald);
+}
+
+.home-game-image {
+	position: relative;
+	aspect-ratio: 1;
+	overflow: hidden;
+}
+
+.home-game-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.home-game-play-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+
+.home-game-card:hover .home-game-play-overlay {
+	opacity: 1;
+}
+
+.home-game-play-icon {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	background: var(--color-emerald);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: 1rem;
+}
+
+.home-game-info {
+	padding: 0.75rem;
+}
+
+.home-game-name {
+	font-size: 0.8125rem;
+	font-weight: 600;
+	color: var(--color-text-primary);
+	margin: 0 0 0.25rem 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.home-game-provider {
+	font-size: 0.6875rem;
+	color: var(--color-text-muted);
+}
+
+/* SEO Content */
+.home-content {
+	padding: 2rem;
+	border-radius: var(--radius-xl);
+}
+
+.home-content-inner {
+	color: var(--color-text-secondary);
+	font-size: 1rem;
+	line-height: 1.8;
+}
+
+.home-content-inner h2,
+.home-content-inner h3 {
+	color: var(--color-text-primary);
+	margin-top: 1.5rem;
+	margin-bottom: 0.75rem;
+}
+
+.home-content-inner h2:first-child,
+.home-content-inner h3:first-child {
+	margin-top: 0;
+}
+
+.home-content-inner p {
+	margin-bottom: 1rem;
+}
+
+/* ==========================================
+   Games Hub
+   ========================================== */
+
+.games-hub-page {
+	background: var(--color-bg-main);
+}
+
+.games-hub-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+/* Hero Section */
+.games-hub-hero {
+	padding: 2rem;
+	border-radius: var(--radius-xl);
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+	.games-hub-hero {
+		padding: 3rem;
+	}
+}
+
+.games-hub-title {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-size: 1.75rem;
+	font-weight: 800;
+	color: var(--color-text-primary);
+	margin: 0 0 0.5rem 0;
+	line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+	.games-hub-title {
+		font-size: 2.5rem;
+	}
+}
+
+.games-hub-subtitle {
+	color: var(--color-text-secondary);
+	font-size: 1rem;
+	line-height: 1.6;
+	margin: 0;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Filters */
+.games-hub-filters {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.games-hub-filter-list {
+	display: flex;
+	gap: 0.5rem;
+	padding: 0.25rem;
+}
+
+.games-hub-filter-btn {
+	padding: 0.5rem 1rem;
+	background: var(--color-bg-card);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	color: var(--color-text-secondary);
+	font-size: 0.875rem;
+	font-weight: 500;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: all 0.2s;
+}
+
+.games-hub-filter-btn:hover {
+	background: var(--color-bg-card-hover);
+	color: var(--color-text-primary);
+}
+
+.games-hub-filter-btn.active {
+	background: var(--color-emerald);
+	border-color: var(--color-emerald);
+	color: white;
+}
+
+/* Games Count */
+.games-hub-count {
+	font-size: 0.875rem;
+	color: var(--color-text-muted);
+}
+
+/* Games Grid */
+.games-hub-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+@media (min-width: 480px) {
+	.games-hub-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (min-width: 768px) {
+	.games-hub-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media (min-width: 1024px) {
+	.games-hub-grid {
+		grid-template-columns: repeat(6, 1fr);
+	}
+}
+
+/* Game Card */
+.games-hub-card {
+	display: block;
+	background: var(--color-bg-card);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	text-decoration: none;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.games-hub-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.games-hub-card-image {
+	position: relative;
+	aspect-ratio: 1;
+	overflow: hidden;
+}
+
+.games-hub-card-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.3s;
+}
+
+.games-hub-card:hover .games-hub-card-image img {
+	transform: scale(1.05);
+}
+
+.games-hub-card-placeholder {
+	aspect-ratio: 1;
+	background: linear-gradient(135deg, var(--color-dark-800) 0%, var(--color-bg-main) 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.games-hub-card-placeholder span {
+	font-size: 2rem;
+	font-weight: 700;
+	color: var(--color-text-muted);
+	text-transform: uppercase;
+}
+
+.games-hub-play-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+
+.games-hub-card:hover .games-hub-play-overlay {
+	opacity: 1;
+}
+
+.games-hub-play-icon {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	background: var(--color-emerald);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: 1rem;
+}
+
+.games-hub-card-info {
+	padding: 0.75rem;
+}
+
+.games-hub-card-title {
+	font-size: 0.8125rem;
+	font-weight: 600;
+	color: var(--color-text-primary);
+	margin: 0 0 0.25rem 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.games-hub-card-provider {
+	font-size: 0.6875rem;
+	color: var(--color-text-muted);
+}
+
+/* Pagination */
+.games-hub-pagination {
+	display: flex;
+	justify-content: center;
+	padding: 1rem 0;
+}
+
+.games-hub-pagination ul {
+	display: flex;
+	gap: 0.5rem;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.games-hub-pagination li a,
+.games-hub-pagination li span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2.5rem;
+	height: 2.5rem;
+	padding: 0 0.75rem;
+	background: var(--color-bg-card);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	color: var(--color-text-secondary);
+	font-size: 0.875rem;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.games-hub-pagination li a:hover {
+	background: var(--color-bg-card-hover);
+	color: var(--color-text-primary);
+}
+
+.games-hub-pagination li span.current {
+	background: var(--color-emerald);
+	border-color: var(--color-emerald);
+	color: white;
+}
+
+/* Empty State */
+.games-hub-empty {
+	text-align: center;
+	padding: 3rem;
+	color: var(--color-text-muted);
+}
+
+/* SEO Content */
+.games-hub-content {
+	padding: 2rem;
+	border-radius: var(--radius-xl);
+}
+
+.games-hub-content-inner {
+	color: var(--color-text-secondary);
+	font-size: 1rem;
+	line-height: 1.8;
+}
+
+.games-hub-content-inner h2,
+.games-hub-content-inner h3 {
+	color: var(--color-text-primary);
+	margin-top: 1.5rem;
+	margin-bottom: 0.75rem;
+}
+
+.games-hub-content-inner h2:first-child,
+.games-hub-content-inner h3:first-child {
+	margin-top: 0;
+}
+
+.games-hub-content-inner p {
+	margin-bottom: 1rem;
+}

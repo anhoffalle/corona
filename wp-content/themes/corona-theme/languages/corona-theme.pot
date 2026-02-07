@@ -1,0 +1,83 @@
+# Corona Theme Translation Template
+# Copyright (C) 2024
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Corona Theme 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01T00:00:00+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: corona-theme\n"
+
+#: page-review.php
+msgid "Top Rated Casinos 2024"
+msgstr ""
+
+#: page-review.php
+msgid "Our experts evaluate hundreds of online casinos every month to bring you the safest, fastest, and most rewarding gaming experiences."
+msgstr ""
+
+#: page-review.php
+msgid "Premium Choice"
+msgstr ""
+
+#: page-review.php
+msgid "Fast Payouts"
+msgstr ""
+
+#: page-review.php
+msgid "Trusted"
+msgstr ""
+
+#: page-review.php
+msgid "Crypto Friendly"
+msgstr ""
+
+#: page-review.php
+msgid "Slots Focused"
+msgstr ""
+
+#: page-review.php
+msgid "Exclusive Bonus"
+msgstr ""
+
+#: page-review.php
+msgid "Visit Casino"
+msgstr ""
+
+#: page-review.php
+msgid "Read Full Review"
+msgstr ""
+
+#: page-casino.php
+msgid "Play Now"
+msgstr ""
+
+#: page-casino.php
+msgid "Full Brand Characteristics"
+msgstr ""
+
+#: page-casino.php
+msgid "Related Bonuses"
+msgstr ""
+
+#: page-casino.php
+msgid "Claim offer and play"
+msgstr ""
+
+#: page-casino.php
+msgid "Payment Methods"
+msgstr ""
+
+#: page-casino.php
+msgid "Expert Verdict"
+msgstr ""
+
+#: page-casino.php
+msgid "Highly Recommended"
+msgstr ""

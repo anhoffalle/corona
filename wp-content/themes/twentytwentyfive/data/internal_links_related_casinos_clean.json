@@ -1,0 +1,794 @@
+{
+  "https://corona.ps/brand/onlyspins/": [
+    {
+      "target_url": "https://corona.ps/brand/wazamba/",
+      "anchor_text": "Wazamba"
+    },
+    {
+      "target_url": "https://corona.ps/brand/malina/",
+      "anchor_text": "Malina"
+    },
+    {
+      "target_url": "https://corona.ps/brand/nomini/",
+      "anchor_text": "Nomini"
+    },
+    {
+      "target_url": "https://corona.ps/brand/rabona/",
+      "anchor_text": "Rabona"
+    }
+  ],
+  "https://corona.ps/brand/jackpot-frenzy/": [
+    {
+      "target_url": "https://corona.ps/brand/5gringos/",
+      "anchor_text": "5Gringos"
+    },
+    {
+      "target_url": "https://corona.ps/brand/7signs/",
+      "anchor_text": "7Signs"
+    },
+    {
+      "target_url": "https://corona.ps/brand/alfcasino/",
+      "anchor_text": "Alfcasino"
+    },
+    {
+      "target_url": "https://corona.ps/brand/amunra/",
+      "anchor_text": "Amunra"
+    }
+  ],
+  "https://corona.ps/brand/vegas-hero/": [
+    {
+      "target_url": "https://corona.ps/brand/bankonbet/",
+      "anchor_text": "Bankonbet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/boaboa/",
+      "anchor_text": "Boaboa"
+    },
+    {
+      "target_url": "https://corona.ps/brand/cadoola/",
+      "anchor_text": "Cadoola"
+    },
+    {
+      "target_url": "https://corona.ps/brand/casinolab/",
+      "anchor_text": "Casinolab"
+    }
+  ],
+  "https://corona.ps/brand/spinbara/": [
+    {
+      "target_url": "https://corona.ps/brand/frumzi/",
+      "anchor_text": "Frumzi"
+    },
+    {
+      "target_url": "https://corona.ps/brand/funbet/",
+      "anchor_text": "Funbet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/myempire/",
+      "anchor_text": "Myempire"
+    },
+    {
+      "target_url": "https://corona.ps/brand/neon54/",
+      "anchor_text": "Neon54"
+    }
+  ],
+  "https://corona.ps/brand/bigclash/": [
+    {
+      "target_url": "https://corona.ps/brand/rtbet/",
+      "anchor_text": "Rtbet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/sgcasino/",
+      "anchor_text": "Sgcasino"
+    },
+    {
+      "target_url": "https://corona.ps/brand/slotspalace/",
+      "anchor_text": "Slotspalace"
+    },
+    {
+      "target_url": "https://corona.ps/brand/sportaza/",
+      "anchor_text": "Sportaza"
+    }
+  ],
+  "https://corona.ps/brand/fambet/": [
+    {
+      "target_url": "https://corona.ps/brand/tikitaka/",
+      "anchor_text": "Tikitaka"
+    },
+    {
+      "target_url": "https://corona.ps/brand/casinia/",
+      "anchor_text": "Casinia"
+    },
+    {
+      "target_url": "https://corona.ps/brand/librabet/",
+      "anchor_text": "Librabet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/yoyo/",
+      "anchor_text": "Yoyo"
+    }
+  ],
+  "https://corona.ps/brand/wazamba/": [
+    {
+      "target_url": "https://corona.ps/brand/buran/",
+      "anchor_text": "Buran"
+    },
+    {
+      "target_url": "https://corona.ps/brand/betinia/",
+      "anchor_text": "Betinia"
+    },
+    {
+      "target_url": "https://corona.ps/brand/spinanga/",
+      "anchor_text": "Spinanga"
+    },
+    {
+      "target_url": "https://corona.ps/brand/gransino/",
+      "anchor_text": "Gransino"
+    }
+  ],
+  "https://corona.ps/brand/malina/": [
+    {
+      "target_url": "https://corona.ps/brand/wazamba/",
+      "anchor_text": "Wazamba"
+    },
+    {
+      "target_url": "https://corona.ps/brand/nomini/",
+      "anchor_text": "Nomini"
+    },
+    {
+      "target_url": "https://corona.ps/brand/rabona/",
+      "anchor_text": "Rabona"
+    },
+    {
+      "target_url": "https://corona.ps/brand/5gringos/",
+      "anchor_text": "5Gringos"
+    }
+  ],
+  "https://corona.ps/brand/allyspin/": [
+    {
+      "target_url": "https://corona.ps/brand/7signs/",
+      "anchor_text": "7Signs"
+    },
+    {
+      "target_url": "https://corona.ps/brand/alfcasino/",
+      "anchor_text": "Alfcasino"
+    },
+    {
+      "target_url": "https://corona.ps/brand/amunra/",
+      "anchor_text": "Amunra"
+    },
+    {
+      "target_url": "https://corona.ps/brand/bankonbet/",
+      "anchor_text": "Bankonbet"
+    }
+  ],
+  "https://corona.ps/brand/pistolo/": [
+    {
+      "target_url": "https://corona.ps/brand/boaboa/",
+      "anchor_text": "Boaboa"
+    },
+    {
+      "target_url": "https://corona.ps/brand/cadoola/",
+      "anchor_text": "Cadoola"
+    },
+    {
+      "target_url": "https://corona.ps/brand/casinolab/",
+      "anchor_text": "Casinolab"
+    },
+    {
+      "target_url": "https://corona.ps/brand/frumzi/",
+      "anchor_text": "Frumzi"
+    }
+  ],
+  "https://corona.ps/brand/cazeus/": [
+    {
+      "target_url": "https://corona.ps/brand/funbet/",
+      "anchor_text": "Funbet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/myempire/",
+      "anchor_text": "Myempire"
+    },
+    {
+      "target_url": "https://corona.ps/brand/neon54/",
+      "anchor_text": "Neon54"
+    },
+    {
+      "target_url": "https://corona.ps/brand/rtbet/",
+      "anchor_text": "Rtbet"
+    }
+  ],
+  "https://corona.ps/brand/spinanga/": [
+    {
+      "target_url": "https://corona.ps/brand/sgcasino/",
+      "anchor_text": "Sgcasino"
+    },
+    {
+      "target_url": "https://corona.ps/brand/slotspalace/",
+      "anchor_text": "Slotspalace"
+    },
+    {
+      "target_url": "https://corona.ps/brand/sportaza/",
+      "anchor_text": "Sportaza"
+    },
+    {
+      "target_url": "https://corona.ps/brand/tikitaka/",
+      "anchor_text": "Tikitaka"
+    }
+  ],
+  "https://corona.ps/brand/rabona/": [
+    {
+      "target_url": "https://corona.ps/brand/casinia/",
+      "anchor_text": "Casinia"
+    },
+    {
+      "target_url": "https://corona.ps/brand/librabet/",
+      "anchor_text": "Librabet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/yoyo/",
+      "anchor_text": "Yoyo"
+    },
+    {
+      "target_url": "https://corona.ps/brand/buran/",
+      "anchor_text": "Buran"
+    }
+  ],
+  "https://corona.ps/brand/bassbet/": [
+    {
+      "target_url": "https://corona.ps/brand/betinia/",
+      "anchor_text": "Betinia"
+    },
+    {
+      "target_url": "https://corona.ps/brand/spinanga/",
+      "anchor_text": "Spinanga"
+    },
+    {
+      "target_url": "https://corona.ps/brand/gransino/",
+      "anchor_text": "Gransino"
+    },
+    {
+      "target_url": "https://corona.ps/brand/wazamba/",
+      "anchor_text": "Wazamba"
+    }
+  ],
+  "https://corona.ps/brand/robocat/": [
+    {
+      "target_url": "https://corona.ps/brand/malina/",
+      "anchor_text": "Malina"
+    },
+    {
+      "target_url": "https://corona.ps/brand/nomini/",
+      "anchor_text": "Nomini"
+    },
+    {
+      "target_url": "https://corona.ps/brand/rabona/",
+      "anchor_text": "Rabona"
+    },
+    {
+      "target_url": "https://corona.ps/brand/5gringos/",
+      "anchor_text": "5Gringos"
+    }
+  ],
+  "https://corona.ps/brand/gransino/": [
+    {
+      "target_url": "https://corona.ps/brand/7signs/",
+      "anchor_text": "7Signs"
+    },
+    {
+      "target_url": "https://corona.ps/brand/alfcasino/",
+      "anchor_text": "Alfcasino"
+    },
+    {
+      "target_url": "https://corona.ps/brand/amunra/",
+      "anchor_text": "Amunra"
+    },
+    {
+      "target_url": "https://corona.ps/brand/bankonbet/",
+      "anchor_text": "Bankonbet"
+    }
+  ],
+  "https://corona.ps/brand/wild-robin/": [
+    {
+      "target_url": "https://corona.ps/brand/boaboa/",
+      "anchor_text": "Boaboa"
+    },
+    {
+      "target_url": "https://corona.ps/brand/cadoola/",
+      "anchor_text": "Cadoola"
+    },
+    {
+      "target_url": "https://corona.ps/brand/casinolab/",
+      "anchor_text": "Casinolab"
+    },
+    {
+      "target_url": "https://corona.ps/brand/frumzi/",
+      "anchor_text": "Frumzi"
+    }
+  ],
+  "https://corona.ps/brand/magius/": [
+    {
+      "target_url": "https://corona.ps/brand/funbet/",
+      "anchor_text": "Funbet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/myempire/",
+      "anchor_text": "Myempire"
+    },
+    {
+      "target_url": "https://corona.ps/brand/neon54/",
+      "anchor_text": "Neon54"
+    },
+    {
+      "target_url": "https://corona.ps/brand/rtbet/",
+      "anchor_text": "Rtbet"
+    }
+  ],
+  "https://corona.ps/brand/nomini/": [
+    {
+      "target_url": "https://corona.ps/brand/sgcasino/",
+      "anchor_text": "Sgcasino"
+    },
+    {
+      "target_url": "https://corona.ps/brand/slotspalace/",
+      "anchor_text": "Slotspalace"
+    },
+    {
+      "target_url": "https://corona.ps/brand/sportaza/",
+      "anchor_text": "Sportaza"
+    },
+    {
+      "target_url": "https://corona.ps/brand/tikitaka/",
+      "anchor_text": "Tikitaka"
+    }
+  ],
+  "https://corona.ps/brand/legiano/": [
+    {
+      "target_url": "https://corona.ps/brand/casinia/",
+      "anchor_text": "Casinia"
+    },
+    {
+      "target_url": "https://corona.ps/brand/librabet/",
+      "anchor_text": "Librabet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/yoyo/",
+      "anchor_text": "Yoyo"
+    },
+    {
+      "target_url": "https://corona.ps/brand/buran/",
+      "anchor_text": "Buran"
+    }
+  ],
+  "https://corona.ps/brand/swiper/": [
+    {
+      "target_url": "https://corona.ps/brand/betinia/",
+      "anchor_text": "Betinia"
+    },
+    {
+      "target_url": "https://corona.ps/brand/spinanga/",
+      "anchor_text": "Spinanga"
+    },
+    {
+      "target_url": "https://corona.ps/brand/gransino/",
+      "anchor_text": "Gransino"
+    },
+    {
+      "target_url": "https://corona.ps/brand/wazamba/",
+      "anchor_text": "Wazamba"
+    }
+  ],
+  "https://corona.ps/brand/5gringos/": [
+    {
+      "target_url": "https://corona.ps/brand/malina/",
+      "anchor_text": "Malina"
+    },
+    {
+      "target_url": "https://corona.ps/brand/nomini/",
+      "anchor_text": "Nomini"
+    },
+    {
+      "target_url": "https://corona.ps/brand/rabona/",
+      "anchor_text": "Rabona"
+    },
+    {
+      "target_url": "https://corona.ps/brand/7signs/",
+      "anchor_text": "7Signs"
+    }
+  ],
+  "https://corona.ps/brand/7signs/": [
+    {
+      "target_url": "https://corona.ps/brand/alfcasino/",
+      "anchor_text": "Alfcasino"
+    },
+    {
+      "target_url": "https://corona.ps/brand/amunra/",
+      "anchor_text": "Amunra"
+    },
+    {
+      "target_url": "https://corona.ps/brand/bankonbet/",
+      "anchor_text": "Bankonbet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/boaboa/",
+      "anchor_text": "Boaboa"
+    }
+  ],
+  "https://corona.ps/brand/alfcasino/": [
+    {
+      "target_url": "https://corona.ps/brand/cadoola/",
+      "anchor_text": "Cadoola"
+    },
+    {
+      "target_url": "https://corona.ps/brand/casinolab/",
+      "anchor_text": "Casinolab"
+    },
+    {
+      "target_url": "https://corona.ps/brand/frumzi/",
+      "anchor_text": "Frumzi"
+    },
+    {
+      "target_url": "https://corona.ps/brand/funbet/",
+      "anchor_text": "Funbet"
+    }
+  ],
+  "https://corona.ps/brand/amunra/": [
+    {
+      "target_url": "https://corona.ps/brand/myempire/",
+      "anchor_text": "Myempire"
+    },
+    {
+      "target_url": "https://corona.ps/brand/neon54/",
+      "anchor_text": "Neon54"
+    },
+    {
+      "target_url": "https://corona.ps/brand/rtbet/",
+      "anchor_text": "Rtbet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/sgcasino/",
+      "anchor_text": "Sgcasino"
+    }
+  ],
+  "https://corona.ps/brand/bankonbet/": [
+    {
+      "target_url": "https://corona.ps/brand/slotspalace/",
+      "anchor_text": "Slotspalace"
+    },
+    {
+      "target_url": "https://corona.ps/brand/sportaza/",
+      "anchor_text": "Sportaza"
+    },
+    {
+      "target_url": "https://corona.ps/brand/tikitaka/",
+      "anchor_text": "Tikitaka"
+    },
+    {
+      "target_url": "https://corona.ps/brand/casinia/",
+      "anchor_text": "Casinia"
+    }
+  ],
+  "https://corona.ps/brand/boaboa/": [
+    {
+      "target_url": "https://corona.ps/brand/librabet/",
+      "anchor_text": "Librabet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/yoyo/",
+      "anchor_text": "Yoyo"
+    },
+    {
+      "target_url": "https://corona.ps/brand/buran/",
+      "anchor_text": "Buran"
+    },
+    {
+      "target_url": "https://corona.ps/brand/betinia/",
+      "anchor_text": "Betinia"
+    }
+  ],
+  "https://corona.ps/brand/cadoola/": [
+    {
+      "target_url": "https://corona.ps/brand/spinanga/",
+      "anchor_text": "Spinanga"
+    },
+    {
+      "target_url": "https://corona.ps/brand/gransino/",
+      "anchor_text": "Gransino"
+    },
+    {
+      "target_url": "https://corona.ps/brand/wazamba/",
+      "anchor_text": "Wazamba"
+    },
+    {
+      "target_url": "https://corona.ps/brand/malina/",
+      "anchor_text": "Malina"
+    }
+  ],
+  "https://corona.ps/brand/casinolab/": [
+    {
+      "target_url": "https://corona.ps/brand/nomini/",
+      "anchor_text": "Nomini"
+    },
+    {
+      "target_url": "https://corona.ps/brand/rabona/",
+      "anchor_text": "Rabona"
+    },
+    {
+      "target_url": "https://corona.ps/brand/5gringos/",
+      "anchor_text": "5Gringos"
+    },
+    {
+      "target_url": "https://corona.ps/brand/7signs/",
+      "anchor_text": "7Signs"
+    }
+  ],
+  "https://corona.ps/brand/fatpirate/": [
+    {
+      "target_url": "https://corona.ps/brand/alfcasino/",
+      "anchor_text": "Alfcasino"
+    },
+    {
+      "target_url": "https://corona.ps/brand/amunra/",
+      "anchor_text": "Amunra"
+    },
+    {
+      "target_url": "https://corona.ps/brand/bankonbet/",
+      "anchor_text": "Bankonbet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/boaboa/",
+      "anchor_text": "Boaboa"
+    }
+  ],
+  "https://corona.ps/brand/frumzi/": [
+    {
+      "target_url": "https://corona.ps/brand/cadoola/",
+      "anchor_text": "Cadoola"
+    },
+    {
+      "target_url": "https://corona.ps/brand/casinolab/",
+      "anchor_text": "Casinolab"
+    },
+    {
+      "target_url": "https://corona.ps/brand/funbet/",
+      "anchor_text": "Funbet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/myempire/",
+      "anchor_text": "Myempire"
+    }
+  ],
+  "https://corona.ps/brand/funbet/": [
+    {
+      "target_url": "https://corona.ps/brand/neon54/",
+      "anchor_text": "Neon54"
+    },
+    {
+      "target_url": "https://corona.ps/brand/rtbet/",
+      "anchor_text": "Rtbet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/sgcasino/",
+      "anchor_text": "Sgcasino"
+    },
+    {
+      "target_url": "https://corona.ps/brand/slotspalace/",
+      "anchor_text": "Slotspalace"
+    }
+  ],
+  "https://corona.ps/brand/myempire/": [
+    {
+      "target_url": "https://corona.ps/brand/sportaza/",
+      "anchor_text": "Sportaza"
+    },
+    {
+      "target_url": "https://corona.ps/brand/tikitaka/",
+      "anchor_text": "Tikitaka"
+    },
+    {
+      "target_url": "https://corona.ps/brand/casinia/",
+      "anchor_text": "Casinia"
+    },
+    {
+      "target_url": "https://corona.ps/brand/librabet/",
+      "anchor_text": "Librabet"
+    }
+  ],
+  "https://corona.ps/brand/neon54/": [
+    {
+      "target_url": "https://corona.ps/brand/yoyo/",
+      "anchor_text": "Yoyo"
+    },
+    {
+      "target_url": "https://corona.ps/brand/buran/",
+      "anchor_text": "Buran"
+    },
+    {
+      "target_url": "https://corona.ps/brand/betinia/",
+      "anchor_text": "Betinia"
+    },
+    {
+      "target_url": "https://corona.ps/brand/spinanga/",
+      "anchor_text": "Spinanga"
+    }
+  ],
+  "https://corona.ps/brand/rtbet/": [
+    {
+      "target_url": "https://corona.ps/brand/gransino/",
+      "anchor_text": "Gransino"
+    },
+    {
+      "target_url": "https://corona.ps/brand/wazamba/",
+      "anchor_text": "Wazamba"
+    },
+    {
+      "target_url": "https://corona.ps/brand/malina/",
+      "anchor_text": "Malina"
+    },
+    {
+      "target_url": "https://corona.ps/brand/nomini/",
+      "anchor_text": "Nomini"
+    }
+  ],
+  "https://corona.ps/brand/sgcasino/": [
+    {
+      "target_url": "https://corona.ps/brand/rabona/",
+      "anchor_text": "Rabona"
+    },
+    {
+      "target_url": "https://corona.ps/brand/5gringos/",
+      "anchor_text": "5Gringos"
+    },
+    {
+      "target_url": "https://corona.ps/brand/7signs/",
+      "anchor_text": "7Signs"
+    },
+    {
+      "target_url": "https://corona.ps/brand/alfcasino/",
+      "anchor_text": "Alfcasino"
+    }
+  ],
+  "https://corona.ps/brand/slotspalace/": [
+    {
+      "target_url": "https://corona.ps/brand/amunra/",
+      "anchor_text": "Amunra"
+    },
+    {
+      "target_url": "https://corona.ps/brand/bankonbet/",
+      "anchor_text": "Bankonbet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/boaboa/",
+      "anchor_text": "Boaboa"
+    },
+    {
+      "target_url": "https://corona.ps/brand/cadoola/",
+      "anchor_text": "Cadoola"
+    }
+  ],
+  "https://corona.ps/brand/sportaza/": [
+    {
+      "target_url": "https://corona.ps/brand/casinolab/",
+      "anchor_text": "Casinolab"
+    },
+    {
+      "target_url": "https://corona.ps/brand/frumzi/",
+      "anchor_text": "Frumzi"
+    },
+    {
+      "target_url": "https://corona.ps/brand/funbet/",
+      "anchor_text": "Funbet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/myempire/",
+      "anchor_text": "Myempire"
+    }
+  ],
+  "https://corona.ps/brand/tikitaka/": [
+    {
+      "target_url": "https://corona.ps/brand/neon54/",
+      "anchor_text": "Neon54"
+    },
+    {
+      "target_url": "https://corona.ps/brand/rtbet/",
+      "anchor_text": "Rtbet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/sgcasino/",
+      "anchor_text": "Sgcasino"
+    },
+    {
+      "target_url": "https://corona.ps/brand/slotspalace/",
+      "anchor_text": "Slotspalace"
+    }
+  ],
+  "https://corona.ps/brand/casinia/": [
+    {
+      "target_url": "https://corona.ps/brand/sportaza/",
+      "anchor_text": "Sportaza"
+    },
+    {
+      "target_url": "https://corona.ps/brand/tikitaka/",
+      "anchor_text": "Tikitaka"
+    },
+    {
+      "target_url": "https://corona.ps/brand/librabet/",
+      "anchor_text": "Librabet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/yoyo/",
+      "anchor_text": "Yoyo"
+    }
+  ],
+  "https://corona.ps/brand/librabet/": [
+    {
+      "target_url": "https://corona.ps/brand/buran/",
+      "anchor_text": "Buran"
+    },
+    {
+      "target_url": "https://corona.ps/brand/betinia/",
+      "anchor_text": "Betinia"
+    },
+    {
+      "target_url": "https://corona.ps/brand/spinanga/",
+      "anchor_text": "Spinanga"
+    },
+    {
+      "target_url": "https://corona.ps/brand/gransino/",
+      "anchor_text": "Gransino"
+    }
+  ],
+  "https://corona.ps/brand/yoyo/": [
+    {
+      "target_url": "https://corona.ps/brand/wazamba/",
+      "anchor_text": "Wazamba"
+    },
+    {
+      "target_url": "https://corona.ps/brand/malina/",
+      "anchor_text": "Malina"
+    },
+    {
+      "target_url": "https://corona.ps/brand/nomini/",
+      "anchor_text": "Nomini"
+    },
+    {
+      "target_url": "https://corona.ps/brand/rabona/",
+      "anchor_text": "Rabona"
+    }
+  ],
+  "https://corona.ps/brand/buran/": [
+    {
+      "target_url": "https://corona.ps/brand/5gringos/",
+      "anchor_text": "5Gringos"
+    },
+    {
+      "target_url": "https://corona.ps/brand/7signs/",
+      "anchor_text": "7Signs"
+    },
+    {
+      "target_url": "https://corona.ps/brand/alfcasino/",
+      "anchor_text": "Alfcasino"
+    },
+    {
+      "target_url": "https://corona.ps/brand/amunra/",
+      "anchor_text": "Amunra"
+    }
+  ],
+  "https://corona.ps/brand/betinia/": [
+    {
+      "target_url": "https://corona.ps/brand/bankonbet/",
+      "anchor_text": "Bankonbet"
+    },
+    {
+      "target_url": "https://corona.ps/brand/boaboa/",
+      "anchor_text": "Boaboa"
+    },
+    {
+      "target_url": "https://corona.ps/brand/cadoola/",
+      "anchor_text": "Cadoola"
+    },
+    {
+      "target_url": "https://corona.ps/brand/casinolab/",
+      "anchor_text": "Casinolab"
+    }
+  ]
+}

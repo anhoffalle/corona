@@ -1,0 +1,187 @@
+# Greek Translation for Corona Theme
+# Copyright (C) 2024
+msgid ""
+msgstr ""
+"Project-Id-Version: Corona Theme 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01T00:00:00+00:00\n"
+"PO-Revision-Date: 2024-01-01T00:00:00+00:00\n"
+"Last-Translator: \n"
+"Language-Team: Greek\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: corona-theme\n"
+
+#: page-review.php
+msgid "Top Rated Casinos 2024"
+msgstr "Κορυφαία Καζίνο 2024"
+
+#: page-review.php
+msgid "Our experts evaluate hundreds of online casinos every month to bring you the safest, fastest, and most rewarding gaming experiences."
+msgstr "Οι ειδικοί μας αξιολογούν εκατοντάδες διαδικτυακά καζίνο κάθε μήνα για να σας προσφέρουν τις πιο ασφαλείς, γρήγορες και ικανοποιητικές εμπειρίες παιχνιδιού."
+
+#: page-review.php
+msgid "Premium Choice"
+msgstr "Premium Επιλογή"
+
+#: page-review.php
+msgid "Fast Payouts"
+msgstr "Γρήγορες Πληρωμές"
+
+#: page-review.php
+msgid "Trusted"
+msgstr "Αξιόπιστο"
+
+#: page-review.php
+msgid "Crypto Friendly"
+msgstr "Δέχεται Crypto"
+
+#: page-review.php
+msgid "Slots Focused"
+msgstr "Εστίαση σε Slots"
+
+#: page-review.php
+msgid "Exclusive Bonus"
+msgstr "Αποκλειστικό Μπόνους"
+
+#: page-review.php
+msgid "Visit Casino"
+msgstr "Επισκεφτείτε το Καζίνο"
+
+#: page-review.php
+msgid "Read Full Review"
+msgstr "Διαβάστε την Κριτική"
+
+#: page-casino.php
+msgid "Play Now"
+msgstr "Παίξτε Τώρα"
+
+#: page-casino.php
+msgid "Full Brand Characteristics"
+msgstr "Πλήρη Χαρακτηριστικά"
+
+#: page-casino.php
+msgid "Related Bonuses"
+msgstr "Σχετικά Μπόνους"
+
+#: page-casino.php
+msgid "Claim offer and play"
+msgstr "Διεκδικήστε την προσφορά"
+
+#: page-casino.php
+msgid "Payment Methods"
+msgstr "Μέθοδοι Πληρωμής"
+
+#: page-casino.php
+msgid "Expert Verdict"
+msgstr "Γνώμη Ειδικού"
+
+#: page-casino.php
+msgid "Highly Recommended"
+msgstr "Συνιστάται Ιδιαίτερα"
+
+#: page-app.php
+msgid "Editors' Choice"
+msgstr "Επιλογή Συντακτών"
+
+#: page-app.php
+msgid "Ratings"
+msgstr "Αξιολογήσεις"
+
+#: page-app.php
+msgid "in Casino"
+msgstr "στο Casino"
+
+#: page-app.php
+msgid "Age"
+msgstr "Ηλικία"
+
+#: page-app.php
+msgid "Get"
+msgstr "Λήψη"
+
+#: page-app.php
+msgid "Download"
+msgstr "Λήψη"
+
+#: page-app.php
+msgid "In-App Purchases"
+msgstr "Αγορές εντός εφαρμογής"
+
+#: page-app.php
+msgid "Screenshots"
+msgstr "Στιγμιότυπα"
+
+#: page-app.php
+msgid "Screenshot %d"
+msgstr "Στιγμιότυπο %d"
+
+#: page-app.php
+msgid "What's New"
+msgstr "Τι νέο υπάρχει"
+
+#: page-app.php
+msgid "Version"
+msgstr "Έκδοση"
+
+#: page-app.php
+msgid "Ratings & Reviews"
+msgstr "Αξιολογήσεις & Κριτικές"
+
+#: page-app.php
+msgid "out of 5"
+msgstr "από 5"
+
+#: page-app.php
+msgid "Information"
+msgstr "Πληροφορίες"
+
+#: page-app.php
+msgid "Provider"
+msgstr "Πάροχος"
+
+#: page-app.php
+msgid "Size"
+msgstr "Μέγεθος"
+
+#: page-app.php
+msgid "Category"
+msgstr "Κατηγορία"
+
+#: page-app.php
+msgid "Games: Casino"
+msgstr "Παιχνίδια: Καζίνο"
+
+#: page-app.php
+msgid "Compatibility"
+msgstr "Συμβατότητα"
+
+#: page-app.php
+msgid "Requires iOS 15.0 or later"
+msgstr "Απαιτεί iOS 15.0 ή νεότερο"
+
+#: page-app.php
+msgid "Languages"
+msgstr "Γλώσσες"
+
+#: page-app.php
+msgid "English, Russian, Spanish, German"
+msgstr "Αγγλικά, Ρωσικά, Ισπανικά, Γερμανικά"
+
+#: page-app.php
+msgid "Age Rating"
+msgstr "Ηλικιακή κατάταξη"
+
+#: page-app.php
+msgid "Simulated Gambling"
+msgstr "Προσομοιωμένα τυχερά παιχνίδια"
+
+#: page-app.php
+msgid "Copyright"
+msgstr "Πνευματικά δικαιώματα"
+
+#: page-app.php
+msgid "Back to Casino Review"
+msgstr "Πίσω στην Κριτική Καζίνο"
