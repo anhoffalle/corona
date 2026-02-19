@@ -34,7 +34,11 @@
 					<?php endif; ?>
 
 					<?php
-					$footer_description = get_theme_mod( 'corona_footer_description', '' );
+					$footer_description = corona_pll_option_text(
+						get_theme_mod( 'corona_footer_description', '' ),
+						'corona_footer_description',
+						'Corona Theme - Customizer'
+					);
 					if ( $footer_description ) :
 					?>
 						<p class="footer-description"><?php echo esc_html( $footer_description ); ?></p>
@@ -123,7 +127,11 @@
 
 			<!-- Responsible Gaming Notice -->
 			<?php
-			$responsible_gaming = get_theme_mod( 'corona_responsible_gaming', '' );
+			$responsible_gaming = corona_pll_option_text(
+				get_theme_mod( 'corona_responsible_gaming', '' ),
+				'corona_responsible_gaming',
+				'Corona Theme - Customizer'
+			);
 			if ( $responsible_gaming ) :
 			?>
 			<div class="responsible-gaming">
@@ -146,7 +154,11 @@
 
 				<?php
 				// Age restriction badge
-				$age_restriction = get_theme_mod( 'corona_age_restriction', '18+' );
+				$age_restriction = corona_pll_option_text(
+					get_theme_mod( 'corona_age_restriction', '18+' ),
+					'corona_age_restriction',
+					'Corona Theme - Customizer'
+				);
 				if ( $age_restriction ) :
 				?>
 				<div class="age-badge">

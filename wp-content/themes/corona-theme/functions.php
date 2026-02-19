@@ -436,6 +436,43 @@ function corona_pll__($string) {
 }
 
 /**
+ * Translate theme option text through Polylang with on-the-fly registration.
+ */
+function corona_pll_option_text($value, $name, $group = 'Corona Theme - Customizer') {
+	$value = is_scalar($value) ? (string) $value : '';
+	if ($value === '' || !function_exists('pll_register_string')) {
+		return $value;
+	}
+
+	static $registered = array();
+	$registration_key = $group . '|' . $name . '|' . $value;
+	if (!isset($registered[$registration_key])) {
+		$is_multiline = strpos($value, "\n") !== false || strpos($value, '<') !== false;
+		pll_register_string($name, $value, $group, $is_multiline);
+		$registered[$registration_key] = true;
+	}
+
+	if (function_exists('pll_translate_string') && function_exists('pll_current_language')) {
+		$current_lang = pll_current_language();
+		if (is_string($current_lang) && $current_lang !== '') {
+			$translated = pll_translate_string($value, $current_lang);
+			if (is_string($translated) && $translated !== '') {
+				return $translated;
+			}
+		}
+	}
+
+	if (function_exists('pll__')) {
+		$translated = pll__($value);
+		if (is_string($translated) && $translated !== '') {
+			return $translated;
+		}
+	}
+
+	return $value;
+}
+
+/**
  * Multibyte-safe substring helper with graceful fallback.
  */
 if (!function_exists('corona_mb_substr_safe')) {
