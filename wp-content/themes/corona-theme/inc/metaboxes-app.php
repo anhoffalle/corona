@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Mobile App Page Metaboxes
  *

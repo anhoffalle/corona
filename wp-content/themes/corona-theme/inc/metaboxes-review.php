@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Top Casinos List Metaboxes
  *

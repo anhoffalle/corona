@@ -452,14 +452,35 @@ function corona_pll_option_text($key) {
 	}
 
 	if (function_exists('pll_translate_string')) {
-		return pll_translate_string($value);
+		$lang = '';
+		if (function_exists('pll_current_language')) {
+			$lang = pll_current_language();
+		}
+		if ((!is_string($lang) || $lang === '') && function_exists('pll_default_language')) {
+			$lang = pll_default_language();
+		}
+		if (is_string($lang) && $lang !== '') {
+			return pll_translate_string($value, $lang);
+		}
 	}
 
 	return $value;
 }
 
-add_action('init', function() {
+/**
+ * Register Customizer theme_mod values as Polylang strings.
+ *
+ * Keep this out of preview/autosave AJAX flows to avoid Customizer save noise.
+ */
+function corona_register_customizer_polylang_strings() {
 	if (!function_exists('pll_register_string')) {
+		return;
+	}
+
+	if (function_exists('wp_doing_ajax') && wp_doing_ajax()) {
+		return;
+	}
+	if (function_exists('is_customize_preview') && is_customize_preview()) {
 		return;
 	}
 
@@ -472,11 +493,12 @@ add_action('init', function() {
 
 	foreach ($keys as $key) {
 		$value = get_theme_mod($key);
-		if ($value) {
+		if (is_string($value) && $value !== '') {
 			pll_register_string($key, $value, 'Corona Theme - Customizer');
 		}
 	}
-});
+}
+add_action('admin_init', 'corona_register_customizer_polylang_strings');
 
 /**
  * Admin i18n map for inline metabox scripts.

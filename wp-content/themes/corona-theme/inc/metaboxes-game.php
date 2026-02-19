@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Game Page Metaboxes
  *

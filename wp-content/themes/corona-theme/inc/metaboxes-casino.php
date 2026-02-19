@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Casino Review Metaboxes
  *
