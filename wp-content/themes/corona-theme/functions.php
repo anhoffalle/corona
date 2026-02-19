@@ -274,6 +274,7 @@ function corona_theme_register_polylang_strings() {
 		pll_register_string('app_age_rating', 'Age Rating', 'Corona Theme - App');
 		pll_register_string('app_simulated_gambling', 'Simulated Gambling', 'Corona Theme - App');
 		pll_register_string('app_copyright', 'Copyright', 'Corona Theme - App');
+		pll_register_string('app_inc_suffix', 'Inc.', 'Corona Theme - App');
 		pll_register_string('app_back_to_casino', 'Back to Casino Review', 'Corona Theme - App');
 		pll_register_string('app_disclaimer', 'Apple, the Apple logo, iPhone, and iPad are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.', 'Corona Theme - App');
 

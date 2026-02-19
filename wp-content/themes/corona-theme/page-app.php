@@ -181,7 +181,7 @@ get_header();
 					array('label' => corona_pll__('Compatibility'), 'value' => corona_pll__('Requires iOS 15.0 or later')),
 					array('label' => corona_pll__('Languages'), 'value' => corona_pll__('English, Russian, Spanish, German')),
 					array('label' => corona_pll__('Age Rating'), 'value' => $age_rating . ' (' . corona_pll__('Simulated Gambling') . ')'),
-					array('label' => corona_pll__('Copyright'), 'value' => '© ' . date('Y') . ' ' . $app_name . ' Inc.'),
+					array('label' => corona_pll__('Copyright'), 'value' => '© ' . date('Y') . ' ' . $app_name . ' ' . corona_pll__('Inc.')),
 				);
 				foreach ($info_items as $item):
 				?>
