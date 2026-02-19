@@ -284,9 +284,16 @@ function corona_theme_register_polylang_strings() {
 		pll_register_string('game_close_demo', 'Close Demo', 'Corona Theme - Game');
 		pll_register_string('game_slot_attributes', 'Slot Attributes', 'Corona Theme - Game');
 		pll_register_string('game_overview', 'Game Overview', 'Corona Theme - Game');
+		pll_register_string('game_where_to_play_titlecase', 'Where to Play', 'Corona Theme - Game');
 		pll_register_string('game_where_to_play', 'WHERE TO PLAY', 'Corona Theme - Game');
 		pll_register_string('game_for_real_money', 'FOR REAL MONEY', 'Corona Theme - Game');
 		pll_register_string('game_play_btn', 'PLAY', 'Corona Theme - Game');
+
+		// Home page strings
+		pll_register_string('home_top_casinos', 'Top Casinos', 'Corona Theme - Home');
+		pll_register_string('home_popular_games', 'Popular Games', 'Corona Theme - Home');
+		pll_register_string('home_view_all_casinos', 'View All Casinos', 'Corona Theme - Home');
+		pll_register_string('home_view_all', 'View All', 'Corona Theme - Home');
 
 		// Related casinos
 		pll_register_string('related_casinos', 'Related Casinos', 'Corona Theme');
