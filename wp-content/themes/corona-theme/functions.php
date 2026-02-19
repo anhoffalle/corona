@@ -436,41 +436,47 @@ function corona_pll__($string) {
 }
 
 /**
- * Translate theme option text through Polylang with on-the-fly registration.
+ * Translate a Customizer option text through Polylang.
+ *
+ * Backward compatible with legacy calls that passed value first and key second.
  */
-function corona_pll_option_text($value, $name, $group = 'Corona Theme - Customizer') {
-	$value = is_scalar($value) ? (string) $value : '';
-	if ($value === '' || !function_exists('pll_register_string')) {
-		return $value;
+function corona_pll_option_text($key) {
+	// Legacy support: corona_pll_option_text($value, $key, $group)
+	if ((!is_string($key) || strpos($key, 'corona_') !== 0) && isset(func_get_args()[1]) && is_string(func_get_args()[1])) {
+		$key = func_get_args()[1];
 	}
 
-	static $registered = array();
-	$registration_key = $group . '|' . $name . '|' . $value;
-	if (!isset($registered[$registration_key])) {
-		$is_multiline = strpos($value, "\n") !== false || strpos($value, '<') !== false;
-		pll_register_string($name, $value, $group, $is_multiline);
-		$registered[$registration_key] = true;
+	$value = get_theme_mod($key);
+	if (!$value) {
+		return '';
 	}
 
-	if (function_exists('pll_translate_string') && function_exists('pll_current_language')) {
-		$current_lang = pll_current_language();
-		if (is_string($current_lang) && $current_lang !== '') {
-			$translated = pll_translate_string($value, $current_lang);
-			if (is_string($translated) && $translated !== '') {
-				return $translated;
-			}
-		}
-	}
-
-	if (function_exists('pll__')) {
-		$translated = pll__($value);
-		if (is_string($translated) && $translated !== '') {
-			return $translated;
-		}
+	if (function_exists('pll_translate_string')) {
+		return pll_translate_string($value);
 	}
 
 	return $value;
 }
+
+add_action('init', function() {
+	if (!function_exists('pll_register_string')) {
+		return;
+	}
+
+	$keys = array(
+		'corona_header_cta_text',
+		'corona_footer_description',
+		'corona_responsible_gaming',
+		'corona_age_restriction',
+	);
+
+	foreach ($keys as $key) {
+		$value = get_theme_mod($key);
+		if ($value) {
+			pll_register_string($key, $value, 'Corona Theme - Customizer');
+		}
+	}
+});
 
 /**
  * Admin i18n map for inline metabox scripts.
