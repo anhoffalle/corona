@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Top Casinos List Metaboxes
  *
@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) exit;
 function corona_register_review_metaboxes() {
     add_meta_box(
         'review_page_settings',
-        'Top Casinos List Settings',
+        __('Top Casinos List Settings', 'corona-theme'),
         'corona_review_settings_metabox',
         'page',
         'normal',
@@ -87,22 +87,22 @@ function corona_review_settings_metabox($post) {
 
     <table class="form-table">
         <tr>
-            <th><label for="review_page_title">Page Title</label></th>
+            <th><label for="review_page_title"><?php esc_html_e('Page Title', 'corona-theme'); ?></label></th>
             <td>
-                <input type="text" id="review_page_title" name="review_page_title" value="<?php echo esc_attr($page_title); ?>" class="large-text" placeholder="Top Rated Casinos 2024">
-                <p class="description">Leave empty for default. First two words will be normal, third word will be underlined (e.g. "Top Rated <u>Casinos</u> 2024")</p>
+                <input type="text" id="review_page_title" name="review_page_title" value="<?php echo esc_attr($page_title); ?>" class="large-text" placeholder="<?php echo esc_attr__('Top Rated Casinos 2024', 'corona-theme'); ?>">
+                <p class="description"><?php esc_html_e('Leave empty for default. First two words will be normal, third word will be underlined (e.g. "Top Rated Casinos 2024").', 'corona-theme'); ?></p>
             </td>
         </tr>
         <tr>
-            <th><label for="review_page_subtitle">Page Subtitle</label></th>
+            <th><label for="review_page_subtitle"><?php esc_html_e('Page Subtitle', 'corona-theme'); ?></label></th>
             <td>
-                <textarea id="review_page_subtitle" name="review_page_subtitle" class="large-text" rows="2" placeholder="Our experts evaluate hundreds of online casinos..."><?php echo esc_textarea($page_subtitle); ?></textarea>
+                <textarea id="review_page_subtitle" name="review_page_subtitle" class="large-text" rows="2" placeholder="<?php echo esc_attr__('Our experts evaluate hundreds of online casinos...', 'corona-theme'); ?>"><?php echo esc_textarea($page_subtitle); ?></textarea>
             </td>
         </tr>
     </table>
 
-    <h3 style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;">Casino List</h3>
-    <p class="description" style="margin-bottom: 15px;">Select and order casinos to display. Leave empty to show all casino pages automatically.</p>
+    <h3 style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;"><?php esc_html_e('Casino List', 'corona-theme'); ?></h3>
+    <p class="description" style="margin-bottom: 15px;"><?php esc_html_e('Select and order casinos to display. Leave empty to show all casino pages automatically.', 'corona-theme'); ?></p>
 
     <div id="review-casino-list" style="margin-bottom: 20px;">
         <?php if (!empty($casino_ids)): ?>
@@ -113,7 +113,7 @@ function corona_review_settings_metabox($post) {
                 <div class="review-casino-item" data-id="<?php echo esc_attr($casino_id); ?>" style="display: flex; align-items: center; gap: 10px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 5px; cursor: move;">
                     <span class="dashicons dashicons-menu" style="color: #999;"></span>
                     <span style="flex: 1;"><?php echo esc_html($casino->post_title); ?></span>
-                    <button type="button" class="button button-small remove-review-casino">Remove</button>
+                    <button type="button" class="button button-small remove-review-casino"><?php esc_html_e('Remove', 'corona-theme'); ?></button>
                     <input type="hidden" name="review_casino_ids[]" value="<?php echo esc_attr($casino_id); ?>">
                 </div>
             <?php endforeach; ?>
@@ -122,14 +122,14 @@ function corona_review_settings_metabox($post) {
 
     <div style="display: flex; gap: 10px; align-items: center;">
         <select id="add-review-casino-select" class="regular-text">
-            <option value="">-- Select casino to add --</option>
+            <option value=""><?php esc_html_e('-- Select casino to add --', 'corona-theme'); ?></option>
             <?php foreach ($casino_pages as $casino): ?>
                 <option value="<?php echo esc_attr($casino->ID); ?>" data-title="<?php echo esc_attr(wp_strip_all_tags($casino->post_title)); ?>">
                     <?php echo esc_html($casino->post_title); ?>
                 </option>
             <?php endforeach; ?>
         </select>
-        <button type="button" class="button" id="add-review-casino">Add Casino</button>
+        <button type="button" class="button" id="add-review-casino"><?php esc_html_e('Add Casino', 'corona-theme'); ?></button>
     </div>
 
     <style>
@@ -146,6 +146,8 @@ function corona_review_settings_metabox($post) {
 
     <script>
     jQuery(document).ready(function($) {
+        var coronaI18n = window.CORONA_I18N || {};
+
         // Make list sortable
         $('#review-casino-list').sortable({
             placeholder: 'review-casino-item ui-sortable-placeholder',
@@ -162,7 +164,7 @@ function corona_review_settings_metabox($post) {
 
             // Check if already added
             if ($('.review-casino-item[data-id="' + id + '"]').length) {
-                alert('This casino is already in the list');
+                alert(coronaI18n.alreadyInListCasino || '');
                 return;
             }
 
@@ -182,7 +184,7 @@ function corona_review_settings_metabox($post) {
             $item.append($('<button/>', {
                 type: 'button',
                 'class': 'button button-small remove-review-casino',
-                text: 'Remove'
+                text: coronaI18n.remove || ''
             }));
             $item.append($('<input/>', {
                 type: 'hidden',
@@ -267,3 +269,4 @@ function corona_review_admin_scripts($hook) {
     wp_enqueue_script('jquery-ui-sortable');
 }
 add_action('admin_enqueue_scripts', 'corona_review_admin_scripts');
+

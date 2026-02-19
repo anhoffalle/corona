@@ -473,6 +473,56 @@ function corona_pll_option_text($value, $name, $group = 'Corona Theme - Customiz
 }
 
 /**
+ * Admin i18n map for inline metabox scripts.
+ */
+function corona_get_admin_i18n_strings() {
+	return array(
+		'remove'                 => __('Remove', 'corona-theme'),
+		'alreadyInListCasino'    => __('This casino is already in the list', 'corona-theme'),
+		'alreadyInListGame'      => __('This game is already in the list', 'corona-theme'),
+		'selectGameImage'        => __('Select Game Image', 'corona-theme'),
+		'selectCasinoLogo'       => __('Select Casino Logo', 'corona-theme'),
+		'selectAppIcon'          => __('Select App Icon', 'corona-theme'),
+		'selectAppScreenshots'   => __('Select App Screenshots', 'corona-theme'),
+		'useThisImage'           => __('Use this image', 'corona-theme'),
+		'noImageSelected'        => __('No image selected', 'corona-theme'),
+		'noIcon'                 => __('No icon', 'corona-theme'),
+		'labelPlaceholder'       => __('Label', 'corona-theme'),
+		'valuePlaceholder'       => __('Value', 'corona-theme'),
+		'labelRtpPlaceholder'    => __('Label (e.g. RTP)', 'corona-theme'),
+		'valueRtpPlaceholder'    => __('Value (e.g. 96.5%)', 'corona-theme'),
+		'customUrlPlaceholder'   => __('Custom URL (leave empty to use default)', 'corona-theme'),
+		'bonusName'              => __('Bonus Name', 'corona-theme'),
+		'bonusNameExample'       => __('e.g. Welcome Bonus', 'corona-theme'),
+		'description'            => __('Description', 'corona-theme'),
+		'bonusDescriptionExample'=> __('e.g. 100% up to €100', 'corona-theme'),
+		'buttonText'             => __('Button Text', 'corona-theme'),
+		'buttonUrlWithFallback'  => __('Button URL (leave empty for default aff link)', 'corona-theme'),
+		'claimOfferAndPlay'      => __('Claim offer and play', 'corona-theme'),
+		'removeBonus'            => __('Remove Bonus', 'corona-theme'),
+		'paymentPlaceholder'     => __('e.g. Visa, Bitcoin', 'corona-theme'),
+		'addScreenshots'         => __('Add Screenshots', 'corona-theme'),
+	);
+}
+
+/**
+ * Expose admin i18n strings for metabox inline scripts.
+ */
+function corona_enqueue_admin_i18n_strings($hook) {
+	if ($hook !== 'post-new.php' && $hook !== 'post.php') {
+		return;
+	}
+
+	wp_enqueue_script('jquery');
+	wp_add_inline_script(
+		'jquery',
+		'window.CORONA_I18N = Object.assign({}, window.CORONA_I18N || {}, ' . wp_json_encode(corona_get_admin_i18n_strings()) . ');',
+		'before'
+	);
+}
+add_action('admin_enqueue_scripts', 'corona_enqueue_admin_i18n_strings', 5);
+
+/**
  * Multibyte-safe substring helper with graceful fallback.
  */
 if (!function_exists('corona_mb_substr_safe')) {

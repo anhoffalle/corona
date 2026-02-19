@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Game Page Metaboxes
  *
@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) exit;
 function corona_register_game_metaboxes() {
     add_meta_box(
         'game_main_info',
-        'Game Information',
+        __('Game Information', 'corona-theme'),
         'corona_game_main_metabox',
         'page',
         'normal',
@@ -26,7 +26,7 @@ function corona_register_game_metaboxes() {
 
     add_meta_box(
         'game_casinos',
-        'Where to Play (Casinos)',
+        __('Where to Play (Casinos)', 'corona-theme'),
         'corona_game_casinos_metabox',
         'page',
         'normal',
@@ -91,11 +91,11 @@ function corona_game_main_metabox($post) {
     // Default characteristics for games
     if (empty($characteristics)) {
         $characteristics = array(
-            array('label' => 'Provider', 'value' => ''),
-            array('label' => 'RTP', 'value' => ''),
-            array('label' => 'Volatility', 'value' => ''),
-            array('label' => 'Max Win', 'value' => ''),
-            array('label' => 'Release Date', 'value' => '')
+            array('label' => __('Provider', 'corona-theme'), 'value' => ''),
+            array('label' => __('RTP', 'corona-theme'), 'value' => ''),
+            array('label' => __('Volatility', 'corona-theme'), 'value' => ''),
+            array('label' => __('Max Win', 'corona-theme'), 'value' => ''),
+            array('label' => __('Release Date', 'corona-theme'), 'value' => '')
         );
     }
     ?>
@@ -103,7 +103,7 @@ function corona_game_main_metabox($post) {
     <table class="form-table">
         <!-- Game Image -->
         <tr>
-            <th><label for="game_image">Game Image</label></th>
+            <th><label for="game_image"><?php esc_html_e('Game Image', 'corona-theme'); ?></label></th>
             <td>
                 <div class="game-image-upload">
                     <input type="hidden" id="game_image" name="game_image" value="<?php echo esc_url($image); ?>">
@@ -112,13 +112,13 @@ function corona_game_main_metabox($post) {
                             <img src="<?php echo esc_url($image); ?>" style="max-width: 300px; height: auto; border-radius: 8px;">
                         <?php else: ?>
                             <div style="width: 300px; height: 180px; background: #f0f0f0; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #666;">
-                                No image selected
+                                <?php esc_html_e('No image selected', 'corona-theme'); ?>
                             </div>
                         <?php endif; ?>
                     </div>
                     <p style="margin: 10px 0;">
-                        <button type="button" class="button" id="upload-game-image-btn">Select Image</button>
-                        <button type="button" class="button" id="remove-game-image-btn" <?php echo !$image ? 'style="display:none;"' : ''; ?>>Remove</button>
+                        <button type="button" class="button" id="upload-game-image-btn"><?php esc_html_e('Select Image', 'corona-theme'); ?></button>
+                        <button type="button" class="button" id="remove-game-image-btn" <?php echo !$image ? 'style="display:none;"' : ''; ?>><?php esc_html_e('Remove', 'corona-theme'); ?></button>
                     </p>
                 </div>
             </td>
@@ -126,29 +126,31 @@ function corona_game_main_metabox($post) {
 
         <!-- Demo URL -->
         <tr>
-            <th><label for="game_demo_url">Demo Iframe URL</label></th>
+            <th><label for="game_demo_url"><?php esc_html_e('Demo Iframe URL', 'corona-theme'); ?></label></th>
             <td>
                 <input type="url" id="game_demo_url" name="game_demo_url" value="<?php echo esc_url($demo_url); ?>" class="large-text">
-                <p class="description">URL for the game demo iframe</p>
+                <p class="description"><?php esc_html_e('URL for the game demo iframe', 'corona-theme'); ?></p>
             </td>
         </tr>
     </table>
 
     <!-- Characteristics -->
-    <h3 style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;">Game Characteristics</h3>
+    <h3 style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;"><?php esc_html_e('Game Characteristics', 'corona-theme'); ?></h3>
     <div id="game-characteristics-container">
         <?php foreach ($characteristics as $index => $char): ?>
             <div class="game-char-row" style="display: flex; gap: 10px; margin-bottom: 10px; align-items: center;">
-                <input type="text" name="game_char_labels[]" value="<?php echo esc_attr($char['label']); ?>" placeholder="Label (e.g. RTP)" class="regular-text">
-                <input type="text" name="game_char_values[]" value="<?php echo esc_attr($char['value']); ?>" placeholder="Value (e.g. 96.5%)" class="regular-text">
-                <button type="button" class="button remove-game-char">Remove</button>
+                <input type="text" name="game_char_labels[]" value="<?php echo esc_attr($char['label']); ?>" placeholder="<?php echo esc_attr__('Label (e.g. RTP)', 'corona-theme'); ?>" class="regular-text">
+                <input type="text" name="game_char_values[]" value="<?php echo esc_attr($char['value']); ?>" placeholder="<?php echo esc_attr__('Value (e.g. 96.5%)', 'corona-theme'); ?>" class="regular-text">
+                <button type="button" class="button remove-game-char"><?php esc_html_e('Remove', 'corona-theme'); ?></button>
             </div>
         <?php endforeach; ?>
     </div>
-    <button type="button" class="button button-primary" id="add-game-char">+ Add Characteristic</button>
+    <button type="button" class="button button-primary" id="add-game-char"><?php esc_html_e('+ Add Characteristic', 'corona-theme'); ?></button>
 
     <script>
     jQuery(document).ready(function($) {
+        var coronaI18n = window.CORONA_I18N || {};
+
         // Image upload
         var gameMediaUploader;
         $('#upload-game-image-btn').click(function(e) {
@@ -158,8 +160,8 @@ function corona_game_main_metabox($post) {
                 return;
             }
             gameMediaUploader = wp.media({
-                title: 'Select Game Image',
-                button: { text: 'Use this image' },
+                title: coronaI18n.selectGameImage || '',
+                button: { text: coronaI18n.useThisImage || '' },
                 multiple: false
             });
             gameMediaUploader.on('select', function() {
@@ -174,16 +176,16 @@ function corona_game_main_metabox($post) {
         $('#remove-game-image-btn').click(function(e) {
             e.preventDefault();
             $('#game_image').val('');
-            $('#game-image-preview').html('<div style="width: 300px; height: 180px; background: #f0f0f0; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #666;">No image selected</div>');
+            $('#game-image-preview').html('<div style="width: 300px; height: 180px; background: #f0f0f0; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #666;">' + (coronaI18n.noImageSelected || '') + '</div>');
             $(this).hide();
         });
 
         // Characteristics
         $('#add-game-char').click(function() {
             var row = '<div class="game-char-row" style="display: flex; gap: 10px; margin-bottom: 10px; align-items: center;">' +
-                '<input type="text" name="game_char_labels[]" value="" placeholder="Label (e.g. RTP)" class="regular-text">' +
-                '<input type="text" name="game_char_values[]" value="" placeholder="Value (e.g. 96.5%)" class="regular-text">' +
-                '<button type="button" class="button remove-game-char">Remove</button>' +
+                '<input type="text" name="game_char_labels[]" value="" placeholder="' + (coronaI18n.labelRtpPlaceholder || '') + '" class="regular-text">' +
+                '<input type="text" name="game_char_values[]" value="" placeholder="' + (coronaI18n.valueRtpPlaceholder || '') + '" class="regular-text">' +
+                '<button type="button" class="button remove-game-char">' + (coronaI18n.remove || '') + '</button>' +
                 '</div>';
             $('#game-characteristics-container').append(row);
         });
@@ -236,7 +238,7 @@ function corona_game_casinos_metabox($post) {
         $casinos = $all_casinos;
     }
     ?>
-    <p class="description" style="margin-bottom: 15px;">Select casinos and optionally add custom landing page URLs for this specific game.</p>
+    <p class="description" style="margin-bottom: 15px;"><?php esc_html_e('Select casinos and optionally add custom landing page URLs for this specific game.', 'corona-theme'); ?></p>
 
     <div id="game-casino-list" style="margin-bottom: 20px;">
         <?php if (!empty($selected_casinos)): ?>
@@ -249,10 +251,10 @@ function corona_game_casinos_metabox($post) {
                     <div style="display: flex; align-items: center; gap: 10px; padding: 10px; cursor: move;">
                         <span class="dashicons dashicons-menu" style="color: #999;"></span>
                         <span style="flex: 1; font-weight: 500;"><?php echo esc_html($casino->post_title); ?></span>
-                        <button type="button" class="button button-small remove-game-casino">Remove</button>
+                        <button type="button" class="button button-small remove-game-casino"><?php esc_html_e('Remove', 'corona-theme'); ?></button>
                     </div>
                     <div style="padding: 0 10px 10px 10px;">
-                        <input type="url" name="game_casino_urls[<?php echo esc_attr($casino_id); ?>]" value="<?php echo esc_url($custom_url); ?>" placeholder="Custom URL (leave empty to use default)" class="large-text" style="font-size: 12px;">
+                        <input type="url" name="game_casino_urls[<?php echo esc_attr($casino_id); ?>]" value="<?php echo esc_url($custom_url); ?>" placeholder="<?php echo esc_attr__('Custom URL (leave empty to use default)', 'corona-theme'); ?>" class="large-text" style="font-size: 12px;">
                     </div>
                     <input type="hidden" name="game_casinos[]" value="<?php echo esc_attr($casino_id); ?>">
                 </div>
@@ -262,18 +264,18 @@ function corona_game_casinos_metabox($post) {
 
     <div style="display: flex; gap: 10px; align-items: center;">
         <select id="add-game-casino-select" class="regular-text">
-            <option value="">-- Select casino to add --</option>
+            <option value=""><?php esc_html_e('-- Select casino to add --', 'corona-theme'); ?></option>
             <?php foreach ($casinos as $casino): ?>
                 <option value="<?php echo esc_attr($casino->ID); ?>" data-title="<?php echo esc_attr(wp_strip_all_tags($casino->post_title)); ?>">
                     <?php echo esc_html($casino->post_title); ?>
                 </option>
             <?php endforeach; ?>
         </select>
-        <button type="button" class="button" id="add-game-casino">Add Casino</button>
+        <button type="button" class="button" id="add-game-casino"><?php esc_html_e('Add Casino', 'corona-theme'); ?></button>
     </div>
 
     <?php if (empty($casinos)): ?>
-    <p class="description" style="color: #d63638; margin-top: 10px;">No casino pages found. Create casino pages using the "Casino Review" template first.</p>
+    <p class="description" style="color: #d63638; margin-top: 10px;"><?php esc_html_e('No casino pages found. Create casino pages using the "Casino Review" template first.', 'corona-theme'); ?></p>
     <?php endif; ?>
 
     <style>
@@ -290,6 +292,8 @@ function corona_game_casinos_metabox($post) {
 
     <script>
     jQuery(document).ready(function($) {
+        var coronaI18n = window.CORONA_I18N || {};
+
         // Make list sortable
         if ($.fn.sortable) {
             $('#game-casino-list').sortable({
@@ -308,7 +312,7 @@ function corona_game_casinos_metabox($post) {
 
             // Check if already added
             if ($('.game-casino-item[data-id="' + id + '"]').length) {
-                alert('This casino is already in the list');
+                alert(coronaI18n.alreadyInListCasino || '');
                 return;
             }
 
@@ -331,7 +335,7 @@ function corona_game_casinos_metabox($post) {
             $header.append($('<button/>', {
                 type: 'button',
                 'class': 'button button-small remove-game-casino',
-                text: 'Remove'
+                text: coronaI18n.remove || ''
             }));
             $item.append($header);
             var $urlWrap = $('<div/>', {
@@ -341,7 +345,7 @@ function corona_game_casinos_metabox($post) {
                 type: 'url',
                 name: 'game_casino_urls[' + id + ']',
                 value: '',
-                placeholder: 'Custom URL (leave empty to use default)',
+                placeholder: coronaI18n.customUrlPlaceholder || '',
                 'class': 'large-text',
                 style: 'font-size: 12px;'
             }));
@@ -461,3 +465,4 @@ function corona_game_admin_scripts($hook) {
     wp_enqueue_script('jquery-ui-sortable');
 }
 add_action('admin_enqueue_scripts', 'corona_game_admin_scripts');
+

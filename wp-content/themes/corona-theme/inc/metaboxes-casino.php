@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Casino Review Metaboxes
  *
@@ -21,7 +21,7 @@ function corona_register_casino_metaboxes() {
     // Only show for pages with casino template
     add_meta_box(
         'casino_main_info',
-        'Casino Information',
+        __('Casino Information', 'corona-theme'),
         'corona_casino_main_metabox',
         'page',
         'normal',
@@ -30,7 +30,7 @@ function corona_register_casino_metaboxes() {
 
     add_meta_box(
         'casino_bonuses',
-        'Bonuses',
+        __('Bonuses', 'corona-theme'),
         'corona_casino_bonuses_metabox',
         'page',
         'normal',
@@ -39,7 +39,7 @@ function corona_register_casino_metaboxes() {
 
     add_meta_box(
         'casino_extra',
-        'Payment Methods & Rating',
+        __('Payment Methods & Rating', 'corona-theme'),
         'corona_casino_extra_metabox',
         'page',
         'normal',
@@ -109,7 +109,7 @@ function corona_casino_main_metabox($post) {
     <table class="form-table">
         <!-- Logo -->
         <tr>
-            <th><label for="casino_logo">Casino Logo</label></th>
+            <th><label for="casino_logo"><?php esc_html_e('Casino Logo', 'corona-theme'); ?></label></th>
             <td>
                 <div class="casino-logo-upload">
                     <input type="hidden" id="casino_logo" name="casino_logo" value="<?php echo esc_url($logo); ?>">
@@ -118,13 +118,13 @@ function corona_casino_main_metabox($post) {
                             <img src="<?php echo esc_url($logo); ?>" style="max-width: 200px; height: auto; border-radius: 8px;">
                         <?php else: ?>
                             <div style="width: 200px; height: 100px; background: #f0f0f0; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #666;">
-                                No image selected
+                                <?php esc_html_e('No image selected', 'corona-theme'); ?>
                             </div>
                         <?php endif; ?>
                     </div>
                     <p style="margin: 10px 0;">
-                        <button type="button" class="button" id="upload-logo-btn">Select Image</button>
-                        <button type="button" class="button" id="remove-logo-btn" <?php echo !$logo ? 'style="display:none;"' : ''; ?>>Remove</button>
+                        <button type="button" class="button" id="upload-logo-btn"><?php esc_html_e('Select Image', 'corona-theme'); ?></button>
+                        <button type="button" class="button" id="remove-logo-btn" <?php echo !$logo ? 'style="display:none;"' : ''; ?>><?php esc_html_e('Remove', 'corona-theme'); ?></button>
                     </p>
                 </div>
             </td>
@@ -132,46 +132,48 @@ function corona_casino_main_metabox($post) {
 
         <!-- Main Affiliate Link -->
         <tr>
-            <th><label for="casino_aff_link">Main Affiliate Link</label></th>
+            <th><label for="casino_aff_link"><?php esc_html_e('Main Affiliate Link', 'corona-theme'); ?></label></th>
             <td>
                 <input type="url" id="casino_aff_link" name="casino_aff_link" value="<?php echo esc_url($aff_link); ?>" class="large-text">
-                <p class="description">Default URL for all buttons (can be overridden per bonus)</p>
+                <p class="description"><?php esc_html_e('Default URL for all buttons (can be overridden per bonus)', 'corona-theme'); ?></p>
             </td>
         </tr>
 
         <!-- Tags for Casino List -->
         <tr>
-            <th><label for="casino_tags">Tags (for Top List)</label></th>
+            <th><label for="casino_tags"><?php esc_html_e('Tags (for Top List)', 'corona-theme'); ?></label></th>
             <td>
-                <input type="text" id="casino_tags" name="casino_tags" value="<?php echo esc_attr(implode(', ', $tags)); ?>" class="large-text" placeholder="Premium Choice, Fast Payouts">
-                <p class="description">Comma-separated tags shown on Top Casinos List page. Leave empty for default tags.</p>
+                <input type="text" id="casino_tags" name="casino_tags" value="<?php echo esc_attr(implode(', ', $tags)); ?>" class="large-text" placeholder="<?php echo esc_attr__('Premium Choice, Fast Payouts', 'corona-theme'); ?>">
+                <p class="description"><?php esc_html_e('Comma-separated tags shown on Top Casinos List page. Leave empty for default tags.', 'corona-theme'); ?></p>
             </td>
         </tr>
     </table>
 
     <!-- Characteristics -->
-    <h3 style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;">Characteristics</h3>
+    <h3 style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;"><?php esc_html_e('Characteristics', 'corona-theme'); ?></h3>
     <div id="characteristics-container">
         <?php if (!empty($characteristics)): ?>
             <?php foreach ($characteristics as $index => $char): ?>
                 <div class="char-row" style="display: flex; gap: 10px; margin-bottom: 10px; align-items: center;">
-                    <input type="text" name="char_labels[]" value="<?php echo esc_attr($char['label']); ?>" placeholder="Label" class="regular-text">
-                    <input type="text" name="char_values[]" value="<?php echo esc_attr($char['value']); ?>" placeholder="Value" class="regular-text">
-                    <button type="button" class="button remove-char">Remove</button>
+                    <input type="text" name="char_labels[]" value="<?php echo esc_attr($char['label']); ?>" placeholder="<?php echo esc_attr__('Label', 'corona-theme'); ?>" class="regular-text">
+                    <input type="text" name="char_values[]" value="<?php echo esc_attr($char['value']); ?>" placeholder="<?php echo esc_attr__('Value', 'corona-theme'); ?>" class="regular-text">
+                    <button type="button" class="button remove-char"><?php esc_html_e('Remove', 'corona-theme'); ?></button>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
             <div class="char-row" style="display: flex; gap: 10px; margin-bottom: 10px; align-items: center;">
-                <input type="text" name="char_labels[]" value="" placeholder="Label" class="regular-text">
-                <input type="text" name="char_values[]" value="" placeholder="Value" class="regular-text">
-                <button type="button" class="button remove-char">Remove</button>
+                <input type="text" name="char_labels[]" value="" placeholder="<?php echo esc_attr__('Label', 'corona-theme'); ?>" class="regular-text">
+                <input type="text" name="char_values[]" value="" placeholder="<?php echo esc_attr__('Value', 'corona-theme'); ?>" class="regular-text">
+                <button type="button" class="button remove-char"><?php esc_html_e('Remove', 'corona-theme'); ?></button>
             </div>
         <?php endif; ?>
     </div>
-    <button type="button" class="button button-primary" id="add-char">+ Add Characteristic</button>
+    <button type="button" class="button button-primary" id="add-char"><?php esc_html_e('+ Add Characteristic', 'corona-theme'); ?></button>
 
     <script>
     jQuery(document).ready(function($) {
+        var coronaI18n = window.CORONA_I18N || {};
+
         // Logo upload
         var mediaUploader;
         $('#upload-logo-btn').click(function(e) {
@@ -181,8 +183,8 @@ function corona_casino_main_metabox($post) {
                 return;
             }
             mediaUploader = wp.media({
-                title: 'Select Casino Logo',
-                button: { text: 'Use this image' },
+                title: coronaI18n.selectCasinoLogo || '',
+                button: { text: coronaI18n.useThisImage || '' },
                 multiple: false
             });
             mediaUploader.on('select', function() {
@@ -197,16 +199,16 @@ function corona_casino_main_metabox($post) {
         $('#remove-logo-btn').click(function(e) {
             e.preventDefault();
             $('#casino_logo').val('');
-            $('#logo-preview').html('<div style="width: 200px; height: 100px; background: #f0f0f0; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #666;">No image selected</div>');
+            $('#logo-preview').html('<div style="width: 200px; height: 100px; background: #f0f0f0; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #666;">' + (coronaI18n.noImageSelected || '') + '</div>');
             $(this).hide();
         });
 
         // Characteristics
         $('#add-char').click(function() {
             var row = '<div class="char-row" style="display: flex; gap: 10px; margin-bottom: 10px; align-items: center;">' +
-                '<input type="text" name="char_labels[]" value="" placeholder="Label" class="regular-text">' +
-                '<input type="text" name="char_values[]" value="" placeholder="Value" class="regular-text">' +
-                '<button type="button" class="button remove-char">Remove</button>' +
+                '<input type="text" name="char_labels[]" value="" placeholder="' + (coronaI18n.labelPlaceholder || '') + '" class="regular-text">' +
+                '<input type="text" name="char_values[]" value="" placeholder="' + (coronaI18n.valuePlaceholder || '') + '" class="regular-text">' +
+                '<button type="button" class="button remove-char">' + (coronaI18n.remove || '') + '</button>' +
                 '</div>';
             $('#characteristics-container').append(row);
         });
@@ -234,47 +236,49 @@ function corona_casino_bonuses_metabox($post) {
                 <div class="bonus-item" style="background: #f9f9f9; padding: 15px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #ddd;">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 10px;">
                         <div>
-                            <label style="font-weight: 600; display: block; margin-bottom: 5px;">Bonus Name</label>
-                            <input type="text" name="bonus_names[]" value="<?php echo esc_attr($bonus['name']); ?>" placeholder="e.g. Welcome Bonus" class="large-text">
+                            <label style="font-weight: 600; display: block; margin-bottom: 5px;"><?php esc_html_e('Bonus Name', 'corona-theme'); ?></label>
+                            <input type="text" name="bonus_names[]" value="<?php echo esc_attr($bonus['name']); ?>" placeholder="<?php echo esc_attr__('e.g. Welcome Bonus', 'corona-theme'); ?>" class="large-text">
                         </div>
                         <div>
-                            <label style="font-weight: 600; display: block; margin-bottom: 5px;">Description</label>
-                            <input type="text" name="bonus_descriptions[]" value="<?php echo esc_attr($bonus['description']); ?>" placeholder="e.g. 100% up to €100" class="large-text">
+                            <label style="font-weight: 600; display: block; margin-bottom: 5px;"><?php esc_html_e('Description', 'corona-theme'); ?></label>
+                            <input type="text" name="bonus_descriptions[]" value="<?php echo esc_attr($bonus['description']); ?>" placeholder="<?php echo esc_attr__('e.g. 100% up to €100', 'corona-theme'); ?>" class="large-text">
                         </div>
                     </div>
                     <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 15px;">
                         <div>
-                            <label style="font-weight: 600; display: block; margin-bottom: 5px;">Button Text</label>
-                            <input type="text" name="bonus_btn_texts[]" value="<?php echo esc_attr($bonus['btn_text'] ?? 'Claim offer and play'); ?>" placeholder="Claim offer and play" class="large-text">
+                            <label style="font-weight: 600; display: block; margin-bottom: 5px;"><?php esc_html_e('Button Text', 'corona-theme'); ?></label>
+                            <input type="text" name="bonus_btn_texts[]" value="<?php echo esc_attr($bonus['btn_text'] ?? 'Claim offer and play'); ?>" placeholder="<?php echo esc_attr__('Claim offer and play', 'corona-theme'); ?>" class="large-text">
                         </div>
                         <div>
-                            <label style="font-weight: 600; display: block; margin-bottom: 5px;">Button URL (leave empty for default aff link)</label>
+                            <label style="font-weight: 600; display: block; margin-bottom: 5px;"><?php esc_html_e('Button URL (leave empty for default aff link)', 'corona-theme'); ?></label>
                             <input type="url" name="bonus_btn_urls[]" value="<?php echo esc_url($bonus['btn_url'] ?? ''); ?>" placeholder="https://..." class="large-text">
                         </div>
                     </div>
-                    <button type="button" class="button remove-bonus" style="margin-top: 10px;">Remove Bonus</button>
+                    <button type="button" class="button remove-bonus" style="margin-top: 10px;"><?php esc_html_e('Remove Bonus', 'corona-theme'); ?></button>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
     </div>
 
-    <button type="button" class="button button-primary" id="add-bonus">+ Add Bonus</button>
+    <button type="button" class="button button-primary" id="add-bonus"><?php esc_html_e('+ Add Bonus', 'corona-theme'); ?></button>
 
     <script>
     jQuery(document).ready(function($) {
+        var coronaI18n = window.CORONA_I18N || {};
+
         $('#add-bonus').click(function() {
             var item = '<div class="bonus-item" style="background: #f9f9f9; padding: 15px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #ddd;">' +
                 '<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 10px;">' +
-                '<div><label style="font-weight: 600; display: block; margin-bottom: 5px;">Bonus Name</label>' +
-                '<input type="text" name="bonus_names[]" value="" placeholder="e.g. Welcome Bonus" class="large-text"></div>' +
-                '<div><label style="font-weight: 600; display: block; margin-bottom: 5px;">Description</label>' +
-                '<input type="text" name="bonus_descriptions[]" value="" placeholder="e.g. 100% up to €100" class="large-text"></div></div>' +
+                '<div><label style="font-weight: 600; display: block; margin-bottom: 5px;">' + (coronaI18n.bonusName || '') + '</label>' +
+                '<input type="text" name="bonus_names[]" value="" placeholder="' + (coronaI18n.bonusNameExample || '') + '" class="large-text"></div>' +
+                '<div><label style="font-weight: 600; display: block; margin-bottom: 5px;">' + (coronaI18n.description || '') + '</label>' +
+                '<input type="text" name="bonus_descriptions[]" value="" placeholder="' + (coronaI18n.bonusDescriptionExample || '') + '" class="large-text"></div></div>' +
                 '<div style="display: grid; grid-template-columns: 1fr 2fr; gap: 15px;">' +
-                '<div><label style="font-weight: 600; display: block; margin-bottom: 5px;">Button Text</label>' +
-                '<input type="text" name="bonus_btn_texts[]" value="Claim offer and play" placeholder="Claim offer and play" class="large-text"></div>' +
-                '<div><label style="font-weight: 600; display: block; margin-bottom: 5px;">Button URL (leave empty for default aff link)</label>' +
+                '<div><label style="font-weight: 600; display: block; margin-bottom: 5px;">' + (coronaI18n.buttonText || '') + '</label>' +
+                '<input type="text" name="bonus_btn_texts[]" value="' + (coronaI18n.claimOfferAndPlay || '') + '" placeholder="' + (coronaI18n.claimOfferAndPlay || '') + '" class="large-text"></div>' +
+                '<div><label style="font-weight: 600; display: block; margin-bottom: 5px;">' + (coronaI18n.buttonUrlWithFallback || '') + '</label>' +
                 '<input type="url" name="bonus_btn_urls[]" value="" placeholder="https://..." class="large-text"></div></div>' +
-                '<button type="button" class="button remove-bonus" style="margin-top: 10px;">Remove Bonus</button></div>';
+                '<button type="button" class="button remove-bonus" style="margin-top: 10px;">' + (coronaI18n.removeBonus || '') + '</button></div>';
             $('#bonuses-container').append(item);
         });
 
@@ -301,11 +305,11 @@ function corona_casino_extra_metabox($post) {
     <table class="form-table">
         <!-- Rating -->
         <tr>
-            <th><label for="casino_rating">Rating</label></th>
+            <th><label for="casino_rating"><?php esc_html_e('Rating', 'corona-theme'); ?></label></th>
             <td>
                 <select id="casino_rating" name="casino_rating">
                     <?php for ($i = 1; $i <= 5; $i++): ?>
-                        <option value="<?php echo $i; ?>" <?php selected($rating, $i); ?>><?php echo str_repeat('★', $i) . str_repeat('☆', 5 - $i); ?> (<?php echo $i; ?>)</option>
+                        <option value="<?php echo $i; ?>" <?php selected($rating, $i); ?>><?php echo str_repeat('в…', $i) . str_repeat('в†', 5 - $i); ?> (<?php echo $i; ?>)</option>
                     <?php endfor; ?>
                 </select>
             </td>
@@ -313,27 +317,27 @@ function corona_casino_extra_metabox($post) {
     </table>
 
     <!-- Payment Methods -->
-    <h3 style="margin-top: 20px;">Payment Methods</h3>
+    <h3 style="margin-top: 20px;"><?php esc_html_e('Payment Methods', 'corona-theme'); ?></h3>
     <div id="payments-container">
         <?php if (!empty($payment_methods)): ?>
             <?php foreach ($payment_methods as $method): ?>
                 <div class="payment-row" style="display: flex; gap: 10px; margin-bottom: 8px; align-items: center;">
-                    <input type="text" name="payment_methods[]" value="<?php echo esc_attr($method); ?>" placeholder="e.g. Visa, Bitcoin" class="regular-text">
-                    <button type="button" class="button remove-payment">Remove</button>
+                    <input type="text" name="payment_methods[]" value="<?php echo esc_attr($method); ?>" placeholder="<?php echo esc_attr__('e.g. Visa, Bitcoin', 'corona-theme'); ?>" class="regular-text">
+                    <button type="button" class="button remove-payment"><?php esc_html_e('Remove', 'corona-theme'); ?></button>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
             <div class="payment-row" style="display: flex; gap: 10px; margin-bottom: 8px; align-items: center;">
-                <input type="text" name="payment_methods[]" value="" placeholder="e.g. Visa, Bitcoin" class="regular-text">
-                <button type="button" class="button remove-payment">Remove</button>
+                <input type="text" name="payment_methods[]" value="" placeholder="<?php echo esc_attr__('e.g. Visa, Bitcoin', 'corona-theme'); ?>" class="regular-text">
+                <button type="button" class="button remove-payment"><?php esc_html_e('Remove', 'corona-theme'); ?></button>
             </div>
         <?php endif; ?>
     </div>
-    <button type="button" class="button" id="add-payment">+ Add Payment Method</button>
+    <button type="button" class="button" id="add-payment"><?php esc_html_e('+ Add Payment Method', 'corona-theme'); ?></button>
 
     <!-- Extra Buttons -->
-    <h3 style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;">Extra Buttons (optional)</h3>
-    <p class="description">Additional CTA buttons (e.g. "Visit Casino", "See All Bonuses")</p>
+    <h3 style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;"><?php esc_html_e('Extra Buttons (optional)', 'corona-theme'); ?></h3>
+    <p class="description"><?php esc_html_e('Additional CTA buttons (e.g. "Visit Casino", "See All Bonuses")', 'corona-theme'); ?></p>
 
     <div id="extra-buttons-container">
         <?php
@@ -342,18 +346,20 @@ function corona_casino_extra_metabox($post) {
             $btn = isset($extra_buttons[$i]) ? $extra_buttons[$i] : array('text' => '', 'url' => '');
         ?>
             <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 10px; margin-bottom: 10px;">
-                <input type="text" name="extra_btn_texts[]" value="<?php echo esc_attr($btn['text']); ?>" placeholder="Button text" class="regular-text">
-                <input type="url" name="extra_btn_urls[]" value="<?php echo esc_url($btn['url']); ?>" placeholder="Button URL" class="large-text">
+                <input type="text" name="extra_btn_texts[]" value="<?php echo esc_attr($btn['text']); ?>" placeholder="<?php echo esc_attr__('Button text', 'corona-theme'); ?>" class="regular-text">
+                <input type="url" name="extra_btn_urls[]" value="<?php echo esc_url($btn['url']); ?>" placeholder="<?php echo esc_attr__('Button URL', 'corona-theme'); ?>" class="large-text">
             </div>
         <?php endfor; ?>
     </div>
 
     <script>
     jQuery(document).ready(function($) {
+        var coronaI18n = window.CORONA_I18N || {};
+
         $('#add-payment').click(function() {
             var row = '<div class="payment-row" style="display: flex; gap: 10px; margin-bottom: 8px; align-items: center;">' +
-                '<input type="text" name="payment_methods[]" value="" placeholder="e.g. Visa, Bitcoin" class="regular-text">' +
-                '<button type="button" class="button remove-payment">Remove</button></div>';
+                '<input type="text" name="payment_methods[]" value="" placeholder="' + (coronaI18n.paymentPlaceholder || '') + '" class="regular-text">' +
+                '<button type="button" class="button remove-payment">' + (coronaI18n.remove || '') + '</button></div>';
             $('#payments-container').append(row);
         });
 
@@ -490,3 +496,5 @@ function corona_casino_admin_scripts($hook) {
     wp_enqueue_media();
 }
 add_action('admin_enqueue_scripts', 'corona_casino_admin_scripts');
+
+

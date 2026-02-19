@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Mobile App Page Metaboxes
  *
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) exit;
 function corona_register_app_metaboxes() {
     add_meta_box(
         'app_main_info',
-        'App Information',
+        __('App Information', 'corona-theme'),
         'corona_app_main_metabox',
         'page',
         'normal',
@@ -27,7 +27,7 @@ function corona_register_app_metaboxes() {
 
     add_meta_box(
         'app_screenshots',
-        'App Screenshots',
+        __('App Screenshots', 'corona-theme'),
         'corona_app_screenshots_metabox',
         'page',
         'normal',
@@ -36,7 +36,7 @@ function corona_register_app_metaboxes() {
 
     add_meta_box(
         'app_details',
-        'App Details',
+        __('App Details', 'corona-theme'),
         'corona_app_details_metabox',
         'page',
         'normal',
@@ -102,7 +102,7 @@ function corona_app_main_metabox($post) {
 
     <table class="form-table">
         <tr>
-            <th><label for="app_logo">App Icon</label></th>
+            <th><label for="app_logo"><?php esc_html_e('App Icon', 'corona-theme'); ?></label></th>
             <td>
                 <div class="app-logo-upload">
                     <input type="hidden" id="app_logo" name="app_logo" value="<?php echo esc_url($logo); ?>">
@@ -111,59 +111,61 @@ function corona_app_main_metabox($post) {
                             <img src="<?php echo esc_url($logo); ?>" style="max-width: 128px; height: auto; border-radius: 22%;">
                         <?php else: ?>
                             <div style="width: 128px; height: 128px; background: #f0f0f0; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 22%; color: #666;">
-                                No icon
+                                <?php esc_html_e('No icon', 'corona-theme'); ?>
                             </div>
                         <?php endif; ?>
                     </div>
                     <p style="margin: 10px 0;">
-                        <button type="button" class="button" id="upload-app-logo-btn">Select Icon</button>
-                        <button type="button" class="button" id="remove-app-logo-btn" <?php echo !$logo ? 'style="display:none;"' : ''; ?>>Remove</button>
+                        <button type="button" class="button" id="upload-app-logo-btn"><?php esc_html_e('Select Icon', 'corona-theme'); ?></button>
+                        <button type="button" class="button" id="remove-app-logo-btn" <?php echo !$logo ? 'style="display:none;"' : ''; ?>><?php esc_html_e('Remove', 'corona-theme'); ?></button>
                     </p>
-                    <p class="description">Leave empty to use logo from linked casino page</p>
+                    <p class="description"><?php esc_html_e('Leave empty to use logo from linked casino page', 'corona-theme'); ?></p>
                 </div>
             </td>
         </tr>
 
         <tr>
-            <th><label for="app_name">App Name</label></th>
+            <th><label for="app_name"><?php esc_html_e('App Name', 'corona-theme'); ?></label></th>
             <td>
-                <input type="text" id="app_name" name="app_name" value="<?php echo esc_attr($app_name); ?>" class="large-text" placeholder="Rabona Casino App">
-                <p class="description">Leave empty to use page title</p>
+                <input type="text" id="app_name" name="app_name" value="<?php echo esc_attr($app_name); ?>" class="large-text" placeholder="<?php echo esc_attr__('Rabona Casino App', 'corona-theme'); ?>">
+                <p class="description"><?php esc_html_e('Leave empty to use page title', 'corona-theme'); ?></p>
             </td>
         </tr>
 
         <tr>
-            <th><label for="app_developer">Developer</label></th>
+            <th><label for="app_developer"><?php esc_html_e('Developer', 'corona-theme'); ?></label></th>
             <td>
-                <input type="text" id="app_developer" name="app_developer" value="<?php echo esc_attr($developer); ?>" class="regular-text" placeholder="Games Ltd.">
+                <input type="text" id="app_developer" name="app_developer" value="<?php echo esc_attr($developer); ?>" class="regular-text" placeholder="<?php echo esc_attr__('Games Ltd.', 'corona-theme'); ?>">
             </td>
         </tr>
 
         <tr>
-            <th><label for="app_download_url">Download URL</label></th>
+            <th><label for="app_download_url"><?php esc_html_e('Download URL', 'corona-theme'); ?></label></th>
             <td>
                 <input type="url" id="app_download_url" name="app_download_url" value="<?php echo esc_url($app_url); ?>" class="large-text" placeholder="https://apps.apple.com/...">
             </td>
         </tr>
 
         <tr>
-            <th><label for="app_casino_page">Related Casino</label></th>
+            <th><label for="app_casino_page"><?php esc_html_e('Related Casino', 'corona-theme'); ?></label></th>
             <td>
                 <select id="app_casino_page" name="app_casino_page" class="regular-text">
-                    <option value="">-- Select casino --</option>
+                    <option value=""><?php esc_html_e('-- Select casino --', 'corona-theme'); ?></option>
                     <?php foreach ($casino_pages as $casino): ?>
                         <option value="<?php echo esc_attr($casino->ID); ?>" <?php selected($casino_page_id, $casino->ID); ?>>
                             <?php echo esc_html($casino->post_title); ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
-                <p class="description">Link to casino review page (for "Back to Review" link and logo fallback)</p>
+                <p class="description"><?php esc_html_e('Link to casino review page (for "Back to Review" link and logo fallback)', 'corona-theme'); ?></p>
             </td>
         </tr>
     </table>
 
     <script>
     jQuery(document).ready(function($) {
+        var coronaI18n = window.CORONA_I18N || {};
+
         var mediaUploader;
         $('#upload-app-logo-btn').click(function(e) {
             e.preventDefault();
@@ -172,8 +174,8 @@ function corona_app_main_metabox($post) {
                 return;
             }
             mediaUploader = wp.media({
-                title: 'Select App Icon',
-                button: { text: 'Use this image' },
+                title: coronaI18n.selectAppIcon || '',
+                button: { text: coronaI18n.useThisImage || '' },
                 multiple: false
             });
             mediaUploader.on('select', function() {
@@ -188,7 +190,7 @@ function corona_app_main_metabox($post) {
         $('#remove-app-logo-btn').click(function(e) {
             e.preventDefault();
             $('#app_logo').val('');
-            $('#app-logo-preview').html('<div style="width: 128px; height: 128px; background: #f0f0f0; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 22%; color: #666;">No icon</div>');
+            $('#app-logo-preview').html('<div style="width: 128px; height: 128px; background: #f0f0f0; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; border-radius: 22%; color: #666;">' + (coronaI18n.noIcon || '') + '</div>');
             $(this).hide();
         });
     });
@@ -207,19 +209,19 @@ function corona_app_screenshots_metabox($post) {
 
     <table class="form-table">
         <tr>
-            <th><label>Use Default Screenshots</label></th>
+            <th><label><?php esc_html_e('Use Default Screenshots', 'corona-theme'); ?></label></th>
             <td>
                 <label>
                     <input type="checkbox" name="app_use_default_screenshots" value="1" <?php checked($use_default, '1'); ?>>
-                    Use default screenshots from theme settings
+                    <?php esc_html_e('Use default screenshots from theme settings', 'corona-theme'); ?>
                 </label>
-                <p class="description">If enabled, default screenshots from Customizer will be shown when no custom screenshots are uploaded</p>
+                <p class="description"><?php esc_html_e('If enabled, default screenshots from Customizer will be shown when no custom screenshots are uploaded', 'corona-theme'); ?></p>
             </td>
         </tr>
     </table>
 
-    <h4>Custom Screenshots</h4>
-    <p class="description">Upload screenshots specific to this app. These override default screenshots.</p>
+    <h4><?php esc_html_e('Custom Screenshots', 'corona-theme'); ?></h4>
+    <p class="description"><?php esc_html_e('Upload screenshots specific to this app. These override default screenshots.', 'corona-theme'); ?></p>
 
     <div id="app-screenshots-container" style="display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0;">
         <?php if (!empty($screenshots)): ?>
@@ -233,10 +235,12 @@ function corona_app_screenshots_metabox($post) {
         <?php endif; ?>
     </div>
 
-    <button type="button" class="button" id="add-app-screenshot">+ Add Screenshots</button>
+    <button type="button" class="button" id="add-app-screenshot"><?php esc_html_e('+ Add Screenshots', 'corona-theme'); ?></button>
 
     <script>
     jQuery(document).ready(function($) {
+        var coronaI18n = window.CORONA_I18N || {};
+
         var screenshotUploader;
         $('#add-app-screenshot').click(function(e) {
             e.preventDefault();
@@ -245,8 +249,8 @@ function corona_app_screenshots_metabox($post) {
                 return;
             }
             screenshotUploader = wp.media({
-                title: 'Select App Screenshots',
-                button: { text: 'Add Screenshots' },
+                title: coronaI18n.selectAppScreenshots || '',
+                button: { text: coronaI18n.addScreenshots || '' },
                 multiple: true
             });
             screenshotUploader.on('select', function() {
@@ -286,50 +290,50 @@ function corona_app_details_metabox($post) {
 
     <table class="form-table">
         <tr>
-            <th><label for="app_rating">Rating</label></th>
+            <th><label for="app_rating"><?php esc_html_e('Rating', 'corona-theme'); ?></label></th>
             <td>
                 <input type="text" id="app_rating" name="app_rating" value="<?php echo esc_attr($rating); ?>" class="small-text" placeholder="4.8">
-                <span class="description">e.g., 4.8</span>
+                <span class="description"><?php esc_html_e('e.g., 4.8', 'corona-theme'); ?></span>
             </td>
         </tr>
 
         <tr>
-            <th><label for="app_ratings_count">Ratings Count</label></th>
+            <th><label for="app_ratings_count"><?php esc_html_e('Ratings Count', 'corona-theme'); ?></label></th>
             <td>
                 <input type="text" id="app_ratings_count" name="app_ratings_count" value="<?php echo esc_attr($ratings_count); ?>" class="small-text" placeholder="4.2K">
             </td>
         </tr>
 
         <tr>
-            <th><label for="app_category_rank">Category Rank</label></th>
+            <th><label for="app_category_rank"><?php esc_html_e('Category Rank', 'corona-theme'); ?></label></th>
             <td>
                 <input type="text" id="app_category_rank" name="app_category_rank" value="<?php echo esc_attr($category_rank); ?>" class="small-text" placeholder="#1">
             </td>
         </tr>
 
         <tr>
-            <th><label for="app_age_rating">Age Rating</label></th>
+            <th><label for="app_age_rating"><?php esc_html_e('Age Rating', 'corona-theme'); ?></label></th>
             <td>
                 <input type="text" id="app_age_rating" name="app_age_rating" value="<?php echo esc_attr($age_rating); ?>" class="small-text" placeholder="18+">
             </td>
         </tr>
 
         <tr>
-            <th><label for="app_size">App Size</label></th>
+            <th><label for="app_size"><?php esc_html_e('App Size', 'corona-theme'); ?></label></th>
             <td>
                 <input type="text" id="app_size" name="app_size" value="<?php echo esc_attr($app_size); ?>" class="small-text" placeholder="142.8 MB">
             </td>
         </tr>
 
         <tr>
-            <th><label for="app_version">Version</label></th>
+            <th><label for="app_version"><?php esc_html_e('Version', 'corona-theme'); ?></label></th>
             <td>
                 <input type="text" id="app_version" name="app_version" value="<?php echo esc_attr($app_version); ?>" class="small-text" placeholder="4.8.2">
             </td>
         </tr>
 
         <tr>
-            <th><label for="app_whats_new">What's New</label></th>
+            <th><label for="app_whats_new"><?php esc_html_e("What's New", 'corona-theme'); ?></label></th>
             <td>
                 <?php
                 wp_editor($whats_new, 'app_whats_new', array(
@@ -340,7 +344,7 @@ function corona_app_details_metabox($post) {
                     'quicktags' => array('buttons' => 'strong,em,ul,li'),
                 ));
                 ?>
-                <p class="description">Recent changes and updates</p>
+                <p class="description"><?php esc_html_e('Recent changes and updates', 'corona-theme'); ?></p>
             </td>
         </tr>
     </table>
@@ -419,3 +423,4 @@ function corona_save_app_meta($post_id) {
     }
 }
 add_action('save_post', 'corona_save_app_meta');
+
