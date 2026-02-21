@@ -274,6 +274,7 @@ function corona_theme_register_polylang_strings() {
 		pll_register_string('app_age_rating', 'Age Rating', 'Corona Theme - App');
 		pll_register_string('app_simulated_gambling', 'Simulated Gambling', 'Corona Theme - App');
 		pll_register_string('app_copyright', 'Copyright', 'Corona Theme - App');
+		pll_register_string('app_inc_suffix', 'Inc.', 'Corona Theme - App');
 		pll_register_string('app_back_to_casino', 'Back to Casino Review', 'Corona Theme - App');
 		pll_register_string('app_disclaimer', 'Apple, the Apple logo, iPhone, and iPad are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.', 'Corona Theme - App');
 
@@ -284,9 +285,16 @@ function corona_theme_register_polylang_strings() {
 		pll_register_string('game_close_demo', 'Close Demo', 'Corona Theme - Game');
 		pll_register_string('game_slot_attributes', 'Slot Attributes', 'Corona Theme - Game');
 		pll_register_string('game_overview', 'Game Overview', 'Corona Theme - Game');
+		pll_register_string('game_where_to_play_titlecase', 'Where to Play', 'Corona Theme - Game');
 		pll_register_string('game_where_to_play', 'WHERE TO PLAY', 'Corona Theme - Game');
 		pll_register_string('game_for_real_money', 'FOR REAL MONEY', 'Corona Theme - Game');
 		pll_register_string('game_play_btn', 'PLAY', 'Corona Theme - Game');
+
+		// Home page strings
+		pll_register_string('home_top_casinos', 'Top Casinos', 'Corona Theme - Home');
+		pll_register_string('home_popular_games', 'Popular Games', 'Corona Theme - Home');
+		pll_register_string('home_view_all_casinos', 'View All Casinos', 'Corona Theme - Home');
+		pll_register_string('home_view_all', 'View All', 'Corona Theme - Home');
 
 		// Related casinos
 		pll_register_string('related_casinos', 'Related Casinos', 'Corona Theme');
@@ -426,6 +434,121 @@ add_action('admin_init', 'corona_theme_set_default_translations');
 function corona_pll__($string) {
 	return function_exists('pll__') ? pll__($string) : $string;
 }
+
+/**
+ * Translate a Customizer option text through Polylang.
+ *
+ * Backward compatible with legacy calls that passed value first and key second.
+ */
+function corona_pll_option_text($key) {
+	// Legacy support: corona_pll_option_text($value, $key, $group)
+	if ((!is_string($key) || strpos($key, 'corona_') !== 0) && isset(func_get_args()[1]) && is_string(func_get_args()[1])) {
+		$key = func_get_args()[1];
+	}
+
+	$value = get_theme_mod($key);
+	if (!$value) {
+		return '';
+	}
+
+	if (function_exists('pll_translate_string')) {
+		$lang = '';
+		if (function_exists('pll_current_language')) {
+			$lang = pll_current_language();
+		}
+		if ((!is_string($lang) || $lang === '') && function_exists('pll_default_language')) {
+			$lang = pll_default_language();
+		}
+		if (is_string($lang) && $lang !== '') {
+			return pll_translate_string($value, $lang);
+		}
+	}
+
+	return $value;
+}
+
+/**
+ * Register Customizer theme_mod values as Polylang strings.
+ *
+ * Keep this out of preview/autosave AJAX flows to avoid Customizer save noise.
+ */
+function corona_register_customizer_polylang_strings() {
+	if (!function_exists('pll_register_string')) {
+		return;
+	}
+
+	if (function_exists('wp_doing_ajax') && wp_doing_ajax()) {
+		return;
+	}
+	if (function_exists('is_customize_preview') && is_customize_preview()) {
+		return;
+	}
+
+	$keys = array(
+		'corona_header_cta_text',
+		'corona_footer_description',
+		'corona_responsible_gaming',
+		'corona_age_restriction',
+	);
+
+	foreach ($keys as $key) {
+		$value = get_theme_mod($key);
+		if (is_string($value) && $value !== '') {
+			pll_register_string($key, $value, 'Corona Theme - Customizer');
+		}
+	}
+}
+add_action('admin_init', 'corona_register_customizer_polylang_strings');
+
+/**
+ * Admin i18n map for inline metabox scripts.
+ */
+function corona_get_admin_i18n_strings() {
+	return array(
+		'remove'                 => __('Remove', 'corona-theme'),
+		'alreadyInListCasino'    => __('This casino is already in the list', 'corona-theme'),
+		'alreadyInListGame'      => __('This game is already in the list', 'corona-theme'),
+		'selectGameImage'        => __('Select Game Image', 'corona-theme'),
+		'selectCasinoLogo'       => __('Select Casino Logo', 'corona-theme'),
+		'selectAppIcon'          => __('Select App Icon', 'corona-theme'),
+		'selectAppScreenshots'   => __('Select App Screenshots', 'corona-theme'),
+		'useThisImage'           => __('Use this image', 'corona-theme'),
+		'noImageSelected'        => __('No image selected', 'corona-theme'),
+		'noIcon'                 => __('No icon', 'corona-theme'),
+		'labelPlaceholder'       => __('Label', 'corona-theme'),
+		'valuePlaceholder'       => __('Value', 'corona-theme'),
+		'labelRtpPlaceholder'    => __('Label (e.g. RTP)', 'corona-theme'),
+		'valueRtpPlaceholder'    => __('Value (e.g. 96.5%)', 'corona-theme'),
+		'customUrlPlaceholder'   => __('Custom URL (leave empty to use default)', 'corona-theme'),
+		'bonusName'              => __('Bonus Name', 'corona-theme'),
+		'bonusNameExample'       => __('e.g. Welcome Bonus', 'corona-theme'),
+		'description'            => __('Description', 'corona-theme'),
+		'bonusDescriptionExample'=> __('e.g. 100% up to €100', 'corona-theme'),
+		'buttonText'             => __('Button Text', 'corona-theme'),
+		'buttonUrlWithFallback'  => __('Button URL (leave empty for default aff link)', 'corona-theme'),
+		'claimOfferAndPlay'      => __('Claim offer and play', 'corona-theme'),
+		'removeBonus'            => __('Remove Bonus', 'corona-theme'),
+		'paymentPlaceholder'     => __('e.g. Visa, Bitcoin', 'corona-theme'),
+		'addScreenshots'         => __('Add Screenshots', 'corona-theme'),
+	);
+}
+
+/**
+ * Expose admin i18n strings for metabox inline scripts.
+ */
+function corona_enqueue_admin_i18n_strings($hook) {
+	if ($hook !== 'post-new.php' && $hook !== 'post.php') {
+		return;
+	}
+
+	wp_enqueue_script('jquery');
+	wp_add_inline_script(
+		'jquery',
+		'window.CORONA_I18N = Object.assign({}, window.CORONA_I18N || {}, ' . wp_json_encode(corona_get_admin_i18n_strings()) . ');',
+		'before'
+	);
+}
+add_action('admin_enqueue_scripts', 'corona_enqueue_admin_i18n_strings', 5);
 
 /**
  * Multibyte-safe substring helper with graceful fallback.

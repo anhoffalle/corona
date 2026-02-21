@@ -9,7 +9,7 @@
  */
 
 // Get page meta
-$page_title = get_post_meta(get_the_ID(), '_review_page_title', true) ?: __('Top Rated Casinos 2024', 'corona-theme');
+$page_title = get_post_meta(get_the_ID(), '_review_page_title', true) ?: sprintf(__('Top Rated Casinos %s', 'corona-theme'), date('Y'));
 $page_subtitle = get_post_meta(get_the_ID(), '_review_page_subtitle', true) ?: __('Our experts evaluate hundreds of online casinos every month to bring you the safest, fastest, and most rewarding gaming experiences.', 'corona-theme');
 
 // Get casino pages to display

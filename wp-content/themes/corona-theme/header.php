@@ -69,7 +69,11 @@
 
 			<?php
 			// CTA Button from Customizer
-			$header_cta_text = get_theme_mod( 'corona_header_cta_text', '' );
+			$header_cta_text = corona_pll_option_text(
+				get_theme_mod( 'corona_header_cta_text', '' ),
+				'corona_header_cta_text',
+				'Corona Theme - Customizer'
+			);
 			$header_cta_url = get_theme_mod( 'corona_header_cta_url', '' );
 			if ( $header_cta_text && $header_cta_url ) :
 			?>

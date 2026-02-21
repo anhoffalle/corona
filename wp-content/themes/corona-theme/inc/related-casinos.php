@@ -164,13 +164,3 @@ function corona_append_related_casinos($content) {
     return $content;
 }
 add_filter('the_content', 'corona_append_related_casinos', 20);
-
-/**
- * Register related casinos string for Polylang
- */
-function corona_register_related_strings() {
-    if (function_exists('pll_register_string')) {
-        pll_register_string('related_casinos', 'Related Casinos', 'Corona Theme');
-    }
-}
-add_action('init', 'corona_register_related_strings');

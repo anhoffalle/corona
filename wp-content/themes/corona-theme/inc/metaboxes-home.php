@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) exit;
 function corona_register_home_metaboxes() {
     add_meta_box(
         'home_hero',
-        'Hero Section',
+        __('Hero Section', 'corona-theme'),
         'corona_home_hero_metabox',
         'page',
         'normal',
@@ -27,7 +27,7 @@ function corona_register_home_metaboxes() {
 
     add_meta_box(
         'home_casinos',
-        'Top Casinos',
+        __('Top Casinos', 'corona-theme'),
         'corona_home_casinos_metabox',
         'page',
         'normal',
@@ -36,7 +36,7 @@ function corona_register_home_metaboxes() {
 
     add_meta_box(
         'home_games',
-        'Popular Games',
+        __('Popular Games', 'corona-theme'),
         'corona_home_games_metabox',
         'page',
         'normal',
@@ -76,26 +76,26 @@ function corona_home_hero_metabox($post) {
     ?>
     <table class="form-table">
         <tr>
-            <th><label for="home_hero_title">Hero Title</label></th>
+            <th><label for="home_hero_title"><?php esc_html_e('Hero Title', 'corona-theme'); ?></label></th>
             <td>
                 <input type="text" id="home_hero_title" name="home_hero_title" value="<?php echo esc_attr($hero_title); ?>" class="large-text" placeholder="<?php echo esc_attr(get_the_title($post->ID)); ?>">
-                <p class="description">Leave empty to use page title</p>
+                <p class="description"><?php esc_html_e('Leave empty to use page title', 'corona-theme'); ?></p>
             </td>
         </tr>
         <tr>
-            <th><label for="home_hero_subtitle">Hero Subtitle</label></th>
+            <th><label for="home_hero_subtitle"><?php esc_html_e('Hero Subtitle', 'corona-theme'); ?></label></th>
             <td>
-                <textarea id="home_hero_subtitle" name="home_hero_subtitle" class="large-text" rows="2" placeholder="Your trusted guide to online casinos..."><?php echo esc_textarea($hero_subtitle); ?></textarea>
+                <textarea id="home_hero_subtitle" name="home_hero_subtitle" class="large-text" rows="2" placeholder="<?php echo esc_attr__('Your trusted guide to online casinos...', 'corona-theme'); ?>"><?php echo esc_textarea($hero_subtitle); ?></textarea>
             </td>
         </tr>
         <tr>
-            <th><label for="home_hero_btn_text">Button Text</label></th>
+            <th><label for="home_hero_btn_text"><?php esc_html_e('Button Text', 'corona-theme'); ?></label></th>
             <td>
-                <input type="text" id="home_hero_btn_text" name="home_hero_btn_text" value="<?php echo esc_attr($hero_btn_text); ?>" class="regular-text" placeholder="View All Casinos">
+                <input type="text" id="home_hero_btn_text" name="home_hero_btn_text" value="<?php echo esc_attr($hero_btn_text); ?>" class="regular-text" placeholder="<?php echo esc_attr__('View All Casinos', 'corona-theme'); ?>">
             </td>
         </tr>
         <tr>
-            <th><label for="home_hero_btn_url">Button URL</label></th>
+            <th><label for="home_hero_btn_url"><?php esc_html_e('Button URL', 'corona-theme'); ?></label></th>
             <td>
                 <input type="url" id="home_hero_btn_url" name="home_hero_btn_url" value="<?php echo esc_url($hero_btn_url); ?>" class="large-text" placeholder="https://...">
             </td>
@@ -142,14 +142,14 @@ function corona_home_casinos_metabox($post) {
     ?>
     <table class="form-table">
         <tr>
-            <th><label for="home_casinos_title">Section Title</label></th>
+            <th><label for="home_casinos_title"><?php esc_html_e('Section Title', 'corona-theme'); ?></label></th>
             <td>
-                <input type="text" id="home_casinos_title" name="home_casinos_title" value="<?php echo esc_attr($casinos_title); ?>" class="regular-text" placeholder="Top Casinos">
+                <input type="text" id="home_casinos_title" name="home_casinos_title" value="<?php echo esc_attr($casinos_title); ?>" class="regular-text" placeholder="<?php echo esc_attr__('Top Casinos', 'corona-theme'); ?>">
             </td>
         </tr>
     </table>
 
-    <h4 style="margin-top: 20px;">Selected Casinos (3-5 recommended)</h4>
+    <h4 style="margin-top: 20px;"><?php esc_html_e('Selected Casinos (3-5 recommended)', 'corona-theme'); ?></h4>
     <div id="home-casino-list" style="margin-bottom: 20px;">
         <?php if (!empty($selected_casinos)): ?>
             <?php foreach ($selected_casinos as $casino_id):
@@ -159,7 +159,7 @@ function corona_home_casinos_metabox($post) {
                 <div class="home-casino-item" data-id="<?php echo esc_attr($casino_id); ?>" style="display: flex; align-items: center; gap: 10px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 5px; cursor: move;">
                     <span class="dashicons dashicons-menu" style="color: #999;"></span>
                     <span style="flex: 1;"><?php echo esc_html($casino->post_title); ?></span>
-                    <button type="button" class="button button-small remove-home-casino">Remove</button>
+                    <button type="button" class="button button-small remove-home-casino"><?php esc_html_e('Remove', 'corona-theme'); ?></button>
                     <input type="hidden" name="home_casinos[]" value="<?php echo esc_attr($casino_id); ?>">
                 </div>
             <?php endforeach; ?>
@@ -168,14 +168,14 @@ function corona_home_casinos_metabox($post) {
 
     <div style="display: flex; gap: 10px; align-items: center;">
         <select id="add-home-casino-select" class="regular-text">
-            <option value="">-- Select casino to add --</option>
+            <option value=""><?php esc_html_e('-- Select casino to add --', 'corona-theme'); ?></option>
             <?php foreach ($casinos as $casino): ?>
                 <option value="<?php echo esc_attr($casino->ID); ?>" data-title="<?php echo esc_attr(wp_strip_all_tags($casino->post_title)); ?>">
                     <?php echo esc_html($casino->post_title); ?>
                 </option>
             <?php endforeach; ?>
         </select>
-        <button type="button" class="button" id="add-home-casino">Add Casino</button>
+        <button type="button" class="button" id="add-home-casino"><?php esc_html_e('Add Casino', 'corona-theme'); ?></button>
     </div>
 
     <style>
@@ -188,6 +188,8 @@ function corona_home_casinos_metabox($post) {
 
     <script>
     jQuery(document).ready(function($) {
+        var coronaI18n = window.CORONA_I18N || {};
+
         if ($.fn.sortable) {
             $('#home-casino-list').sortable({
                 placeholder: 'home-casino-item ui-sortable-placeholder',
@@ -203,7 +205,7 @@ function corona_home_casinos_metabox($post) {
             if (!id) return;
 
             if ($('.home-casino-item[data-id="' + id + '"]').length) {
-                alert('This casino is already in the list');
+                alert(coronaI18n.alreadyInListCasino || '');
                 return;
             }
 
@@ -223,7 +225,7 @@ function corona_home_casinos_metabox($post) {
             $item.append($('<button/>', {
                 type: 'button',
                 'class': 'button button-small remove-home-casino',
-                text: 'Remove'
+                text: coronaI18n.remove || ''
             }));
             $item.append($('<input/>', {
                 type: 'hidden',
@@ -281,14 +283,14 @@ function corona_home_games_metabox($post) {
     ?>
     <table class="form-table">
         <tr>
-            <th><label for="home_games_title">Section Title</label></th>
+            <th><label for="home_games_title"><?php esc_html_e('Section Title', 'corona-theme'); ?></label></th>
             <td>
-                <input type="text" id="home_games_title" name="home_games_title" value="<?php echo esc_attr($games_title); ?>" class="regular-text" placeholder="Popular Games">
+                <input type="text" id="home_games_title" name="home_games_title" value="<?php echo esc_attr($games_title); ?>" class="regular-text" placeholder="<?php echo esc_attr__('Popular Games', 'corona-theme'); ?>">
             </td>
         </tr>
     </table>
 
-    <h4 style="margin-top: 20px;">Selected Games (4-6 recommended)</h4>
+    <h4 style="margin-top: 20px;"><?php esc_html_e('Selected Games (4-6 recommended)', 'corona-theme'); ?></h4>
     <div id="home-game-list" style="margin-bottom: 20px;">
         <?php if (!empty($selected_games)): ?>
             <?php foreach ($selected_games as $game_id):
@@ -298,7 +300,7 @@ function corona_home_games_metabox($post) {
                 <div class="home-game-item" data-id="<?php echo esc_attr($game_id); ?>" style="display: flex; align-items: center; gap: 10px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 5px; cursor: move;">
                     <span class="dashicons dashicons-menu" style="color: #999;"></span>
                     <span style="flex: 1;"><?php echo esc_html($game->post_title); ?></span>
-                    <button type="button" class="button button-small remove-home-game">Remove</button>
+                    <button type="button" class="button button-small remove-home-game"><?php esc_html_e('Remove', 'corona-theme'); ?></button>
                     <input type="hidden" name="home_games[]" value="<?php echo esc_attr($game_id); ?>">
                 </div>
             <?php endforeach; ?>
@@ -307,14 +309,14 @@ function corona_home_games_metabox($post) {
 
     <div style="display: flex; gap: 10px; align-items: center;">
         <select id="add-home-game-select" class="regular-text">
-            <option value="">-- Select game to add --</option>
+            <option value=""><?php esc_html_e('-- Select game to add --', 'corona-theme'); ?></option>
             <?php foreach ($games as $game): ?>
                 <option value="<?php echo esc_attr($game->ID); ?>" data-title="<?php echo esc_attr(wp_strip_all_tags($game->post_title)); ?>">
                     <?php echo esc_html($game->post_title); ?>
                 </option>
             <?php endforeach; ?>
         </select>
-        <button type="button" class="button" id="add-home-game">Add Game</button>
+        <button type="button" class="button" id="add-home-game"><?php esc_html_e('Add Game', 'corona-theme'); ?></button>
     </div>
 
     <style>
@@ -327,6 +329,8 @@ function corona_home_games_metabox($post) {
 
     <script>
     jQuery(document).ready(function($) {
+        var coronaI18n = window.CORONA_I18N || {};
+
         if ($.fn.sortable) {
             $('#home-game-list').sortable({
                 placeholder: 'home-game-item ui-sortable-placeholder',
@@ -342,7 +346,7 @@ function corona_home_games_metabox($post) {
             if (!id) return;
 
             if ($('.home-game-item[data-id="' + id + '"]').length) {
-                alert('This game is already in the list');
+                alert(coronaI18n.alreadyInListGame || '');
                 return;
             }
 
@@ -362,7 +366,7 @@ function corona_home_games_metabox($post) {
             $item.append($('<button/>', {
                 type: 'button',
                 'class': 'button button-small remove-home-game',
-                text: 'Remove'
+                text: coronaI18n.remove || ''
             }));
             $item.append($('<input/>', {
                 type: 'hidden',
@@ -467,3 +471,4 @@ function corona_home_admin_scripts($hook) {
     wp_enqueue_script('jquery-ui-sortable');
 }
 add_action('admin_enqueue_scripts', 'corona_home_admin_scripts');
+
